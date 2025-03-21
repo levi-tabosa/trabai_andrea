@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://7x2ialqw4hl3"]
+
+[ext_resource type="Texture2D" uid="uid://b5ekkws1puoo0" path="res://icon.svg" id="2_onrkg"]
+
+[sub_resource type="GDScript" id="GDScript_4flbx"]
+resource_name = "player.gd"
+script/source = "extends Area2D
+
+@export var speed = 200
+var screen_size
+
+
+func _ready() -> void:
+	screen_size = get_viewport_rect().size
+		
+func  _process(delta: float) -> void:
+	var velocity = Vector2.ZERO
+	
+	if Input.is_action_pressed(\"ui_left\"):
+		velocity.x -= 1
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x += 1
+	if Input.is_action_pressed(\"ui_up\"):
+		velocity.y -= 1
+	if Input.is_action_pressed(\"ui_down\"):
+		velocity.y += 1
+
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		#$AnimatedSprite2D.play()
+	else:
+		pass
+		#$AnimatedSprite2D.stop()
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_onrkg")
