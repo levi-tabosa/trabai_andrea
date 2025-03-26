@@ -9,6 +9,10 @@ script/source = "extends Area2D
 @export var speed = 200
 @onready var main = get_tree().get_root().get_node(\"main\")
 @onready var projectile = load(\"res://projectile.tscn\")
+@export var fire_rate = 0.2  # Shots per second
+@onready var projectile_scene = preload(\"res://projectile.tscn\")
+@onready var shoot_timer = $ShootTimer  # Add a Timer node named \"ShootTimer\" in the editor
+var is_shooting = false
 
 var screen_size
 
@@ -23,12 +27,12 @@ func  _process(delta: float) -> void:
 		velocity.x -= 1
 	if Input.is_action_pressed(\"ui_right\"):
 		velocity.x += 1
+		shoot()
 	if Input.is_action_pressed(\"ui_up\"):
 		velocity.y -= 1
 	if Input.is_action_pressed(\"ui_down\"):
 		velocity.y += 1
-		
-	#if(Input.is_action_just_pressed(\"space\")) 
+	if(Input.is_action_just_pressed(\"space\")) 
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -44,19 +48,67 @@ func shoot() -> void :
 	instance.dir = rotation
 	instance.initialPos = global_position
 	instance.initialRot = rotation
-	print(\"aaaaaaaa\")
 	main.add_child(instance)
 	
 func _on_cooldown_timeout() -> void:
 	shoot()	
+
+
+	# Set up the shoot timer
+	if not shoot_timer:
+		shoot_timer = Timer.new()
+		shoot_timer.name = \"ShootTimer\"
+		add_child(shoot_timer)
+	shoot_timer.wait_time = fire_rate
+	shoot_timer.one_shot = true
+	shoot_timer.connect(\"timeout\", _on_shoot_timer_timeout)
+
+func _process(delta: float) -> void:
+	# Movement
+	var velocity = Vector2.ZERO
 	
+	if Input.is_action_pressed(\"ui_left\"):
+		velocity.x -= 1
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x += 1
+	if Input.is_action_pressed(\"ui_up\"):
+		velocity.y -= 1
+	if Input.is_action_pressed(\"ui_down\"):
+		velocity.y += 1
 	
+	# Rotate towards mouse
+	look_at(get_global_mouse_position())
+	
+	# Handle movement
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	# Shooting
+	if Input.is_action_pressed(\"ui_right\") and can_shoot:
+		shoot()
+
+func shoot() -> void:
+	var projectile = projectile_scene.instantiate()
+	projectile.global_position = global_position
+	projectile.global_rotation = global_rotation
+	main.add_child(projectile)
+	
+	# Start cooldown
+	can_shoot = false
+	shoot_timer.start()
+
+func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Player" type="Area2D"]
 script = SubResource("GDScript_4flbx")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4flbx")
