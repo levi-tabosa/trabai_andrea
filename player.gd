@@ -1,29 +1,50 @@
 extends Area2D
 
-@export var speed = 200
-@export var fire_rate = 0.2  # DEFAULT
-@onready var main = get_tree().get_root()
-@onready var projectile_scene = preload("res://projectile.tscn")
-@onready var shoot_timer = $ShootTimer  # Timer para controle de tiro
-@onready var animated = $AnimatedSprite2D  # Controle de animação
-
 var screen_size: Vector2
 var can_shoot = true
 
-enum WeaponType {
-	SINGLE, # DEFAULT
-	DOUBLE,
+enum FireType {
+	SINGLE,    # Default straight shot
+	DOUBLE,    # Two parallel shots
+	TRIPLE,    # Three-way spread
+	QUAD,      # Four directional
+	SINE,      # Wavy projectile pattern
+	ORBIT      # Rotating orbiting shots
 }
-@export var weapon_type = WeaponType.SINGLE
 
-enum PlayerDir { RIGHT, DOWN, LEFT, UP }
-var last_dir = PlayerDir.RIGHT # Guarda a última direção que o player olhou
+@export var fire_type := FireType.SINGLE
+@export var SPEED := 200
+@export var fire_rate := 0.2
+@export var projectile_speed := 300
+@export var sine_amplitude := 115.0
+@export var sine_frequency := 10.0
+@export var orbit_radius := 30.0
+@export var orbit_speed := 3.0
+@export var health_component: HealthComponent
+#@export var blink_animation_player: AnimationPlayer
+
+@onready var main = get_tree().get_root().get_node("main") 
+@onready var projectile_scene = preload("res://projectile.tscn")
+@onready var shoot_timer = $ShootTimer
+@onready var animated = $AnimatedSprite2D
+
+enum PlayerDir { RIGHT, UP, LEFT, DOWN }
+var last_dir := PlayerDir.RIGHT
+var orbit_angle := 0.0
+var orbit_projectiles := []
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	if weapon_type == WeaponType.DOUBLE:
-		fire_rate = 1.0
-	# Configuração do timer de disparo
+	configure_fire_type()
+	
+	if not health_component:
+		health_component = HealthComponent.new()
+		health_component.max_health = 50
+		add_child(health_component)
+	
+	health_component.health_depleted.connect(_on_health_depleted)
+	
+	# Força um intervalo de tempo entre disparos
 	if not shoot_timer:
 		shoot_timer = Timer.new()
 		shoot_timer.name = "ShootTimer"
@@ -32,72 +53,203 @@ func _ready() -> void:
 	shoot_timer.one_shot = true
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 
+func set_fire_type(type:FireType) -> void: #TODO: on button press after certain condition passes 
+	fire_type = type
+	configure_fire_type()
+
+func configure_fire_type() -> void:
+	match fire_type:
+		FireType.SINGLE:
+			fire_rate = 0.2
+		FireType.DOUBLE:
+			fire_rate = 0.3
+		FireType.TRIPLE:
+			fire_rate = 0.4
+		FireType.QUAD:
+			fire_rate = 0.5
+		FireType.SINE:
+			fire_rate = 0.25
+		FireType.ORBIT:
+			fire_rate = 0.15
+			# Limpa os projéteis ao setar modo orbit
+			clear_orbit_projectiles()
+
 func _process(delta: float) -> void:
-	# Anima o idle
 	animate_idle()
-	# Movimento do player
 	handle_movement_and_animate(delta)
 	
-	# Disparo
-	if Input.is_action_pressed("ui_accept" ) and can_shoot:
+	# Shooting input
+	if Input.is_action_pressed("ui_accept") and can_shoot:
 		shoot()
-
-	position = position.clamp(Vector2.ZERO, screen_size)
 	
-func shoot() -> void:
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.global_rotation = PI / 2 * last_dir # ENUM como int
-	# Define a animação com base na última direção do jogador
-	if last_dir == PlayerDir.LEFT:
-		animated.play("shoot-left")
-	elif last_dir == PlayerDir.RIGHT:
-		animated.play("shoot-right")
-	elif last_dir == PlayerDir.UP:
-		animated.play("idle_up") #ADICIONAR SPRITE
-	else :
-		animated.play("idle_down") #ADICIOINAR SPRITE
-	main.add_child(projectile)
-	# Inicia o cooldown do disparo
-	can_shoot = false
-	shoot_timer.start()
+	# Update orbiting projectiles if in ORBIT mode
+	if fire_type == FireType.ORBIT && !orbit_projectiles.is_empty():
+		update_orbit_projectiles(delta)
+	
+	position = position.clamp(Vector2.ZERO, screen_size)
+	health_component.take_damage(1)
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
 func animate_idle() -> void:
-	if last_dir == PlayerDir.RIGHT :
-		animated.play("idle-right")
-	elif last_dir == PlayerDir.LEFT:
-		animated.play("idle-left")
-	elif last_dir == PlayerDir.UP:
-		animated.play("idle_up")
-	else:
-		animated.play("idle-down")
+	match last_dir:
+		PlayerDir.RIGHT:
+			animated.play("idle-right")
+		PlayerDir.LEFT:
+			animated.play("idle-left")
+		PlayerDir.UP:
+			animated.play("idle-up")
+		PlayerDir.DOWN:
+			animated.play("idle-down")
 
 func handle_movement_and_animate(delta: float) -> void:
 	var velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
 		animated.play("walk-left")
 		last_dir = PlayerDir.LEFT
-		
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 		animated.play("walk-right")
 		last_dir = PlayerDir.RIGHT 
-		
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 		animated.play("walk-up")
 		last_dir = PlayerDir.UP
-		
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y += 1
 		animated.play("walk-down")
 		last_dir = PlayerDir.DOWN
 		
-	# Normaliza a velocidade para evitar movimento mais rápido na diagonal
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * SPEED
 	position += velocity * delta
+
+func shoot() -> void:
+	match fire_type:
+		FireType.SINGLE:
+			fire_projectile()
+		FireType.DOUBLE:
+			fire_projectile(Vector2(0, -15)) 
+			fire_projectile(Vector2(0, 15))  
+		FireType.TRIPLE:
+			fire_projectile()
+			fire_projectile(Vector2(-20, 0), deg_to_rad(-15))  # 15 degrees left
+			fire_projectile(Vector2(20, 0), deg_to_rad(15))     # 15 degrees right
+		FireType.QUAD:
+			fire_projectile(Vector2(0, -20), deg_to_rad(0))    # Up
+			fire_projectile(Vector2(20, 0), deg_to_rad(90))    # Right
+			fire_projectile(Vector2(0, 20), deg_to_rad(180))  # Down
+			fire_projectile(Vector2(-20, 0), deg_to_rad(270)) # Left
+		FireType.SINE:
+			fire_projectile(Vector2.ZERO, 0, true)
+		FireType.ORBIT:
+			var proj = fire_projectile(Vector2.ZERO, 0, false, true)
+			if proj:
+				orbit_projectiles.append(proj)
+	
+	#Animação do tiro
+	match last_dir:
+		PlayerDir.LEFT:
+			animated.play("shoot-left")
+		PlayerDir.RIGHT:
+			animated.play("shoot-right")
+		PlayerDir.UP:
+			animated.play("shoot-up") #TODO: ADICIONAR ESSA ANIMAÇÃO
+		PlayerDir.DOWN:
+			animated.play("shoot-down") #TODO: ADICIONAR ESSA ANIMAÇÃO
+	
+	can_shoot = false
+	shoot_timer.start()
+
+##Função auxiliar instancia e configura o projetil TODO: subtituir por objeto projectileBuilder
+func fire_projectile(offset: Vector2 = Vector2.ZERO, 
+				   angle_offset: float = 0.0, 
+				   is_sine: bool = false,
+				   is_orbit: bool = false) -> Node2D:
+	var projectile = projectile_scene.instantiate()
+	
+	# Posição
+	var spawn_pos = global_position + offset.rotated(get_shoot_direction_angle())
+	projectile.global_position = spawn_pos
+	
+	# Direção e Velocidade
+	var direction_angle = get_shoot_direction_angle() + angle_offset
+	projectile.direction = Vector2(cos(direction_angle), sin(direction_angle))
+	projectile.speed = projectile_speed
+	
+	# Configura tipos especiais
+	if is_sine:
+		projectile.set_meta("is_sine", true)
+		projectile.set_meta("sine_amplitude", sine_amplitude)
+		projectile.set_meta("sine_frequency", sine_frequency)
+		projectile.set_meta("initial_angle", direction_angle)
+		projectile.set_meta("timeout", 10)
+	
+	if is_orbit:
+		projectile.set_meta("is_orbit", true)
+		projectile.speed = 0  # Player controla o movimento
+		projectile.set_meta("orbit_angle", orbit_angle)
+		orbit_angle += PI/4  # Espaço entre projeteis
+		projectile.set_meta("timeout", 10)
+	
+	main.add_child(projectile)
+	return projectile
+
+## Retorna um ângulo em radiano correspondente a ultima tecla de movimentação apertada
+func get_shoot_direction_angle() -> float:
+	match last_dir:
+		PlayerDir.RIGHT: return 0.0
+		PlayerDir.UP: return -PI/2
+		PlayerDir.LEFT: return PI
+		PlayerDir.DOWN: return PI/2
+	return 0.0
+
+## Funcão auxiliar, gerencia e atualiza os projéteis orbitando
+func update_orbit_projectiles(delta: float) -> void:
+	orbit_angle += orbit_speed * delta
+	
+	for proj in orbit_projectiles:
+		if is_instance_valid(proj):
+			# Atualiza metadados
+			var angle = proj.get_meta("orbit_angle") + orbit_speed * delta
+			proj.set_meta("orbit_angle", angle)
+			
+			# Posição
+			var orbit_pos = Vector2(cos(angle), sin(angle)) * orbit_radius
+			proj.global_position = global_position + orbit_pos
+		else:
+			# Remove os objetos invalidados por timeout ou colisão 
+			orbit_projectiles.erase(proj)
+
+## Esse metodo limpa os projéteis após modificar o fire_type
+func clear_orbit_projectiles() -> void:
+	for proj in orbit_projectiles:
+		if is_instance_valid(proj):
+			proj.queue_free()
+	orbit_projectiles.clear()
+	
+func _on_health_changed(old_value: int, new_value: int) -> void:
+	# Animação
+	if new_value < old_value:
+		pass
+		#if blink_animation_player:
+		#	blink_animation_player.play("hit_blink")
+
+##TODO: Criar sinal da tela de Game Over e emitir aqui
+func _on_health_depleted() -> void:
+	queue_free()
+	print(get_tree_string_pretty())
+	get_tree().reload_current_scene()  # TODO: REMOVER
+
+#func remove_orbit_projectile(proj: Node2D) -> void:
+#	if proj in orbit_projectiles:
+#		orbit_projectiles.erase(proj)
+
+#TODO: Fazer com que o player seja empurrado para fora da região do inimigo
+func _on_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("mobs")):
+		print(health_component.current_health)
+		health_component.take_damage(50)

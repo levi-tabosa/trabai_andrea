@@ -60,7 +60,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1jxqw")
 }],
 "loop": true,
-"name": &"idle_down",
+"name": &"idle-down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -68,7 +68,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_i3pqv")
 }],
 "loop": true,
-"name": &"idle_left",
+"name": &"idle-left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -76,7 +76,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_sweqy")
 }],
 "loop": true,
-"name": &"idle_right",
+"name": &"idle-right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -84,7 +84,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ivps1")
 }],
 "loop": true,
-"name": &"idle_up",
+"name": &"idle-up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -163,5 +163,6 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b26j0")
-animation = &"walk-up"
-frame_progress = 0.459959
+animation = &"idle-up"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
