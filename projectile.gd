@@ -21,6 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 	# Check if we hit something we should destroy
 	if body.is_in_group("mobs"):
 		body.queue_free()
+	
 	queue_free()
 
 func _on_lifetime_timeout() -> void:

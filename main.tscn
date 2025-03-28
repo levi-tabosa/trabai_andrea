@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://d3u2tqyjc27mq"]
 
 [ext_resource type="PackedScene" uid="uid://b7yf3ketydyyp" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dksd1wbccxx5b" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://do3i5gkmeyifu" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ydilv2aw05pt" path="res://assets/PixelArt/TileSheet-Baths.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://c6xu0ra0y0ejb" path="res://assets/PixelArt/TileSheet-BedRooms.png" id="4_lquwl"]
 
@@ -714,9 +714,6 @@ sources/1 = SubResource("TileSetAtlasSource_272bh")
 
 [node name="main" type="Node"]
 
-[node name="player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(135, 95)
-
 [node name="Enemy" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(441, 131)
 
@@ -724,3 +721,6 @@ position = Vector2(441, 131)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAAAAAACAAUAAAAAAAAAAAABAAUAAAACAAAAAAADAAUAAAACAAEAAAADAAYAAAACAAIAAAADAAcAAAABAAIAAAACAAcAAAAAAAIAAAABAAcAAAAAAAMAAAABAAgAAAABAAMAAAACAAgAAAACAAMAAAADAAgAAAACAAQAAAADAAkAAAABAAQAAAACAAkAAAAAAAQAAAABAAkAAAAUAAIAAQAMAAUAAAAUAAMAAQAMAAYAAAAUAAQAAQAMAAcAAAAVAAQAAQANAAcAAAAWAAQAAQAOAAcAAAAWAAMAAQAOAAYAAAAVAAMAAQANAAYAAAATAAQAAQALAAcAAAATAAMAAQALAAYAAAAUAAAAAQAPAAYAAAAVAAAAAQAQAAYAAAAWAAAAAQARAAYAAAAXAAAAAQASAAYAAAAXAAEAAQASAAcAAAAWAAEAAQARAAcAAAAVAAEAAQAQAAcAAAAVAAIAAQAQAAgAAAAWAAIAAQARAAgAAAAXAAIAAQASAAgAAAA=")
 tile_set = SubResource("TileSet_5vw27")
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(135, 95)
