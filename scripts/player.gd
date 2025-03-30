@@ -13,7 +13,7 @@ enum FireType {
 }
 
 @export var fire_type := FireType.SINGLE
-@export var SPEED := 200
+@export var speed := 200
 @export var fire_rate := 0.2
 @export var projectile_speed := 300
 @export var sine_amplitude := 115.0
@@ -21,13 +21,18 @@ enum FireType {
 @export var orbit_radius := 30.0
 @export var orbit_speed := 3.0
 @export var health_component: HealthComponent
+@export var knockback_force := 300.0
+@export var knockback_duration := 0.2
 #@export var blink_animation_player: AnimationPlayer
 
 @onready var main = get_tree().get_root().get_node("main") 
+@onready var ui = get_node("/root/main/UI")
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shoot_timer = $ShootTimer
 @onready var animated = $AnimatedSprite2D
 
+var knockback_timer := 0.0
+var knockback_direction := Vector2.ZERO
 enum PlayerDir { RIGHT, UP, LEFT, DOWN }
 var last_dir := PlayerDir.RIGHT
 var orbit_angle := 0.0
@@ -36,14 +41,15 @@ var orbit_projectiles := []
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	configure_fire_type()
-	
+
 	if not health_component:
 		health_component = HealthComponent.new()
-		health_component.max_health = 50
+		health_component.max_health = 100
 		add_child(health_component)
-	
+
 	health_component.health_depleted.connect(_on_health_depleted)
-	
+	health_component.health_changed.connect(ui.update_health)  # Conexão do sinal
+
 	# Força um intervalo de tempo entre disparos
 	if not shoot_timer:
 		shoot_timer = Timer.new()
@@ -53,7 +59,7 @@ func _ready() -> void:
 	shoot_timer.one_shot = true
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 
-func set_fire_type(type:FireType) -> void: #TODO: on button press after certain condition passes 
+func set_fire_type(type:FireType) -> void:
 	fire_type = type
 	configure_fire_type()
 
@@ -75,19 +81,28 @@ func configure_fire_type() -> void:
 			clear_orbit_projectiles()
 
 func _process(delta: float) -> void:
-	animate_idle()
-	handle_movement_and_animate(delta)
+	if knockback_timer > 0:
+		knockback_timer -= delta
+		var knockback_velocity = knockback_direction * knockback_force
+		position += knockback_velocity * delta
+	else:
+		# Example movement code (replace with yours)
+		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		position += direction * speed * delta
 	
-	# Shooting input
+	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
+	
+	animate_movement()
+	handle_fire_mode_selection()
+	
 	if Input.is_action_pressed("ui_accept") and can_shoot:
 		shoot()
 	
-	# Update orbiting projectiles if in ORBIT mode
+	# Lida com o comportamento dos projéteis no modo orbita
 	if fire_type == FireType.ORBIT && !orbit_projectiles.is_empty():
 		update_orbit_projectiles(delta)
 	
 	position = position.clamp(Vector2.ZERO, screen_size)
-	health_component.take_damage(1)
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
@@ -103,30 +118,28 @@ func animate_idle() -> void:
 		PlayerDir.DOWN:
 			animated.play("idle-down")
 
-func handle_movement_and_animate(delta: float) -> void:
-	var velocity = Vector2.ZERO
-	
+func handle_fire_mode_selection() -> void:
+	if Input.is_action_just_pressed("select-1"):
+		set_fire_type(FireType.TRIPLE)
+	if Input.is_action_just_pressed("select-2"):
+		set_fire_type(FireType.ORBIT)
+	if Input.is_action_just_pressed("select-3"):
+		set_fire_type(FireType.DOUBLE)
+
+func animate_movement() -> void:
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
 		animated.play("walk-left")
 		last_dir = PlayerDir.LEFT
 	elif Input.is_action_pressed("ui_right"):
-		velocity.x += 1
 		animated.play("walk-right")
 		last_dir = PlayerDir.RIGHT 
 	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
 		animated.play("walk-up")
 		last_dir = PlayerDir.UP
 	elif Input.is_action_pressed("ui_down"):
-		velocity.y += 1
 		animated.play("walk-down")
 		last_dir = PlayerDir.DOWN
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * SPEED
-	position += velocity * delta
-
 func shoot() -> void:
 	match fire_type:
 		FireType.SINGLE:
@@ -136,13 +149,13 @@ func shoot() -> void:
 			fire_projectile(Vector2(0, 15))  
 		FireType.TRIPLE:
 			fire_projectile()
-			fire_projectile(Vector2(-20, 0), deg_to_rad(-15))  # 15 degrees left
-			fire_projectile(Vector2(20, 0), deg_to_rad(15))     # 15 degrees right
+			fire_projectile(Vector2(-20, 0), deg_to_rad(-15))  
+			fire_projectile(Vector2(20, 0), deg_to_rad(15))     
 		FireType.QUAD:
-			fire_projectile(Vector2(0, -20), deg_to_rad(0))    # Up
-			fire_projectile(Vector2(20, 0), deg_to_rad(90))    # Right
-			fire_projectile(Vector2(0, 20), deg_to_rad(180))  # Down
-			fire_projectile(Vector2(-20, 0), deg_to_rad(270)) # Left
+			fire_projectile(Vector2(0, -20), deg_to_rad(0))    
+			fire_projectile(Vector2(20, 0), deg_to_rad(90))    
+			fire_projectile(Vector2(0, 20), deg_to_rad(180))  
+			fire_projectile(Vector2(-20, 0), deg_to_rad(270)) 
 		FireType.SINE:
 			fire_projectile(Vector2.ZERO, 0, true)
 		FireType.ORBIT:
@@ -164,7 +177,6 @@ func shoot() -> void:
 	can_shoot = false
 	shoot_timer.start()
 
-##Função auxiliar instancia e configura o projetil TODO: subtituir por objeto projectileBuilder
 func fire_projectile(offset: Vector2 = Vector2.ZERO, 
 				   angle_offset: float = 0.0, 
 				   is_sine: bool = false,
@@ -192,13 +204,14 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 		projectile.set_meta("is_orbit", true)
 		projectile.speed = 0  # Player controla o movimento
 		projectile.set_meta("orbit_angle", orbit_angle)
-		orbit_angle += PI/4  # Espaço entre projeteis
+		orbit_angle += PI/4  # Espaço entre projéteis
 		projectile.set_meta("timeout", 10)
 	
 	main.add_child(projectile)
 	return projectile
 
 ## Retorna um ângulo em radiano correspondente a ultima tecla de movimentação apertada
+## Usado para direcionar o tiro
 func get_shoot_direction_angle() -> float:
 	match last_dir:
 		PlayerDir.RIGHT: return 0.0
@@ -232,24 +245,17 @@ func clear_orbit_projectiles() -> void:
 	orbit_projectiles.clear()
 	
 func _on_health_changed(old_value: int, new_value: int) -> void:
-	# Animação
-	if new_value < old_value:
-		pass
-		#if blink_animation_player:
-		#	blink_animation_player.play("hit_blink")
+	pass
 
-##TODO: Criar sinal da tela de Game Over e emitir aqui
+# TODO: Tela de Game-Over
 func _on_health_depleted() -> void:
 	queue_free()
 	print("GAME-OVER")
-	get_tree().reload_current_scene()  # TODO: Para tela de Game-Over
+	get_tree().reload_current_scene() 
 
-#func remove_orbit_projectile(proj: Node2D) -> void:
-#	if proj in orbit_projectiles:
-#		orbit_projectiles.erase(proj)
-
-#TODO: Fazer com que o player seja empurrado para fora da região do inimigo
 func _on_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("mobs")):
+	if body.is_in_group("mobs"):
 		print(health_component.current_health)
-		health_component.take_damage(50)
+		health_component.take_damage(5)
+		knockback_direction = (global_position - body.global_position).normalized()
+		knockback_timer = knockback_duration

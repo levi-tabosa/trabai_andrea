@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 	if not health_component:
 		health_component = HealthComponent.new()
-		health_component.max_health = 50  # Enemies have less health
+		health_component.max_health = 50 
 		add_child(health_component)
 	
 	health_component.health_depleted.connect(_on_death)
@@ -17,5 +17,4 @@ func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
 
 func _on_death() -> void:
-	# Add score or other effects
 	queue_free()
