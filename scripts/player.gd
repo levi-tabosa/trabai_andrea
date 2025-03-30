@@ -120,11 +120,17 @@ func animate_idle() -> void:
 
 func handle_fire_mode_selection() -> void:
 	if Input.is_action_just_pressed("select-1"):
-		set_fire_type(FireType.TRIPLE)
+		set_fire_type(FireType.SINGLE)
 	if Input.is_action_just_pressed("select-2"):
-		set_fire_type(FireType.ORBIT)
-	if Input.is_action_just_pressed("select-3"):
 		set_fire_type(FireType.DOUBLE)
+	if Input.is_action_just_pressed("select-3"):
+		set_fire_type(FireType.TRIPLE)
+	if Input.is_action_just_pressed("select-4"):
+		set_fire_type(FireType.QUAD)
+	if Input.is_action_just_pressed("select-5"):
+		set_fire_type(FireType.SINE)
+	if Input.is_action_just_pressed("select-6"):
+		set_fire_type(FireType.ORBIT)
 
 func animate_movement() -> void:
 	if Input.is_action_pressed("ui_left"):
