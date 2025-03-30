@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://8y2yau4nfrbm" path="res://scripts/main.gd" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://yg7nkj6i3yob" path="res://scenes/enemy.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ydilv2aw05pt" path="res://assets/PixelArt/TileSheet-Baths.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://c6xu0ra0y0ejb" path="res://assets/PixelArt/TileSheet-BedRooms.png" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://irxs732e8uoa" path="res://scenes/ui.tscn" id="6_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
@@ -717,9 +717,6 @@ sources/1 = SubResource("TileSetAtlasSource_272bh")
 [node name="main" type="Node"]
 script = ExtResource("1_tbgi4")
 
-[node name="Enemy" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(441, 131)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAAAAAACAAUAAAAAAAAAAAABAAUAAAACAAAAAAADAAUAAAACAAEAAAADAAYAAAACAAIAAAADAAcAAAABAAIAAAACAAcAAAAAAAIAAAABAAcAAAAAAAMAAAABAAgAAAABAAMAAAACAAgAAAACAAMAAAADAAgAAAACAAQAAAADAAkAAAABAAQAAAACAAkAAAAAAAQAAAABAAkAAAAUAAIAAQAMAAUAAAAUAAMAAQAMAAYAAAAUAAQAAQAMAAcAAAAVAAQAAQANAAcAAAAWAAQAAQAOAAcAAAAWAAMAAQAOAAYAAAAVAAMAAQANAAYAAAATAAQAAQALAAcAAAATAAMAAQALAAYAAAAUAAAAAQAPAAYAAAAVAAAAAQAQAAYAAAAWAAAAAQARAAYAAAAXAAAAAQASAAYAAAAXAAEAAQASAAcAAAAWAAEAAQARAAcAAAAVAAEAAQAQAAcAAAAVAAIAAQAQAAgAAAAWAAIAAQARAAgAAAAXAAIAAQASAAgAAAA=")
@@ -730,3 +727,6 @@ position = Vector2(135, 95)
 knockback_force = 200.0
 
 [node name="UI" parent="." instance=ExtResource("6_tefeu")]
+
+[node name="EnemyPath" parent="." instance=ExtResource("6_o6xl0")]
+position = Vector2(193, 0)
