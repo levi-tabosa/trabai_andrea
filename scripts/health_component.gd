@@ -31,8 +31,12 @@ func take_damage(amount: int) -> void:
 	
 	if invincibility_duration > 0:
 		is_invincible = true
-		#print("get_tree em health component :", get_tree_string_pretty())
-		await get_tree().create_timer(invincibility_duration).timeout
+		print("get_tree em health component :", get_tree_string_pretty())
+		var t = get_tree()
+		if(t):
+			await t.create_timer(invincibility_duration).timeout
+		else:
+			print(null)
 		is_invincible = false
 
 func heal(amount: int) -> void:

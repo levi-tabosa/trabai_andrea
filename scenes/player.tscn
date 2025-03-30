@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7yf3ketydyyp"]
+[gd_scene load_steps=17 format=3 uid="uid://isvtb1om0gsd"]
 
-[ext_resource type="Script" uid="uid://0hc557x47udm" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://0hc557x47udm" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]

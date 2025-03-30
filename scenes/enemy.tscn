@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://do3i5gkmeyifu"]
+[gd_scene load_steps=9 format=3 uid="uid://yg7nkj6i3yob"]
 
-[ext_resource type="Script" uid="uid://dihml5n6n5o7f" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://b031ee2ppnns6" path="res://scripts/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
 size = Vector2(14, 17)
@@ -44,7 +44,7 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(3, 3)
-script = ExtResource("1_4gyqm")
+script = ExtResource("1_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

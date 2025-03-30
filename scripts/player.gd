@@ -24,7 +24,7 @@ enum FireType {
 #@export var blink_animation_player: AnimationPlayer
 
 @onready var main = get_tree().get_root().get_node("main") 
-@onready var projectile_scene = preload("res://projectile.tscn")
+@onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shoot_timer = $ShootTimer
 @onready var animated = $AnimatedSprite2D
 
@@ -241,8 +241,8 @@ func _on_health_changed(old_value: int, new_value: int) -> void:
 ##TODO: Criar sinal da tela de Game Over e emitir aqui
 func _on_health_depleted() -> void:
 	queue_free()
-	print(get_tree_string_pretty())
-	get_tree().reload_current_scene()  # TODO: REMOVER
+	print("GAME-OVER")
+	get_tree().reload_current_scene()  # TODO: Para tela de Game-Over
 
 #func remove_orbit_projectile(proj: Node2D) -> void:
 #	if proj in orbit_projectiles:
