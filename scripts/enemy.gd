@@ -15,6 +15,10 @@ func _ready() -> void:
 
 func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
-
+	
+	modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1, 1, 1)
+	
 func _on_death() -> void:
 	queue_free()
