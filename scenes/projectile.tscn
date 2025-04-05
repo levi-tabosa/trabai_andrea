@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddeiyv36psyk6"]
+[gd_scene load_steps=6 format=3 uid="uid://ddeiyv36psyk6"]
+
+[ext_resource type="Texture2D" uid="uid://6c3yf6rcmeuf" path="res://assets/ChatGPT Image 4 de abr. de 2025, 16_49_19.png" id="1_c8fcr"]
 
 [sub_resource type="GDScript" id="GDScript_6aapk"]
 script/source = "extends Area2D
@@ -62,19 +64,34 @@ func _on_timeout() -> void:
 	queue_free()
 "
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q3m7n"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
+size = Vector2(12, 7)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a85iw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8fcr"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(103, 476, 102, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6q2a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8fcr")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}]
 
 [node name="projectile" type="Area2D"]
 script = SubResource("GDScript_6aapk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
-texture = SubResource("CompressedTexture2D_q3m7n")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_a85iw")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3m7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_6q2a6")
+animation = &"bullet"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
