@@ -724,7 +724,6 @@ tile_set = SubResource("TileSet_5vw27")
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(135, 95)
-knockback_force = 200.0
 
 [node name="UI" parent="." instance=ExtResource("6_tefeu")]
 
