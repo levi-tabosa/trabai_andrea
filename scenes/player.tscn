@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://isvtb1om0gsd"]
+[gd_scene load_steps=21 format=3 uid="uid://isvtb1om0gsd"]
 
 [ext_resource type="Script" uid="uid://0hc557x47udm" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_onrkg"]
-[ext_resource type="Texture2D" uid="uid://dr4hnkaro3acw" path="res://assets/ChatGPT Image 4 de abr. de 2025, 20_11_44.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(15.5, 18.6667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("2_onrkg")
@@ -21,10 +21,6 @@ region = Rect2(32, 128, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
 atlas = ExtResource("2_onrkg")
 region = Rect2(48, 128, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
-atlas = ExtResource("3_qhqgy")
-region = Rect2(22, 0, 440, 476)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -110,14 +106,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tuyoq")
-}],
-"loop": true,
-"name": &"shoot-down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_i3pqv")
 }, {
 "duration": 1.0,
@@ -199,12 +187,13 @@ scale = Vector2(3, 3)
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.25, 6.66667)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 5.33333)
-scale = Vector2(0.125758, 0.120623)
+position = Vector2(3.66667, 5.33333)
+scale = Vector2(1.041, 1)
 sprite_frames = SubResource("SpriteFrames_b26j0")
-animation = &"shoot-down"
+animation = &"idle-down"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
