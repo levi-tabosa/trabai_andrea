@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hell_fantasy"
-run/main_scene="uid://d2dqbt4clvd8d"
+run/main_scene="uid://cj45hd4eyhe6h"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [input]
