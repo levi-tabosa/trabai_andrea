@@ -196,16 +196,35 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 					 is_orbit: bool = false) -> Node2D:
 	var projectile = projectile_scene.instantiate()
 
-	var spawn_pos = global_position + offset.rotated(get_shoot_direction_angle())
+	# Offset dinâmico baseado na direção do tiro
+	var base_offset := Vector2.ZERO
+	match last_dir:
+		PlayerDir.RIGHT:
+			base_offset = Vector2(30, 15)
+		PlayerDir.LEFT:
+			base_offset = Vector2(-30, 20)
+		PlayerDir.UP:
+			base_offset = Vector2(10, -5)
+		PlayerDir.DOWN:
+			base_offset = Vector2(30, 20)
+
+	# Posição final de spawn do projétil
+	var spawn_pos = global_position + base_offset + offset
 	projectile.global_position = spawn_pos
 
+	# Direção e velocidade do projétil
 	var direction_angle = get_shoot_direction_angle() + angle_offset
 	var direction = Vector2(cos(direction_angle), sin(direction_angle)).normalized()
-	projectile.direction = direction  # caso queira usar diretamente
-	projectile.set_meta("direction", direction)  # para uso no _ready
-
+	projectile.direction = direction
+	projectile.set_meta("direction", direction)
 	projectile.speed = projectile_speed
 
+	# Rotaciona o sprite do projétil (caso exista)
+	if projectile.has_node("AnimatedSprite2D"):
+		var sprite = projectile.get_node("AnimatedSprite2D")
+		sprite.rotation = direction.angle()
+
+	# Configurações para modos especiais de tiro
 	if is_sine:
 		projectile.set_meta("is_sine", true)
 		projectile.set_meta("sine_amplitude", sine_amplitude)
@@ -221,6 +240,8 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 
 	main.add_child(projectile)
 	return projectile
+
+
 
 
 func get_shoot_direction_angle() -> float:

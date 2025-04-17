@@ -19,6 +19,10 @@ func _ready() -> void:
 	if animated_sprite and animated_sprite.has_animation("bullet"):
 		animated_sprite.play("bullet")
 
+	# 🌀 Aplica rotação se estiver definida
+	if has_meta("rotation_angle"):
+		animated_sprite.rotation = get_meta("rotation_angle")
+
 	var timer = Timer.new()
 	timer.wait_time = get_meta("timeout", 2.0)
 	timer.one_shot = true
@@ -37,13 +41,6 @@ func _ready() -> void:
 		orbit_angle = get_meta("orbit_angle", 0.0)
 		orbit_radius = get_meta("orbit_radius", 30.0)
 		speed = 0
-
-func set_direction(dir: Vector2) -> void:
-	direction = dir.normalized()
-
-	# Rotaciona o sprite para a direção do movimento
-	if animated_sprite:
-		animated_sprite.rotation = direction.angle()
 
 func _physics_process(delta: float) -> void:
 	time_alive += delta
