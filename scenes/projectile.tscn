@@ -65,7 +65,7 @@ func _on_timeout() -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
-size = Vector2(12, 7)
+size = Vector2(14, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8fcr"]
 atlas = ExtResource("1_c8fcr")
