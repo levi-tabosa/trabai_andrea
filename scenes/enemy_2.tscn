@@ -1,7 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmiro8yifscmv"]
+[gd_scene load_steps=17 format=3 uid="uid://cmiro8yifscmv"]
 
 [ext_resource type="Script" uid="uid://4diuh440gu7a" path="res://scripts/enemy_2.gd" id="1_fi5i3"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="1_hqy2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82mwo"]
+atlas = ExtResource("1_hqy2m")
+region = Rect2(16, 192, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi5i3"]
 atlas = ExtResource("1_hqy2m")
@@ -35,6 +39,10 @@ region = Rect2(0, 224, 16, 16)
 atlas = ExtResource("1_hqy2m")
 region = Rect2(208, 192, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv1ai"]
+atlas = ExtResource("1_hqy2m")
+region = Rect2(48, 224, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7du6s"]
 atlas = ExtResource("1_hqy2m")
 region = Rect2(48, 224, 16, 16)
@@ -45,6 +53,14 @@ region = Rect2(96, 224, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_veajb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82mwo")
+}],
+"loop": true,
+"name": &"down-idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fi5i3")
@@ -96,6 +112,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hv1ai")
+}],
+"loop": true,
+"name": &"up-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7du6s")
 }, {
 "duration": 1.0,
@@ -115,7 +139,7 @@ script = ExtResource("1_fi5i3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(181, 124)
 sprite_frames = SubResource("SpriteFrames_veajb")
-animation = &"down-walk"
+animation = &"down-idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(180.5, 124.5)
