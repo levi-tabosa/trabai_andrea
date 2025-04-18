@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4opfl35wv8fm"]
+[gd_scene load_steps=16 format=3 uid="uid://c4opfl35wv8fm"]
 
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="1_pntu1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pntu1"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(16, 192, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djy1j"]
 atlas = ExtResource("1_pntu1")
@@ -10,8 +14,52 @@ region = Rect2(144, 192, 16, 16)
 atlas = ExtResource("1_pntu1")
 region = Rect2(224, 192, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj3uc"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nfes"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(48, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ipwp"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1mu1"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(144, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwep3"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(80, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfosb"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(224, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25yel"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(176, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coowh"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(80, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fns3h"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(96, 32, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_uj3uc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pntu1")
+}],
+"loop": true,
+"name": &"idle-down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djy1j")
@@ -27,6 +75,58 @@ animations = [{
 "loop": true,
 "name": &"idle-right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj3uc")
+}],
+"loop": true,
+"name": &"idle-up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nfes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ipwp")
+}],
+"loop": true,
+"name": &"walk-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1mu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwep3")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfosb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25yel")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coowh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fns3h")
+}],
+"loop": true,
+"name": &"walk-up",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nfes"]
@@ -36,7 +136,9 @@ size = Vector2(15, 20)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uj3uc")
-animation = &"idle-left"
+animation = &"walk-up"
+frame = 1
+frame_progress = 0.233284
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
