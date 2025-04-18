@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4opfl35wv8fm"]
+
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="1_pntu1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djy1j"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(144, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oib00"]
+atlas = ExtResource("1_pntu1")
+region = Rect2(224, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj3uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djy1j")
+}],
+"loop": true,
+"name": &"idle-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oib00")
+}],
+"loop": true,
+"name": &"idle-right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nfes"]
+size = Vector2(15, 20)
+
+[node name="enemy_3" type="CharacterBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uj3uc")
+animation = &"idle-left"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7nfes")
