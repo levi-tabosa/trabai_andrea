@@ -49,7 +49,7 @@ region = Rect2(48, 224, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6dp05"]
 atlas = ExtResource("1_hqy2m")
-region = Rect2(96, 224, 16, 16)
+region = Rect2(240, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_veajb"]
 animations = [{
@@ -139,7 +139,7 @@ script = ExtResource("1_fi5i3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(181, 124)
 sprite_frames = SubResource("SpriteFrames_veajb")
-animation = &"down-idle"
+animation = &"idle-right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(180.5, 124.5)
