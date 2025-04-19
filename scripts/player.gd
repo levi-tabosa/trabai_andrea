@@ -34,7 +34,7 @@ var knockback_timer := 0.0
 var knockback_direction := Vector2.ZERO
 enum PlayerDir { RIGHT, UP, LEFT, DOWN }
 var last_dir := PlayerDir.RIGHT
-var orbit_angle := 0.0
+var orbit_angle := 1
 var orbit_projectiles := []
 
 # Controle de animação de tiro
