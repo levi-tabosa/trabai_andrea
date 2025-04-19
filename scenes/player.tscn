@@ -182,7 +182,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="Area2D"]
+[node name="player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_onrkg")
 
@@ -195,5 +195,3 @@ position = Vector2(3.66667, 5.33333)
 scale = Vector2(1.041, 1)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"idle-down"
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
