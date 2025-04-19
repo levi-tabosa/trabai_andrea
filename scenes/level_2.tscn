@@ -1,8 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciq634yruxhwt"]
+[gd_scene format=3 uid="uid://dkc2ldtj13jsc"]
 
-[ext_resource type="PackedScene" uid="uid://co8gbfforn4ul" path="res://scenes/hospital.tscn" id="1_jg0dc"]
-
-[node name="level_2" type="Node2D"]
-
-[node name="Hospital" parent="." instance=ExtResource("1_jg0dc")]
-position = Vector2(72, -88)
+[node name="level_2" type="Node"]
