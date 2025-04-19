@@ -19,7 +19,7 @@ func _ready() -> void:
 	if animated_sprite and animated_sprite.has_animation("bullet"):
 		animated_sprite.play("bullet")
 
-	# 🌀 Aplica rotação se estiver definida
+	
 	if has_meta("rotation_angle"):
 		animated_sprite.rotation = get_meta("rotation_angle")
 
