@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var screen_size: Vector2
 var can_shoot = true
@@ -84,7 +84,8 @@ func _process(delta: float) -> void:
 		position += knockback_velocity * delta
 	else:
 		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		position += direction * speed * delta
+		velocity = direction * speed
+		move_and_slide()
 
 	position = position.clamp(Vector2.ZERO, screen_size)
 
