@@ -20,3 +20,4 @@ script = ExtResource("1_ov72x")
 
 [node name="Enemy" parent="PathFollow2D" instance=ExtResource("2_4jm3e")]
 rotation = -1.5708
+path_node = NodePath("../..")
