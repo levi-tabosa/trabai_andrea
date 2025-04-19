@@ -201,13 +201,14 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 	var base_offset := Vector2.ZERO
 	match last_dir:
 		PlayerDir.RIGHT:
-			base_offset = Vector2(30, 15)
+			base_offset = Vector2(40, 20)
 		PlayerDir.LEFT:
-			base_offset = Vector2(-30, 20)
+			base_offset = Vector2(-30, 25)
 		PlayerDir.UP:
-			base_offset = Vector2(10, -5)
+			base_offset = Vector2(0, -15)
 		PlayerDir.DOWN:
-			base_offset = Vector2(30, 20)
+			base_offset = Vector2(10, 50)
+
 
 	# Posição final de spawn do projétil
 	var spawn_pos = global_position + base_offset + offset
