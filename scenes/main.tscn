@@ -18,4 +18,4 @@ position = Vector2(135, 95)
 [node name="UI" parent="." instance=ExtResource("6_tefeu")]
 
 [node name="EnemyPath" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(259, 166)
+position = Vector2(421, 173)
