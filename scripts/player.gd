@@ -22,7 +22,7 @@ enum FireType {
 @export var orbit_radius := 30.0
 @export var orbit_speed := 3.0
 @export var health_component: HealthComponent
-@export var knockback_force := 150.0
+@export var knockback_force := 350.0
 @export var knockback_duration := 0.2
 
 @onready var main = get_tree().get_root().get_node("main")
@@ -35,7 +35,7 @@ var knockback_timer := 0.0
 var knockback_direction := Vector2.ZERO
 enum PlayerDir { RIGHT, UP, LEFT, DOWN }
 var last_dir := PlayerDir.RIGHT
-var orbit_angle := 1.0
+var orbit_angle := 0 # se for float n funciona
 var orbit_projectiles := []
 var is_shooting := false
 var shooting_timer := 0.0
@@ -80,21 +80,18 @@ func _process(delta: float) -> void:
 	if knockback_timer > 0:
 		knockback_timer -= delta
 		var knockback_velocity = knockback_direction * knockback_force
-		position += knockback_velocity * delta
+		velocity = knockback_velocity
 	else:
 		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		velocity = direction * speed
-		move_and_slide()
-
+	move_and_slide()
 	position = position.clamp(Vector2.ZERO, screen_size)
 
-	# Timer da animação de tiro
 	if is_shooting:
 		shooting_timer -= delta
 		if shooting_timer <= 0:
 			is_shooting = false
 
-	# Só anima se não estiver atirando
 	if not is_shooting:
 		animate_movement()
 
@@ -259,7 +256,7 @@ func get_shoot_direction_angle() -> float:
 	return 0.0
 
 func update_orbit_projectiles(delta: float) -> void:
-	orbit_angle += orbit_speed * delta
+	orbit_angle += int(orbit_speed * delta)
 	for proj in orbit_projectiles:
 		if is_instance_valid(proj):
 			var angle = proj.get_meta("orbit_angle") + orbit_speed * delta
