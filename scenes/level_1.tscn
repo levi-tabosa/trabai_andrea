@@ -87,8 +87,7 @@ position = Vector2(167, 193)
 [node name="EnemyPath" parent="." instance=ExtResource("4_pa8r4")]
 position = Vector2(439, 105)
 curve = SubResource("Curve2D_fcfvj")
-enemy_patrol_loops = 9
-enemy_mov_state = 1
+enemy_patrol_loops = -1
 enemy_sprite_frames = SubResource("SpriteFrames_4nkto")
 
 [node name="EnemyPath2" parent="." instance=ExtResource("4_pa8r4")]
@@ -99,3 +98,10 @@ enemy_patrol_loops = 9
 enemy_mov_state = 1
 enemy_fire_state = 1
 enemy_sprite_frames = SubResource("SpriteFrames_fcfvj")
+
+[node name="EnemyPath3" parent="." instance=ExtResource("4_pa8r4")]
+position = Vector2(263, 527)
+curve = null
+enemy_patrol_loops = 9
+enemy_mov_state = 2
+enemy_sprite_frames = SubResource("SpriteFrames_4nkto")
