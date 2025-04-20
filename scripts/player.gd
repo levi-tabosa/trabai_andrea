@@ -196,6 +196,9 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 					 is_sine: bool = false,
 					 is_orbit: bool = false) -> Node2D:
 	var projectile = projectile_scene.instantiate()
+	
+	projectile.set_meta("is_enemy_projectile", false)
+	projectile.set_meta("shooter", self)
 
 	# Offset dinâmico baseado na direção do tiro
 	var base_offset := Vector2.ZERO
@@ -272,16 +275,34 @@ func clear_orbit_projectiles() -> void:
 	orbit_projectiles.clear()
 
 func _on_health_changed(old_value: int, new_value: int) -> void:
-	pass
+	if health_component:
+		health_component.take_damage(old_value - new_value)
+
+		modulate = Color.RED
+		await get_tree().create_timer(0.2).timeout
+		if is_instance_valid(self):
+			modulate = Color.WHITE
+	else:
+		printerr("Cannot take damage, HealthComponent is missing!")
 
 func _on_health_depleted() -> void:
 	queue_free()
 	print("GAME-OVER")
 	get_tree().reload_current_scene()
 
-func _on_body_entered(body: Node2D) -> void:
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("mobs"):
 		print(health_component.current_health)
 		health_component.take_damage(5)
 		knockback_direction = (global_position - body.global_position).normalized()
 		knockback_timer = knockback_duration
+
+
+#func _on_area_2d_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("projectiles"):
+		#print(health_component.current_health)
+		#health_component.take_damage(5)
+		#knockback_direction = (global_position - area.global_position).normalized()
+		#knockback_timer = knockback_duration

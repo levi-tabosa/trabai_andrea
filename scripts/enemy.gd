@@ -1,23 +1,32 @@
 extends CharacterBody2D
 
-# --- Exports ---
 @export var speed := 100.0
 @export var chase_distance := 100.0
-# IMPORTANT: Assign these NodePaths in the Godot Editor Inspector!
 @export var path_node: NodePath  # Path to the Path2D node for patrolling
-@export var player_node: NodePath # Path to the Player node
+@export var player_node: NodePath
 @export var health_component: HealthComponent
 @export var score_value := 10
+@export var patrol_loops := 0
+# Shooting parameters
+@export var can_shoot := true
+@export var fire_rate := 1.0  # Slower than player by default
+@export var projectile_speed := 150.0  # Slower than player
+@export var shooting_range := 150.0  # Enemy will shoot when player is within this range
 
-# --- OnReady Variables ---
-# Removed @onready var main as it wasn't used in this script snippet.
-# Add it back if you need it elsewhere.
-
-# --- Internal Variables ---
-var path_points: Array[Vector2] = [] # INITIALIZE THE ARRAY!
+var path_points: Array[Vector2] = []
 var current_point_index := 0
-var state := "patrolling"
-var player: Node2D = null # Initialize to null for clarity
+var state := MOB_BEHAVIOR.PATROLLING
+var player: Node2D = null 
+var loops_completed := 0
+var force_chase_after_loops := false 
+# Shooting variables
+var shoot_timer: Timer
+var projectile_scene: PackedScene
+
+enum MOB_BEHAVIOR {
+	CHASING,
+	PATROLLING
+}
 
 func _ready() -> void:
 	add_to_group("mobs") # Good practice
@@ -57,6 +66,7 @@ func _ready() -> void:
 			if path.curve and path.curve.get_point_count() > 0:
 				var local_points = path.curve.get_baked_points()
 				if local_points: # Check if baking points worked
+					print(local_points)
 					for local_point in local_points:
 						# Convert point from Path2D's local space to global world space
 						var global_point = path.to_global(local_point)
@@ -76,86 +86,96 @@ func _ready() -> void:
 	# Check if path points were successfully loaded
 	if path_points.size() == 0:
 		printerr("No path points loaded. Enemy will not patrol.")
-		# Decide behavior: Maybe default to chasing? Or stay idle?
-		# state = "idle" # Or maybe "chasing" if player exists?
+		
+	# Ensure patrol_loops is at least 1
+	if patrol_loops < 1:
+		force_chase_after_loops = true
+		#patrol_loops = 9223372036854775807 #i64 max
+		print("Patrol loops set to minimum value of 1")
+	
+	# --- Shooting Setup ---
+	# Load projectile scene
+	projectile_scene = preload("res://scenes/projectile.tscn")
+	if not projectile_scene:
+		printerr("Failed to load projectile scene. Enemy won't be able to shoot.")
+	
+	# Create shoot timer
+	shoot_timer = Timer.new()
+	shoot_timer.one_shot = true
+	shoot_timer.wait_time = fire_rate
+	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
+	add_child(shoot_timer)
 
 
 func _physics_process(delta: float) -> void:
-	# --- Essential Checks ---
-	# If player is missing OR if patrolling but no path points exist, do nothing.
-	if not player or (state == "patrolling" and path_points.size() == 0):
-		# Optional: Print a warning periodically, but avoid flooding the console
-		# print("Enemy cannot process: Player missing or no path points for patrolling.")
-		velocity = Vector2.ZERO # Stop moving
-		move_and_slide() # Apply zero velocity
-		return # Stop further processing in this frame
+	if not player or (state == MOB_BEHAVIOR.PATROLLING and path_points.size() == 0):
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 
-	# --- State Logic ---
 	var distance_to_player = global_position.distance_to(player.global_position)
-
-	# Determine state based on distance
-	if distance_to_player < chase_distance:
-		state = "chasing"
-	elif state == "chasing" and distance_to_player > chase_distance + 20: # Hysteresis (add a buffer)
-		# Only switch back to patrolling if there are path points to follow
+	
+	# --- State Logic ---
+	if distance_to_player < chase_distance or force_chase_after_loops:
+		state = MOB_BEHAVIOR.CHASING
+	elif state == MOB_BEHAVIOR.CHASING and distance_to_player > chase_distance + 20 and not force_chase_after_loops:
 		if path_points.size() > 0:
-			state = "patrolling"
-			# Optional: Find the closest path point to resume patrolling smoothly
-			# current_point_index = find_closest_path_point()
-		else:
-			# If no path, maybe go idle or keep chasing? Decide behavior.
-			# For now, just stay chasing if no path to return to.
-			pass # Keep chasing
-
+			state = MOB_BEHAVIOR.PATROLLING
+			current_point_index = find_closest_path_point()
 
 	# --- Movement Logic ---
-	if state == "patrolling":
-		# Move toward the current path point
-		if path_points.size() > 0: # Double-check path points exist
+	if state == MOB_BEHAVIOR.PATROLLING:
+		if path_points.size() > 0:
 			var target_point = path_points[current_point_index]
 			var direction = (target_point - global_position).normalized()
 			velocity = direction * speed
 
-			# Check if close enough to the target point
 			if global_position.distance_to(target_point) < 5.0: # Use a small threshold
 				current_point_index = (current_point_index + 1) % path_points.size()
+				
+				if current_point_index == 0:
+					loops_completed += 1
+					print("Enemy completed loop: ", loops_completed, " of ", patrol_loops)
+					
+					if loops_completed >= patrol_loops:
+						force_chase_after_loops = true
+						state = MOB_BEHAVIOR.CHASING
+						print("All patrol loops completed, switching to chase mode permanently")
 		else:
-			# Should not happen due to check at the start, but safety first
 			velocity = Vector2.ZERO
 
-	elif state == "chasing":
-		# Move toward the player
+	elif state == MOB_BEHAVIOR.CHASING:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 
-	# Apply movement
 	move_and_slide()
+	
+	# --- Shooting Logic ---
+	if can_shoot and distance_to_player <= shooting_range:
+		shoot()
 
-# Helper function to find the closest path point (optional, for smoother patrol resume)
-# func find_closest_path_point() -> int:
-# 	if path_points.size() == 0:
-# 		return 0
-# 	var closest_index = 0
-# 	var min_dist_sq = -1.0
-#
-# 	for i in range(path_points.size()):
-# 		var dist_sq = global_position.distance_squared_to(path_points[i])
-# 		if min_dist_sq < 0 or dist_sq < min_dist_sq:
-# 			min_dist_sq = dist_sq
-# 			closest_index = i
-# 	return closest_index
+
+func find_closest_path_point() -> int:
+	if path_points.size() == 0:
+		return 0
+	var closest_index = 0
+	var min_dist_sq = -1.0
+
+	for i in range(path_points.size()):
+		var dist_sq = global_position.distance_squared_to(path_points[i])
+		if min_dist_sq < 0 or dist_sq < min_dist_sq:
+			min_dist_sq = dist_sq
+			closest_index = i
+	return closest_index
 
 func take_damage(amount: int) -> void:
 	if health_component:
 		health_component.take_damage(amount)
 
-		# Visual feedback
-		modulate = Color.RED # Use Color constant
-		# Use await with SceneTreeTimer timeout signal
+		modulate = Color.RED
 		await get_tree().create_timer(0.2).timeout
-		# Ensure the enemy hasn't been freed in the meantime
 		if is_instance_valid(self):
-			modulate = Color.WHITE # Use Color constant
+			modulate = Color.WHITE
 	else:
 		printerr("Cannot take damage, HealthComponent is missing!")
 
@@ -164,4 +184,49 @@ func _on_death() -> void:
 	# Add score or other death effects here if needed *before* queue_free
 	# Example: get_tree().call_group("game_manager", "increase_score", score_value)
 	print("Enemy died!")
-	queue_free() # Remove the enemy from the scene
+	queue_free()
+	
+# --- Shooting Functions ---
+func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
+
+func shoot() -> void:
+	if not projectile_scene:
+		return
+		
+	# Create the projectile
+	var projectile = projectile_scene.instantiate()
+	
+	# Calculate direction to player
+	var direction = (player.global_position - global_position).normalized()
+	
+	# Position the projectile in front of the enemy
+	var spawn_position = global_position + direction * 30
+	projectile.global_position = spawn_position
+	
+	# Set direction and speed
+	projectile.direction = direction
+	projectile.set_meta("direction", direction)
+	projectile.speed = projectile_speed
+	
+	# Make sure it's an enemy projectile
+	projectile.set_meta("is_enemy_projectile", true)
+	
+	# Store reference to the shooter (THIS IS THE KEY FIX!)
+	projectile.set_meta("shooter", self)
+	
+	# If projectile has AnimatedSprite2D, rotate it to face direction
+	if projectile.has_node("AnimatedSprite2D"):
+		var sprite = projectile.get_node("AnimatedSprite2D")
+		sprite.rotation = direction.angle()
+		
+		# If there's an animation manager, play enemy projectile animation
+		if sprite.has_method("play"):
+			sprite.play("enemy_projectile")
+	
+	# Add the projectile to the scene
+	get_tree().get_root().get_node("main").add_child(projectile)
+	
+	# Start cooldown
+	can_shoot = false
+	shoot_timer.start()

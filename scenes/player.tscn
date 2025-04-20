@@ -195,3 +195,13 @@ position = Vector2(3.66667, 5.33333)
 scale = Vector2(1.041, 1)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"idle-down"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.25, 5.99999)
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
