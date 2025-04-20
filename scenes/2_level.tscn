@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnjy3wegs1m7f"]
+
+[ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_5mfyf"]
+
+[node name="2_level" type="Node"]
+
+[node name="Hospital" parent="." instance=ExtResource("1_5mfyf")]
