@@ -4,25 +4,23 @@ class_name Enemy
 
 @export var speed := 100.0
 @export var chase_distance := 100.0
-@export var path_node: NodePath  # Path to the Path2D node for patrolling
+@export var path_node: NodePath
 @export var player_node: NodePath
 @export var health_component: HealthComponent
 @export var score_value := 10
 @export var patrol_loops := 0
-# Shooting parameters
 @export var can_shoot := true
-@export var fire_rate := 1.0  # Slower than player by default
-@export var projectile_speed := 150.0  # Slower than player
-@export var shooting_range := 150.0  # Enemy will shoot when player is within this range
+@export var fire_rate := 1.0 
+@export var projectile_speed := 150.0 
+@export var shooting_range := 150.0 
 @export var mov_state := MOB_BEHAVIOR.PATROLLING
-@export var fire_state:= FIRE_BEHAVIOR.ON_CHASE
+@export var fire_state := FIRE_BEHAVIOR.ON_CHASE
 
 var path_points: Array[Vector2] = []
 var current_point_index := 0
 var player: Node2D = null 
 var loops_completed := 0
 var force_chase_after_loops := false 
-# Shooting variables
 var shoot_timer: Timer
 var projectile_scene: PackedScene
 
@@ -37,11 +35,10 @@ enum FIRE_BEHAVIOR {
 }
 
 func _ready() -> void:
-	add_to_group("mobs") # Good practice
+	add_to_group("mobs")
 
-	# --- Health Component Setup ---
 	if not health_component:
-		print("HealthComponent not assigned in editor, creating default.")
+		print("creating default HealthComponent.")
 		health_component = HealthComponent.new()
 		health_component.max_health = 50
 		add_child(health_component)
@@ -52,10 +49,8 @@ func _ready() -> void:
 	else:
 		printerr("Enemy requires a HealthComponent!")
 
-
 	player = get_tree().get_root().get_node("main").get_node("player")
-	if not player:
-		return
+	assert(player != null)
 
 	if path_node:
 		var path = get_node_or_null(path_node)
@@ -122,7 +117,13 @@ func configure_from_path(path_node: Node) -> void:
 			
 		if path_node.get("enemy_shooting_range") != null:
 			shooting_range = path_node.enemy_shooting_range
-			
+		
+		if path_node.get("enemy_mov_state") != null:
+			mov_state = path_node.enemy_mov_state
+		
+		if path_node.get("enemy_fire_state") != null:
+			fire_state = path_node.enemy_fire_state
+		
 		print("Enemy configured from path: ", path_node.name)
 
 func _physics_process(delta: float) -> void:
@@ -212,7 +213,6 @@ func shoot() -> void:
 		return
 
 	var projectile = projectile_scene.instantiate()
-
 	var direction = (player.global_position - global_position).normalized()
 	
 	var spawn_position = global_position + direction * 30
@@ -225,12 +225,10 @@ func shoot() -> void:
 	projectile.set_meta("is_enemy_projectile", true)
 	projectile.set_meta("shooter", self)
 	
-	# If projectile has AnimatedSprite2D, rotate it to face direction
 	if projectile.has_node("AnimatedSprite2D"):
 		var sprite = projectile.get_node("AnimatedSprite2D")
 		sprite.rotation = direction.angle()
 		
-		# If there's an animation manager, play enemy projectile animation
 		if sprite.has_method("play"):
 			sprite.play("enemy_projectile")
 	

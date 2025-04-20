@@ -292,9 +292,11 @@ func take_damage(amount: int) -> void:
 		health_component.take_damage(amount)
 
 		modulate = Color.RED
-		await get_tree().create_timer(0.2).timeout
-		if is_instance_valid(self):
-			modulate = Color.WHITE
+		var t = get_tree()
+		if(t):
+			await t.create_timer(0.2).timeout
+			if is_instance_valid(self):
+				modulate = Color.WHITE
 	else:
 		printerr("Cannot take damage, HealthComponent is missing!")
 
