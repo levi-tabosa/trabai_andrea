@@ -139,7 +139,7 @@ script = ExtResource("1_fi5i3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(181, 124)
 sprite_frames = SubResource("SpriteFrames_veajb")
-animation = &"idle-right"
+animation = &"left-walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(180.5, 124.5)
