@@ -9,7 +9,8 @@ enum FireType {
 	TRIPLE,
 	QUAD,
 	SINE,
-	ORBIT
+	ORBIT,
+	OCTAL,
 }
 
 @export var fire_type := FireType.SINGLE
@@ -74,7 +75,7 @@ func configure_fire_type() -> void:
 		FireType.ORBIT:
 			fire_rate = 0.15
 			clear_orbit_projectiles()
-
+		FireType.OCTAL: fire_rate = 0.6
 func _process(delta: float) -> void:
 	if knockback_timer > 0:
 		knockback_timer -= delta
@@ -148,6 +149,8 @@ func handle_fire_mode_selection() -> void:
 		set_fire_type(FireType.SINE)
 	if Input.is_action_just_pressed("select-6"):
 		set_fire_type(FireType.ORBIT)
+	if Input.is_action_just_pressed("select-7"):
+		set_fire_type(FireType.OCTAL)
 
 func shoot() -> void:
 	match fire_type:
@@ -171,6 +174,15 @@ func shoot() -> void:
 			var proj = fire_projectile(Vector2.ZERO, 0, false, true)
 			if proj:
 				orbit_projectiles.append(proj)
+		FireType.OCTAL:
+			fire_projectile(Vector2(0, -20), deg_to_rad(0))
+			fire_projectile(Vector2(20, 0), deg_to_rad(45))
+			fire_projectile(Vector2(20, 20), deg_to_rad(90))
+			fire_projectile(Vector2(0, 20), deg_to_rad(135))
+			fire_projectile(Vector2(-20, 20), deg_to_rad(180))
+			fire_projectile(Vector2(-20, 0), deg_to_rad(225))
+			fire_projectile(Vector2(-20, -20), deg_to_rad(270))
+			fire_projectile(Vector2(0, -20), deg_to_rad(315))
 
 	match last_dir:
 		PlayerDir.LEFT:
