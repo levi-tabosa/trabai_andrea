@@ -44,15 +44,13 @@ const SHOOT_ANIM_DURATION := 0.4
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	configure_fire_type()
-
+	ui.update_fire_mode_display(fire_type)	
 	if not health_component:
 		health_component = HealthComponent.new()
 		health_component.max_health = 100
-		add_child(health_component)
-
+		add_child(health_component)	
 	health_component.health_depleted.connect(_on_health_depleted)
-	health_component.health_changed.connect(ui.update_health)
-
+	health_component.health_changed.connect(ui.update_health)	
 	if not shoot_timer:
 		shoot_timer = Timer.new()
 		shoot_timer.name = "ShootTimer"
@@ -64,6 +62,7 @@ func _ready() -> void:
 func set_fire_type(type: FireType) -> void:
 	fire_type = type
 	configure_fire_type()
+	ui.update_fire_mode_display(fire_type)
 
 func configure_fire_type() -> void:
 	match fire_type:
@@ -306,3 +305,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("mobs"):
 		knockback_direction = (global_position - body.global_position).normalized()
 		knockback_timer = knockback_duration
+		take_damage(5)

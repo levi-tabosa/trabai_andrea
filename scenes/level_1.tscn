@@ -93,7 +93,7 @@ enemy_sprite_frames = SubResource("SpriteFrames_4nkto")
 [node name="EnemyPath2" parent="." instance=ExtResource("4_pa8r4")]
 position = Vector2(820, 116)
 enemy_chase_distance = 200.0
-enemy_shooting_range = 15000.0
+enemy_shooting_range = 1499.0
 enemy_patrol_loops = 9
 enemy_mov_state = 1
 enemy_fire_state = 1
