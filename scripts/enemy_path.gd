@@ -8,6 +8,8 @@ extends Path2D
 @export var enemy_patrol_loops := 2
 @export var enemy_mov_state := Enemy.MOB_BEHAVIOR.CHASING
 @export var enemy_fire_state := Enemy.FIRE_BEHAVIOR.ON_CHASE
+@export var enemy_sprite_frames: SpriteFrames
+@export var enemy_scale_factor: float = 3.0
 
 func configure_enemy(enemy: Node) -> void:
 	if enemy.has_method("configure_from_path"):

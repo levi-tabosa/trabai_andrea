@@ -34,10 +34,8 @@ var knockback_timer := 0.0
 var knockback_direction := Vector2.ZERO
 enum PlayerDir { RIGHT, UP, LEFT, DOWN }
 var last_dir := PlayerDir.RIGHT
-var orbit_angle := 1
+var orbit_angle := 1.0
 var orbit_projectiles := []
-
-# Controle de animação de tiro
 var is_shooting := false
 var shooting_timer := 0.0
 const SHOOT_ANIM_DURATION := 0.4
@@ -174,7 +172,6 @@ func shoot() -> void:
 			if proj:
 				orbit_projectiles.append(proj)
 
-	# Ativa animação de tiro conforme direção
 	match last_dir:
 		PlayerDir.LEFT:
 			animated.play("shoot-left")
@@ -183,7 +180,7 @@ func shoot() -> void:
 		PlayerDir.UP:
 			animated.play("shoot-up")
 		PlayerDir.DOWN:
-			animated.play("shoot-down") # opcional
+			animated.play("shoot-down")
 
 	is_shooting = true
 	shooting_timer = SHOOT_ANIM_DURATION
@@ -200,7 +197,6 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 	projectile.set_meta("is_enemy_projectile", false)
 	projectile.set_meta("shooter", self)
 
-	# Offset dinâmico baseado na direção do tiro
 	var base_offset := Vector2.ZERO
 	match last_dir:
 		PlayerDir.RIGHT:
@@ -213,23 +209,19 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 			base_offset = Vector2(10, 50)
 
 
-	# Posição final de spawn do projétil
 	var spawn_pos = global_position + base_offset + offset
 	projectile.global_position = spawn_pos
 
-	# Direção e velocidade do projétil
 	var direction_angle = get_shoot_direction_angle() + angle_offset
 	var direction = Vector2(cos(direction_angle), sin(direction_angle)).normalized()
 	projectile.direction = direction
 	projectile.set_meta("direction", direction)
 	projectile.speed = projectile_speed
 
-	# Rotaciona o sprite do projétil (caso exista)
 	if projectile.has_node("AnimatedSprite2D"):
 		var sprite = projectile.get_node("AnimatedSprite2D")
 		sprite.rotation = direction.angle()
-
-	# Configurações para modos especiais de tiro
+	
 	if is_sine:
 		projectile.set_meta("is_sine", true)
 		projectile.set_meta("sine_amplitude", sine_amplitude)

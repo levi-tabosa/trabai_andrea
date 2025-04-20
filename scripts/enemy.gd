@@ -15,6 +15,7 @@ class_name Enemy
 @export var shooting_range := 150.0 
 @export var mov_state := MOB_BEHAVIOR.PATROLLING
 @export var fire_state := FIRE_BEHAVIOR.ON_CHASE
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var path_points: Array[Vector2] = []
 var current_point_index := 0
@@ -100,30 +101,27 @@ func configure_from_path(path_node: Node) -> void:
 	if path_node.has_method("get_script") and path_node.get_script() != null:
 		if path_node.get("enemy_speed") != null:
 			speed = path_node.enemy_speed
-			
 		if path_node.get("enemy_chase_distance") != null:
 			chase_distance = path_node.enemy_chase_distance
-			
 		if path_node.get("enemy_patrol_loops") != null:
 			patrol_loops = path_node.enemy_patrol_loops
-			
 		if path_node.get("enemy_fire_rate") != null:
 			fire_rate = path_node.enemy_fire_rate
 			if shoot_timer:
 				shoot_timer.wait_time = fire_rate
-				
 		if path_node.get("enemy_projectile_speed") != null:
 			projectile_speed = path_node.enemy_projectile_speed
-			
 		if path_node.get("enemy_shooting_range") != null:
 			shooting_range = path_node.enemy_shooting_range
-		
 		if path_node.get("enemy_mov_state") != null:
 			mov_state = path_node.enemy_mov_state
-		
 		if path_node.get("enemy_fire_state") != null:
 			fire_state = path_node.enemy_fire_state
-		
+		if path_node.get("enemy_sprite_frames") != null and sprite:
+			sprite.sprite_frames = path_node.enemy_sprite_frames
+			sprite.play() # Optionally play a default animation
+		if path_node.get("enemy_scale_factor") != null:
+			scale = Vector2(path_node.enemy_scale_factor, path_node.enemy_scale_factor)
 		print("Enemy configured from path: ", path_node.name)
 
 func _physics_process(delta: float) -> void:
@@ -229,6 +227,7 @@ func shoot() -> void:
 		var sprite = projectile.get_node("AnimatedSprite2D")
 		sprite.rotation = direction.angle()
 		
+		sprite.modulate = Color(1, 0.2, 0.2)
 		if sprite.has_method("play"):
 			sprite.play("enemy_projectile")
 	

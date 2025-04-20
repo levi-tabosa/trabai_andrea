@@ -1,10 +1,73 @@
-[gd_scene load_steps=6 format=3 uid="uid://etsqkbhmu0px"]
+[gd_scene load_steps=14 format=3 uid="uid://etsqkbhmu0px"]
 
 [ext_resource type="Script" uid="uid://dkilt3tpbwo0i" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://irxs732e8uoa" path="res://scenes/ui.tscn" id="2_4nkto"]
 [ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="4_pa8r4"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="7_15mv3"]
+
+[sub_resource type="Curve2D" id="Curve2D_fcfvj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 371, 74, 0, 0, 0, 0, 46, 80)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("7_15mv3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("7_15mv3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("7_15mv3")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("7_15mv3")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nkto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcfvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="main" type="Node"]
 script = ExtResource("1_4nkto")
@@ -23,7 +86,10 @@ position = Vector2(167, 193)
 
 [node name="EnemyPath" parent="." instance=ExtResource("4_pa8r4")]
 position = Vector2(439, 105)
-enemy_patrol_loops = 0
+curve = SubResource("Curve2D_fcfvj")
+enemy_patrol_loops = 9
+enemy_mov_state = 1
+enemy_sprite_frames = SubResource("SpriteFrames_4nkto")
 
 [node name="EnemyPath2" parent="." instance=ExtResource("4_pa8r4")]
 position = Vector2(820, 116)
@@ -32,3 +98,4 @@ enemy_shooting_range = 15000.0
 enemy_patrol_loops = 9
 enemy_mov_state = 1
 enemy_fire_state = 1
+enemy_sprite_frames = SubResource("SpriteFrames_fcfvj")
