@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 @export var speed := 100.0
 @export var chase_distance := 100.0
 @export var path_node: NodePath  # Path to the Path2D node for patrolling
@@ -12,10 +14,11 @@ extends CharacterBody2D
 @export var fire_rate := 1.0  # Slower than player by default
 @export var projectile_speed := 150.0  # Slower than player
 @export var shooting_range := 150.0  # Enemy will shoot when player is within this range
+@export var mov_state := MOB_BEHAVIOR.PATROLLING
+@export var fire_state:= FIRE_BEHAVIOR.ON_CHASE
 
 var path_points: Array[Vector2] = []
 var current_point_index := 0
-var state := MOB_BEHAVIOR.PATROLLING
 var player: Node2D = null 
 var loops_completed := 0
 var force_chase_after_loops := false 
@@ -28,6 +31,11 @@ enum MOB_BEHAVIOR {
 	PATROLLING
 }
 
+enum FIRE_BEHAVIOR {
+	ON_CHASE,
+	IN_RANGE,
+}
+
 func _ready() -> void:
 	add_to_group("mobs") # Good practice
 
@@ -36,39 +44,29 @@ func _ready() -> void:
 		print("HealthComponent not assigned in editor, creating default.")
 		health_component = HealthComponent.new()
 		health_component.max_health = 50
-		add_child(health_component) # Add the created component as a child
+		add_child(health_component)
 
-	# Ensure connection only happens if health_component is valid
 	if health_component:
-		# Check if already connected to prevent duplicate connections if _ready is called multiple times (unlikely but safe)
 		if not health_component.health_depleted.is_connected(_on_death):
 			health_component.health_depleted.connect(_on_death)
 	else:
-		printerr("Enemy requires a HealthComponent!") # Print an error if still no component
+		printerr("Enemy requires a HealthComponent!")
 
-	# --- Player Node Setup ---
-	if player_node: # Check if the NodePath is assigned
-		player = get_node_or_null(player_node) # Use get_node_or_null for safety
-	else:
-		player = get_tree().get_root().get_node("main").get_node("player")
-		print(player)
 
+	player = get_tree().get_root().get_node("main").get_node("player")
 	if not player:
-		printerr("Player node not found or not assigned! Check 'player_node' export variable in the inspector. Path was: ", player_node)
-		# Optionally, disable the enemy or stop processing if player is essential
-		# set_physics_process(false)
-		# return # Exit _ready early if no player
+		return
 
-	# --- Path Node Setup ---
-	if path_node: # Check if the NodePath is assigned
-		var path = get_node_or_null(path_node) # Use get_node_or_null
+	if path_node:
+		var path = get_node_or_null(path_node)
 		if path and path is Path2D:
+			if path.get_script() != null:
+				configure_from_path(path)
+			
 			if path.curve and path.curve.get_point_count() > 0:
 				var local_points = path.curve.get_baked_points()
-				if local_points: # Check if baking points worked
-					print(local_points)
+				if local_points:
 					for local_point in local_points:
-						# Convert point from Path2D's local space to global world space
 						var global_point = path.to_global(local_point)
 						path_points.append(global_point)
 					print("Path points loaded: ", path_points.size())
@@ -83,18 +81,14 @@ func _ready() -> void:
 	else:
 		printerr("'path_node' export variable not assigned in the inspector.")
 
-	# Check if path points were successfully loaded
 	if path_points.size() == 0:
 		printerr("No path points loaded. Enemy will not patrol.")
 		
-	# Ensure patrol_loops is at least 1
-	if patrol_loops < 1:
+	if patrol_loops == 0:
 		force_chase_after_loops = true
-		#patrol_loops = 9223372036854775807 #i64 max
-		print("Patrol loops set to minimum value of 1")
-	
-	# --- Shooting Setup ---
-	# Load projectile scene
+	elif patrol_loops < 0:
+		patrol_loops = 0xFFFF_FFFF
+
 	projectile_scene = preload("res://scenes/projectile.tscn")
 	if not projectile_scene:
 		printerr("Failed to load projectile scene. Enemy won't be able to shoot.")
@@ -106,25 +100,47 @@ func _ready() -> void:
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 	add_child(shoot_timer)
 
+# New method to receive configuration from a Path2D node
+func configure_from_path(path_node: Node) -> void:
+	if path_node.has_method("get_script") and path_node.get_script() != null:
+		if path_node.get("enemy_speed") != null:
+			speed = path_node.enemy_speed
+			
+		if path_node.get("enemy_chase_distance") != null:
+			chase_distance = path_node.enemy_chase_distance
+			
+		if path_node.get("enemy_patrol_loops") != null:
+			patrol_loops = path_node.enemy_patrol_loops
+			
+		if path_node.get("enemy_fire_rate") != null:
+			fire_rate = path_node.enemy_fire_rate
+			if shoot_timer:
+				shoot_timer.wait_time = fire_rate
+				
+		if path_node.get("enemy_projectile_speed") != null:
+			projectile_speed = path_node.enemy_projectile_speed
+			
+		if path_node.get("enemy_shooting_range") != null:
+			shooting_range = path_node.enemy_shooting_range
+			
+		print("Enemy configured from path: ", path_node.name)
 
 func _physics_process(delta: float) -> void:
-	if not player or (state == MOB_BEHAVIOR.PATROLLING and path_points.size() == 0):
+	if not player or (mov_state == MOB_BEHAVIOR.PATROLLING and path_points.size() == 0):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
 	var distance_to_player = global_position.distance_to(player.global_position)
 	
-	# --- State Logic ---
 	if distance_to_player < chase_distance or force_chase_after_loops:
-		state = MOB_BEHAVIOR.CHASING
-	elif state == MOB_BEHAVIOR.CHASING and distance_to_player > chase_distance + 20 and not force_chase_after_loops:
+		mov_state = MOB_BEHAVIOR.CHASING
+	elif mov_state == MOB_BEHAVIOR.CHASING and distance_to_player > chase_distance + 20 and not force_chase_after_loops:
 		if path_points.size() > 0:
-			state = MOB_BEHAVIOR.PATROLLING
+			mov_state = MOB_BEHAVIOR.PATROLLING
 			current_point_index = find_closest_path_point()
 
-	# --- Movement Logic ---
-	if state == MOB_BEHAVIOR.PATROLLING:
+	if mov_state == MOB_BEHAVIOR.PATROLLING:
 		if path_points.size() > 0:
 			var target_point = path_points[current_point_index]
 			var direction = (target_point - global_position).normalized()
@@ -139,21 +155,24 @@ func _physics_process(delta: float) -> void:
 					
 					if loops_completed >= patrol_loops:
 						force_chase_after_loops = true
-						state = MOB_BEHAVIOR.CHASING
+						mov_state = MOB_BEHAVIOR.CHASING
 						print("All patrol loops completed, switching to chase mode permanently")
 		else:
 			velocity = Vector2.ZERO
 
-	elif state == MOB_BEHAVIOR.CHASING:
+	elif mov_state == MOB_BEHAVIOR.CHASING:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 
 	move_and_slide()
 	
-	# --- Shooting Logic ---
-	if can_shoot and distance_to_player <= shooting_range:
-		shoot()
-
+	match fire_state:
+		FIRE_BEHAVIOR.ON_CHASE:
+			if can_shoot and distance_to_player <= shooting_range and mov_state == MOB_BEHAVIOR.CHASING:
+				shoot()
+		FIRE_BEHAVIOR.IN_RANGE:
+			if can_shoot and distance_to_player <= shooting_range:
+				shoot()
 
 func find_closest_path_point() -> int:
 	if path_points.size() == 0:
@@ -181,38 +200,29 @@ func take_damage(amount: int) -> void:
 
 
 func _on_death() -> void:
-	# Add score or other death effects here if needed *before* queue_free
-	# Example: get_tree().call_group("game_manager", "increase_score", score_value)
+	#get_tree().call_group("game_manager", "increase_score", score_value)
 	print("Enemy died!")
 	queue_free()
 	
-# --- Shooting Functions ---
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
 func shoot() -> void:
 	if not projectile_scene:
 		return
-		
-	# Create the projectile
+
 	var projectile = projectile_scene.instantiate()
-	
-	# Calculate direction to player
+
 	var direction = (player.global_position - global_position).normalized()
 	
-	# Position the projectile in front of the enemy
 	var spawn_position = global_position + direction * 30
 	projectile.global_position = spawn_position
 	
-	# Set direction and speed
 	projectile.direction = direction
 	projectile.set_meta("direction", direction)
 	projectile.speed = projectile_speed
 	
-	# Make sure it's an enemy projectile
 	projectile.set_meta("is_enemy_projectile", true)
-	
-	# Store reference to the shooter (THIS IS THE KEY FIX!)
 	projectile.set_meta("shooter", self)
 	
 	# If projectile has AnimatedSprite2D, rotate it to face direction
@@ -224,9 +234,7 @@ func shoot() -> void:
 		if sprite.has_method("play"):
 			sprite.play("enemy_projectile")
 	
-	# Add the projectile to the scene
 	get_tree().get_root().get_node("main").add_child(projectile)
 	
-	# Start cooldown
 	can_shoot = false
 	shoot_timer.start()

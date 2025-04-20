@@ -21,7 +21,7 @@ enum FireType {
 @export var orbit_radius := 30.0
 @export var orbit_speed := 3.0
 @export var health_component: HealthComponent
-@export var knockback_force := 300.0
+@export var knockback_force := 150.0
 @export var knockback_duration := 0.2
 
 @onready var main = get_tree().get_root().get_node("main")
@@ -246,9 +246,6 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 	main.add_child(projectile)
 	return projectile
 
-
-
-
 func get_shoot_direction_angle() -> float:
 	match last_dir:
 		PlayerDir.RIGHT: return 0.0
@@ -290,19 +287,19 @@ func _on_health_depleted() -> void:
 	print("GAME-OVER")
 	get_tree().reload_current_scene()
 
+func take_damage(amount: int) -> void:
+	if health_component:
+		health_component.take_damage(amount)
+
+		modulate = Color.RED
+		await get_tree().create_timer(0.2).timeout
+		if is_instance_valid(self):
+			modulate = Color.WHITE
+	else:
+		printerr("Cannot take damage, HealthComponent is missing!")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("mobs"):
-		print(health_component.current_health)
-		health_component.take_damage(5)
 		knockback_direction = (global_position - body.global_position).normalized()
 		knockback_timer = knockback_duration
-
-
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("projectiles"):
-		#print(health_component.current_health)
-		#health_component.take_damage(5)
-		#knockback_direction = (global_position - area.global_position).normalized()
-		#knockback_timer = knockback_duration
