@@ -10,9 +10,9 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tch4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jm3e"]
 atlas = ExtResource("2_cnmur")
-region = Rect2(32, 192, 16, 16)
+region = Rect2(96, 192, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kaxol"]
 atlas = ExtResource("2_cnmur")
@@ -62,10 +62,10 @@ region = Rect2(16, 224, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4tch4")
+"texture": SubResource("AtlasTexture_4jm3e")
 }],
 "loop": true,
-"name": &"idle-down",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
