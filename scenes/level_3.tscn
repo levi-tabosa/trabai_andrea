@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj0uysopb72us"]
 
-[ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_70nk6"]
+[ext_resource type="PackedScene" uid="uid://rqtkoqvqjjig" path="res://scenes/house.tscn" id="1_70nk6"]
 
 [node name="level_3" type="Node"]
 
-[node name="Hospital" parent="." instance=ExtResource("1_70nk6")]
+[node name="house" parent="." instance=ExtResource("1_70nk6")]
+position = Vector2(0, -16)
