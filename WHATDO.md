@@ -2,6 +2,7 @@
     - empurrao do inimigo faz player atravessar paredes
 - animações dos inimigos
 - cutscene 
+- nav-mesh pros npc
 
 - englobar aspectos, tais como: ensino, treinamento de procedimentos, desenvolvimento de habilidades e resolução de problemas, voltados à área de Saúde, Computação, Cultura, Educação ou uma combinação destes.
 

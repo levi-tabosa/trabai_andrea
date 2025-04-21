@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://beprwukcivekm"]
+[gd_scene load_steps=33 format=3 uid="uid://beprwukcivekm"]
 
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="1_la7h8"]
+[ext_resource type="Script" uid="uid://d764w1aq05j7" path="res://scripts/area_2d.gd" id="3_cxbdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysjay"]
 size = Vector2(97.5, 164)
@@ -88,6 +89,9 @@ size = Vector2(52.5, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6j7j"]
 size = Vector2(71.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogynv"]
+size = Vector2(75, 20)
 
 [node name="Hospital" type="Node2D"]
 
@@ -216,3 +220,10 @@ shape = SubResource("RectangleShape2D_4vwnh")
 [node name="CollisionShape30" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(290, -269)
 shape = SubResource("RectangleShape2D_y6j7j")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(718, 1091)
+script = ExtResource("3_cxbdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ogynv")
