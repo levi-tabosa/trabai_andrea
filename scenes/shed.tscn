@@ -5,5 +5,6 @@
 [node name="shed" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(766, 518)
+position = Vector2(574, 321.5)
+scale = Vector2(0.75, 0.624023)
 texture = ExtResource("1_422rr")
