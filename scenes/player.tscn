@@ -183,7 +183,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -195,6 +195,9 @@ position = Vector2(3.66667, 5.33333)
 scale = Vector2(1.041, 1)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"idle-down"
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Area2D" type="Area2D" parent="."]
 
