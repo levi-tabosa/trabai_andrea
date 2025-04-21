@@ -33,8 +33,13 @@ enum EnemyDir {
 @export var shooting_range := 150.0 
 @export var mov_state := MOB_BEHAVIOR.PATROLLING
 @export var fire_state := FIRE_BEHAVIOR.ON_CHASE
+<<<<<<< Updated upstream
 @onready var animated: AnimatedSprite2D = $AnimatedSprite2D
+=======
+@onready var animated = $AnimatedSprite2D
+>>>>>>> Stashed changes
 
+var last_direction := Vector2.DOWN
 var path_points: Array[Vector2] = []
 var current_point_index := 0
 var player: Node2D = null 
@@ -68,7 +73,7 @@ func _ready() -> void:
 		if path and path is Path2D:
 			if path.get_script() != null:
 				configure_from_path(path)
-			
+
 			if path.curve and path.curve.get_point_count() > 0:
 				var local_points = path.curve.get_baked_points()
 				if local_points:
@@ -99,13 +104,18 @@ func _ready() -> void:
 	projectile_scene = preload("res://scenes/projectile.tscn")
 	if not projectile_scene:
 		printerr("Failed to load projectile scene. Enemy won't be able to shoot.")
+<<<<<<< Updated upstream
 
+=======
+	
+>>>>>>> Stashed changes
 	shoot_timer = Timer.new()
 	shoot_timer.one_shot = true
 	shoot_timer.wait_time = fire_rate
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 	add_child(shoot_timer)
 
+<<<<<<< Updated upstream
 func configure_from_path(a_path_node: Node) -> void:
 	if a_path_node.has_method("get_script") and a_path_node.get_script() != null:
 		if a_path_node.get("enemy_speed") != null:
@@ -131,6 +141,32 @@ func configure_from_path(a_path_node: Node) -> void:
 		if a_path_node.get("enemy_scale_factor") != null:
 			scale = Vector2(a_path_node.enemy_scale_factor, a_path_node.enemy_scale_factor)
 		print("Enemy configured from path: ", a_path_node.name)
+=======
+func configure_from_path(path_node: Node) -> void:
+	if path_node.has_method("get_script") and path_node.get_script() != null:
+		if path_node.get("enemy_speed") != null:
+			speed = path_node.enemy_speed
+		if path_node.get("enemy_chase_distance") != null:
+			chase_distance = path_node.enemy_chase_distance
+		if path_node.get("enemy_patrol_loops") != null:
+			patrol_loops = path_node.enemy_patrol_loops
+		if path_node.get("enemy_fire_rate") != null:
+			fire_rate = path_node.enemy_fire_rate
+			if shoot_timer:
+				shoot_timer.wait_time = fire_rate
+		if path_node.get("enemy_projectile_speed") != null:
+			projectile_speed = path_node.enemy_projectile_speed
+		if path_node.get("enemy_shooting_range") != null:
+			shooting_range = path_node.enemy_shooting_range
+		if path_node.get("enemy_mov_state") != null:
+			mov_state = path_node.enemy_mov_state
+		if path_node.get("enemy_fire_state") != null:
+			fire_state = path_node.enemy_fire_state
+		if path_node.get("enemy_scale_factor") != null:
+			scale = Vector2(path_node.enemy_scale_factor, path_node.enemy_scale_factor)
+
+		print("Enemy configured from path: ", path_node.name)
+>>>>>>> Stashed changes
 
 func _physics_process(_delta: float) -> void:
 	if not player:
@@ -138,6 +174,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if mov_state == MOB_BEHAVIOR.IDLE:
 		velocity = Vector2.ZERO
+		update_animation()
 		move_and_slide()
 
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -159,7 +196,6 @@ func _physics_process(_delta: float) -> void:
 
 			if global_position.distance_to(target_point) < 5.0:
 				current_point_index = (current_point_index + 1) % path_points.size()
-				
 				if current_point_index == 0:
 					loops_completed += 1
 					
@@ -174,7 +210,8 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * speed
 	animate_movement()
 	move_and_slide()
-	
+	update_animation()
+
 	match fire_state:
 		FIRE_BEHAVIOR.ON_CHASE:
 			if can_shoot and distance_to_player <= shooting_range and mov_state == MOB_BEHAVIOR.CHASING:
@@ -182,6 +219,40 @@ func _physics_process(_delta: float) -> void:
 		FIRE_BEHAVIOR.IN_RANGE:
 			if can_shoot and distance_to_player <= shooting_range:
 				shoot()
+
+func update_animation():
+	if not animated:
+		return
+
+	var dir = velocity.normalized()
+	var anim_name = ""
+
+	if dir.length() < 0.1:
+		if abs(last_direction.x) > abs(last_direction.y):
+			if last_direction.x > 0:
+				anim_name = "idle-right"
+			else:
+				anim_name = "idle-left"
+		else:
+			if last_direction.y > 0:
+				anim_name = "idle-down"
+			else:
+				anim_name = "idle-up"
+	else:
+		last_direction = dir
+		if abs(dir.x) > abs(dir.y):
+			if dir.x > 0:
+				anim_name = "walk-right"
+			else:
+				anim_name = "walk-left"
+		else:
+			if dir.y > 0:
+				anim_name = "walk-down"
+			else:
+				anim_name = "walk-up"
+
+	if animated.animation != anim_name:
+		animated.play(anim_name)
 
 func find_closest_path_point() -> int:
 	if path_points.size() == 0:
@@ -231,7 +302,6 @@ func animate_movement() -> void:
 func take_damage(amount: int) -> void:
 	if health_component:
 		health_component.take_damage(amount)
-
 		modulate = Color.RED
 		await get_tree().create_timer(0.2).timeout
 		if is_instance_valid(self):
@@ -239,12 +309,14 @@ func take_damage(amount: int) -> void:
 	else:
 		printerr("Cannot take damage, HealthComponent is missing!")
 
-
 func _on_death() -> void:
+<<<<<<< Updated upstream
 	# get_tree().call_group("game_manager", "increase_score", score_value)
+=======
+>>>>>>> Stashed changes
 	print("Enemy died!")
 	queue_free()
-	
+
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
@@ -267,6 +339,7 @@ func shoot() -> void:
 	projectile.set_meta("shooter", self)
 	
 	if projectile.has_node("AnimatedSprite2D"):
+<<<<<<< Updated upstream
 		var a_sprite = projectile.get_node("AnimatedSprite2D")
 		a_sprite.rotation = direction.angle()
 		
@@ -274,6 +347,13 @@ func shoot() -> void:
 		a_sprite.modulate = Color(1, 0.2, 0.2)
 		if a_sprite.has_method("play"):
 			a_sprite.play("enemy_projectile")
+=======
+		var sprite = projectile.get_node("AnimatedSprite2D")
+		sprite.rotation = direction.angle()
+		sprite.modulate = Color(1, 0.2, 0.2)
+		if sprite.has_method("play"):
+			sprite.play("enemy_projectile")
+>>>>>>> Stashed changes
 	
 	get_tree().get_root().get_node("main").add_child(projectile)
 	
