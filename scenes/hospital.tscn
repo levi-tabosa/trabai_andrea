@@ -95,138 +95,88 @@ size = Vector2(71.5, 64)
 position = Vector2(760, 596)
 texture = ExtResource("1_la7h8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(760, 596)
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
 
-<<<<<<< Updated upstream
-[node name="CollisionShape1" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-422, -293.5)
-=======
 [node name="CollisionShape1" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-422, -300)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_ysjay")
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-720, -209.5)
 shape = SubResource("RectangleShape2D_cxbdb")
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-401.5, -52.5)
 shape = SubResource("RectangleShape2D_uvncx")
 
-[node name="CollisionShape4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape4" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-675.5, -22.5)
 shape = SubResource("RectangleShape2D_ptr5v")
 
-[node name="CollisionShape5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape5" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-665.5, 227.5)
 shape = SubResource("RectangleShape2D_6if2h")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-433.5, 225)
-shape = SubResource("RectangleShape2D_la7h8")
-
-[node name="CollisionShape7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-200.188, 165)
-=======
 [node name="CollisionShape6" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-428.063, 225)
 shape = SubResource("RectangleShape2D_la7h8")
 
 [node name="CollisionShape7" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-203.5, 174.5)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_4ov0p")
 
-[node name="CollisionShape8" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape8" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-38, 295.75)
 shape = SubResource("RectangleShape2D_l86x5")
 
-[node name="CollisionShape9" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape9" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-555.75, 400.25)
 shape = SubResource("RectangleShape2D_7bm6o")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape10" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(328.5, -55.5)
-shape = SubResource("RectangleShape2D_8hcg4")
-
-[node name="CollisionShape11" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-41, -81)
-=======
 [node name="CollisionShape10" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(321, -55.5)
 shape = SubResource("RectangleShape2D_8hcg4")
 
 [node name="CollisionShape11" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-37.5, -91.5)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_obmeq")
 
-[node name="CollisionShape12" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape12" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(32.5, -204)
 shape = SubResource("RectangleShape2D_x6034")
 
-[node name="CollisionShape13" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape13" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-44, -266)
 shape = SubResource("RectangleShape2D_spnv4")
 
-[node name="CollisionShape14" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape14" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-10, -435.75)
 shape = SubResource("RectangleShape2D_m2csy")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape15" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11, 552)
-=======
 [node name="CollisionShape15" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(11, 554.375)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_m2csy")
 
-[node name="CollisionShape16" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape16" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-122, -188)
 shape = SubResource("RectangleShape2D_fdwgw")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape17" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(612, 221.5)
-=======
 [node name="CollisionShape17" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(616, 221.5)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_h8utp")
 
-[node name="CollisionShape18" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape18" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(655, -57.5)
 shape = SubResource("RectangleShape2D_i5ljo")
 
-[node name="CollisionShape19" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape19" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(838, 39)
 shape = SubResource("RectangleShape2D_1i5od")
 
-[node name="CollisionShape20" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape20" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-823, 2)
 shape = SubResource("RectangleShape2D_uwrmr")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape21" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-128, 63)
-shape = SubResource("RectangleShape2D_8o4f3")
-
-[node name="CollisionShape22" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(57, 79)
-shape = SubResource("RectangleShape2D_p4evf")
-
-[node name="CollisionShape23" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(133.5, 167)
-shape = SubResource("RectangleShape2D_7hfks")
-
-[node name="CollisionShape24" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(360, 203)
-=======
 [node name="CollisionShape21" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-130, 72)
 shape = SubResource("RectangleShape2D_8o4f3")
@@ -241,34 +191,28 @@ shape = SubResource("RectangleShape2D_7hfks")
 
 [node name="CollisionShape24" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(354, 203)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_hp2ac")
 
-[node name="CollisionShape25" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape25" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(473.5, -312)
 shape = SubResource("RectangleShape2D_p6ike")
 
-[node name="CollisionShape26" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape26" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(703, -351)
 shape = SubResource("RectangleShape2D_yllng")
 
-[node name="CollisionShape27" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape27" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(516, 392)
 shape = SubResource("RectangleShape2D_qpy05")
 
-<<<<<<< Updated upstream
-[node name="CollisionShape28" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-558.5, 260.25)
-=======
 [node name="CollisionShape28" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-563.5, 260.25)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_6hxca")
 
-[node name="CollisionShape29" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape29" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(428.75, -270)
 shape = SubResource("RectangleShape2D_4vwnh")
 
-[node name="CollisionShape30" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape30" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(290, -269)
 shape = SubResource("RectangleShape2D_y6j7j")
