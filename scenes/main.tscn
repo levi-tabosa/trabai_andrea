@@ -8,7 +8,7 @@
 [node name="main" type="Node"]
 
 [node name="Hospital" parent="." instance=ExtResource("1_sugp2")]
-position = Vector2(103, -97)
+position = Vector2(-12, -10)
 
 [node name="UI" parent="." instance=ExtResource("2_0wfyh")]
 offset_left = 128.0
@@ -18,9 +18,11 @@ offset_bottom = 179.0
 
 [node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(488, 110)
+scale = Vector2(0.8, 0.8)
 
 [node name="EnemyPath2" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(496, 319)
+scale = Vector2(0.8, 0.8)
 
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
