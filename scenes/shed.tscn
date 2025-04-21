@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bijt6id4go4ll"]
+
+[ext_resource type="Texture2D" uid="uid://4ffxfpkvjyny" path="res://assets/ChatGPT Image 21 de abr. de 2025, 15_30_43.png" id="1_422rr"]
+
+[node name="shed" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(766, 518)
+texture = ExtResource("1_422rr")
