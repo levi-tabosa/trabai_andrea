@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmiro8yifscmv"]
+[gd_scene load_steps=17 format=3 uid="uid://c1qgb3ddwtly"]
 
 [ext_resource type="Script" uid="uid://4diuh440gu7a" path="res://scripts/enemy_2.gd" id="1_fi5i3"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="1_hqy2m"]
