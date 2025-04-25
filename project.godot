@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Hell_fantasy"
-run/main_scene="uid://d2dqbt4clvd8d"
+run/main_scene="uid://d4bvi0psj51d7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[autoload]
+
+DialogueManager="*res://scripts/dialogue_manager.gd"
 
 [input]
 
