@@ -26,7 +26,7 @@ enum FireType {
 @export var knockback_duration := 0.2
 
 @onready var main = get_tree().get_root().get_node("main")
-@onready var ui = get_node("/root/main/UI")
+@onready var ui = $UI
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shoot_timer = $ShootTimer
 @onready var animated = $AnimatedSprite2D

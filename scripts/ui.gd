@@ -6,15 +6,15 @@ var fire_mode_labels = []
 
 func _ready() -> void:
 	fire_mode_labels = $FireModes.get_children()
-	assert(fire_mode_labels.size() == 7, "Expected 7 fire mode labels, got %d" % fire_mode_labels.size())
+
+	self.position.x -= 9
+	self.position.y -= 12
+	self.scale = Vector2(0.08, 0.08)
 
 	var player = get_tree().get_root().get_node("main/player")
-	player.print_tree_pretty()
-
 	call_deferred("set_up_health_bar", player)
 
 func set_up_health_bar(player: CharacterBody2D) -> void:
-	print("Setting up health bar", player, player.health_component)
 	player.health_component.health_changed.connect(_on_player_health_changed)
 	health_bar.max_value = player.health_component.max_health
 	health_bar.value = player.health_component.current_health
