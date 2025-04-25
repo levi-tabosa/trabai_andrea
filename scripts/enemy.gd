@@ -15,6 +15,7 @@ class_name Enemy
 @export var shooting_range := 150.0 
 @export var mov_state := MOB_BEHAVIOR.PATROLLING
 @export var fire_state := FIRE_BEHAVIOR.ON_CHASE
+@export var has_projectile := false
 @onready var animated = $AnimatedSprite2D
 
 
@@ -121,6 +122,8 @@ func configure_from_path(blz_path_node: Node) -> void:
 			scale = Vector2(blz_path_node.enemy_scale_factor, blz_path_node.enemy_scale_factor)
 		if blz_path_node.get("enemy_sprite_frames") != null:
 			animated.sprite_frames = blz_path_node.enemy_sprite_frames
+		if blz_path_node.get("enemy_has_projectile") != null:
+			has_projectile = blz_path_node.enemy_has_projectile
 		
 		print("Enemy configured from path: ", blz_path_node.name)
 
@@ -165,6 +168,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	update_animation()
+	
+	if(not has_projectile): 
+		return
 
 	match fire_state:
 		FIRE_BEHAVIOR.ON_CHASE:
