@@ -17,13 +17,14 @@ enemy_speed = 1.0
 
 [node name="EnemyPath2" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(657, 357)
-enemy_speed = 200.0
+enemy_speed = 1.0
 enemy_patrol_loops = 0
 enemy_sprite_frames = ExtResource("4_tefeu")
 enemy_scale_factor = 2.0
 
 [node name="EnemyPath3" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(573, 100)
+enemy_speed = 1.0
 enemy_sprite_frames = ExtResource("5_tefeu")
 enemy_scale_factor = 2.0
 
