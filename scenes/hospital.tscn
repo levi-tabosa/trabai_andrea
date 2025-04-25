@@ -227,5 +227,5 @@ position = Vector2(718, 1091)
 script = ExtResource("3_cxbdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -376)
+position = Vector2(-195, -444)
 shape = SubResource("RectangleShape2D_ogynv")
