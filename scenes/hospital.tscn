@@ -91,7 +91,7 @@ size = Vector2(52.5, 58)
 size = Vector2(71.5, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogynv"]
-size = Vector2(74.5, 57)
+size = Vector2(74.5, 24)
 
 [node name="Hospital" type="Node2D"]
 
@@ -227,5 +227,5 @@ position = Vector2(718, 1091)
 script = ExtResource("3_cxbdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-195.25, -462.5)
+position = Vector2(-195.25, -446)
 shape = SubResource("RectangleShape2D_ogynv")
