@@ -5,7 +5,7 @@ extends Path2D
 @export var enemy_fire_rate := 1.0
 @export var enemy_projectile_speed := 150.0
 @export var enemy_shooting_range := 150.0
-@export var enemy_patrol_loops := 2
+@export var enemy_patrol_loops := 6
 @export var enemy_mov_state := Enemy.MOB_BEHAVIOR.CHASING
 @export var enemy_fire_state := Enemy.FIRE_BEHAVIOR.ON_CHASE
 @export var enemy_sprite_frames: SpriteFrames
