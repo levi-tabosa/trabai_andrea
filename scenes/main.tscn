@@ -28,5 +28,5 @@ enemy_sprite_frames = SubResource("SpriteFrames_jyhfs")
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
 
-[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
+[node name="EnemyPath3" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(302, 101)
