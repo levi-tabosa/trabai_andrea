@@ -16,13 +16,8 @@ offset_top = 29.0
 offset_right = 128.0
 offset_bottom = 179.0
 
-[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(488, 110)
-scale = Vector2(0.8, 0.8)
-
-[node name="EnemyPath2" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(496, 319)
-scale = Vector2(0.8, 0.8)
-
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
+
+[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(302, 101)

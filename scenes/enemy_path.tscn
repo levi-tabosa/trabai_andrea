@@ -1,38 +1,40 @@
-[gd_scene load_steps=18 format=3 uid="uid://baynvyo0fscvw"]
+[gd_scene load_steps=20 format=3 uid="uid://baynvyo0fscvw"]
 
 [ext_resource type="Script" uid="uid://bdo4soctm5xno" path="res://scripts/enemy_path.gd" id="1_ov72x"]
 [ext_resource type="PackedScene" uid="uid://yg7nkj6i3yob" path="res://scenes/enemy.tscn" id="2_4jm3e"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_cnmur"]
+[ext_resource type="Texture2D" uid="uid://bf0iqfgiuk3v1" path="res://assets/ChatGPT Image 25 de abr. de 2025, 11_49_35.png" id="3_4tch4"]
+[ext_resource type="Texture2D" uid="uid://g3wl6ilsa7j6" path="res://assets/ChatGPT Image 25 de abr. de 2025, 12_09_25.png" id="4_kaxol"]
 
 [sub_resource type="Curve2D" id="Curve2D_cgpjw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 40, 216, 0, 0, 0, 0, 167, 217, 0, 0, 0, 0, 164, 52, 0, 0, 0, 0, 44, 45, 0, 0, 0, 0, 42, 220, 0, 0, 0, 0, 41, 53, 0, 0, 0, 0, 44, 36)
+"points": PackedVector2Array(0, 0, 0, 0, 40, 216, 0, 0, 0, 0, 167, 217, 0, 0, 0, 0, 164, 52, 0, 0, 0, 0, 44, 45, 0, 0, 0, 0, 45, 57.5, 0, 0, 0, 0, 42, 220, 0, 0, 0, 0, 41, 53, 0, 0, 0, 0, 44, 36)
 }
-point_count = 7
+point_count = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jm3e"]
 atlas = ExtResource("2_cnmur")
 region = Rect2(96, 192, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kaxol"]
-atlas = ExtResource("2_cnmur")
-region = Rect2(128, 192, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuw2b"]
-atlas = ExtResource("2_cnmur")
-region = Rect2(240, 192, 16, 16)
+atlas = ExtResource("3_4tch4")
+region = Rect2(250, 332, 125, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_725tx"]
-atlas = ExtResource("2_cnmur")
-region = Rect2(64, 224, 16, 16)
+atlas = ExtResource("3_4tch4")
+region = Rect2(250, 166, 125, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j82ee"]
-atlas = ExtResource("2_cnmur")
-region = Rect2(240, 160, 16, 16)
+atlas = ExtResource("3_4tch4")
+region = Rect2(250, 0, 125, 166)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jox4e"]
-atlas = ExtResource("2_cnmur")
-region = Rect2(32, 192, 16, 16)
+atlas = ExtResource("3_4tch4")
+region = Rect2(136, 332, 121, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cidyv"]
+atlas = ExtResource("4_kaxol")
+region = Rect2(15, 0, 241, 442)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6qq3"]
 atlas = ExtResource("2_cnmur")
@@ -70,7 +72,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kaxol")
+"texture": SubResource("AtlasTexture_uuw2b")
 }],
 "loop": true,
 "name": &"idle-left",
@@ -78,7 +80,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uuw2b")
+"texture": SubResource("AtlasTexture_725tx")
 }],
 "loop": true,
 "name": &"idle-right",
@@ -86,7 +88,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_725tx")
+"texture": SubResource("AtlasTexture_j82ee")
 }],
 "loop": true,
 "name": &"idle-up",
@@ -94,10 +96,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j82ee")
+"texture": SubResource("AtlasTexture_jox4e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jox4e")
+"texture": SubResource("AtlasTexture_cidyv")
 }],
 "loop": true,
 "name": &"walk-down",
