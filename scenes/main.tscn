@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4bvi0psj51d7"]
+[gd_scene load_steps=6 format=3 uid="uid://d4bvi0psj51d7"]
 
 [ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="4_jyhfs"]
 [ext_resource type="SpriteFrames" uid="uid://dlagj5u533p8f" path="res://assets/sprite-frames/ghost-frames.tres" id="4_tefeu"]
 [ext_resource type="SpriteFrames" uid="uid://bv0u2t86xnbnw" path="res://assets/sprite-frames/spider-fames.tres" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://b3aya3t4524xy" path="res://scenes/dialogue_ui.tscn" id="6_tefeu"]
 
 [node name="main" type="Node"]
 
@@ -29,5 +28,3 @@ enemy_scale_factor = 2.0
 
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
-
-[node name="DialogueUI" parent="." instance=ExtResource("6_tefeu")]
