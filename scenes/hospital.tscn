@@ -1,7 +1,7 @@
-[gd_scene load_steps=40 format=4 uid="uid://beprwukcivekm"]
+[gd_scene load_steps=39 format=4 uid="uid://beprwukcivekm"]
 
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="1_la7h8"]
-[ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_cxbdb"]
+[ext_resource type="Script" uid="uid://c520iyghaauga" path="res://scripts/area_2d.gd" id="2_ptr5v"]
 [ext_resource type="Texture2D" uid="uid://bwdhp8d6g3xan" path="res://assets/ChatGPT Image 25 de abr. de 2025, 16_29_10.png" id="3_uvncx"]
 [ext_resource type="PackedScene" uid="uid://cciubqifwl1b4" path="res://scenes/dialogue_area.tscn" id="4_uvncx"]
 [ext_resource type="PackedScene" uid="uid://b3aya3t4524xy" path="res://scenes/dialogue_ui.tscn" id="5_ptr5v"]
@@ -12526,7 +12526,7 @@ shape = SubResource("RectangleShape2D_y6j7j")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(718, 1091)
-script = ExtResource("3_cxbdb")
+script = ExtResource("2_ptr5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-195.25, -446)
@@ -12548,3 +12548,5 @@ offset_left = 164.0
 offset_top = 333.0
 offset_right = 403.0
 offset_bottom = 391.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
