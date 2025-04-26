@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=4 uid="uid://beprwukcivekm"]
 
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="1_la7h8"]
-[ext_resource type="Script" uid="uid://d764w1aq05j7" path="res://scripts/area_2d.gd" id="2_ptr5v"]
+[ext_resource type="Script" uid="uid://c520iyghaauga" path="res://scripts/area_2d.gd" id="2_ptr5v"]
 [ext_resource type="Texture2D" uid="uid://bwdhp8d6g3xan" path="res://assets/ChatGPT Image 25 de abr. de 2025, 16_29_10.png" id="3_uvncx"]
 [ext_resource type="PackedScene" uid="uid://cciubqifwl1b4" path="res://scenes/dialogue_area.tscn" id="4_uvncx"]
 [ext_resource type="PackedScene" uid="uid://b3aya3t4524xy" path="res://scenes/dialogue_ui.tscn" id="5_ptr5v"]
@@ -12543,7 +12543,7 @@ position = Vector2(167, 298)
 dialogue_data = "
 {
 	\"start\": {
-		\"text\": \"Penis! What would you like to talk about?\",
+		\"text\": \"DIFERNETe! What would you like to talk about?\",
 		\"choices\": [\"Tell me about this place\", \"I'm looking for something\", \"Goodbye\"],
 		\"next\": [\"about_place\", \"looking_for\", \"goodbye\"]
 	},
