@@ -12566,7 +12566,10 @@ dialogue_data = "
 "
 
 [node name="DialogueArea2" parent="." instance=ExtResource("4_uvncx")]
-position = Vector2(296, 224)
+position = Vector2(321, 222)
+
+[node name="DialogueArea3" parent="." instance=ExtResource("4_uvncx")]
+position = Vector2(108, 145)
 
 [node name="DialogueUI" parent="." instance=ExtResource("5_ptr5v")]
 offset_left = 164.0

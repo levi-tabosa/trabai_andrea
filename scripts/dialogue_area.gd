@@ -28,6 +28,7 @@ extends Area2D
 
 var dialogue_tree = {}
 var dialogue_state = "start"
+var is_player_in_area = false
 
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
@@ -42,23 +43,31 @@ func _ready() -> void:
 		dialogue_tree = {}
 
 func show_current_dialogue() -> void:
+	if not is_player_in_area:
+		return
+		
 	if dialogue_tree.has(dialogue_state):
 		var current_dialogue = dialogue_tree[dialogue_state]
-		DialogueManager.show_dialogue(npc_name, current_dialogue["text"], global_position, current_dialogue["choices"])
+		DialogueManager.show_dialogue(npc_name, current_dialogue["text"], global_position, current_dialogue["choices"], self)
 	else:
 		push_error("Missing dialogue state: " + dialogue_state)
 		DialogueManager.hide_dialogue()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
+		is_player_in_area = true
 		dialogue_state = "start"
 		show_current_dialogue()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "player":
+		is_player_in_area = false
 		DialogueManager.hide_dialogue()
 
 func _on_choice_made(choice_index: int) -> void:
+	if not is_player_in_area:
+		return
+		
 	if dialogue_state in dialogue_tree:
 		var current_dialogue = dialogue_tree[dialogue_state]
 		
