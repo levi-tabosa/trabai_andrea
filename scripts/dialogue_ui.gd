@@ -11,7 +11,8 @@ var choice_buttons = []
 func _ready() -> void:
 	hide_dialogue()
 
-func show_dialogue(title: String, text: String, choices: Array = []) -> void:
+func show_dialogue(title: String, text: String, pos: Vector2, choices: Array = []) -> void:
+	global_position = pos
 	title_label.text = title
 	text_label.text = text
 	panel.visible = true

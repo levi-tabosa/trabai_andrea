@@ -1,6 +1,6 @@
 extends Node
 
-signal dialogue_started(title, text, choices)
+signal dialogue_started(title, text, choices, pos)
 signal dialogue_ended
 signal choice_made(choice_index)
 
@@ -10,9 +10,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	dialogue_ui = get_tree().get_root().find_child("DialogueUI", true, false)
 
-func show_dialogue(title: String, text: String, choices: Array = []) -> void:
+func show_dialogue(title: String, text: String, pos: Vector2, choices: Array = []) -> void:
 	if dialogue_ui:
-		dialogue_ui.show_dialogue(title, text, choices)
+		dialogue_ui.show_dialogue(title, text, pos, choices)
 	emit_signal("dialogue_started", title, text, choices)
 
 func hide_dialogue() -> void:

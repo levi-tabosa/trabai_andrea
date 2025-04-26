@@ -44,7 +44,7 @@ func _ready() -> void:
 func show_current_dialogue() -> void:
 	if dialogue_tree.has(dialogue_state):
 		var current_dialogue = dialogue_tree[dialogue_state]
-		DialogueManager.show_dialogue(npc_name, current_dialogue["text"], current_dialogue["choices"])
+		DialogueManager.show_dialogue(npc_name, current_dialogue["text"], global_position, current_dialogue["choices"])
 	else:
 		push_error("Missing dialogue state: " + dialogue_state)
 		DialogueManager.hide_dialogue()
