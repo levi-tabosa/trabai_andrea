@@ -11,6 +11,7 @@ script/source = "extends Node2D
 
 func _ready() -> void:
 	print(\"Hospital ready\")
+	print_tree_pretty()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysjay"]
@@ -12539,6 +12540,30 @@ tile_set = SubResource("TileSet_4ov0p")
 
 [node name="DialogueArea" parent="." instance=ExtResource("4_uvncx")]
 position = Vector2(167, 298)
+dialogue_data = "
+{
+	\"start\": {
+		\"text\": \"Penis! What would you like to talk about?\",
+		\"choices\": [\"Tell me about this place\", \"I'm looking for something\", \"Goodbye\"],
+		\"next\": [\"about_place\", \"looking_for\", \"goodbye\"]
+	},
+	\"about_place\": {
+		\"text\": \"This is a place. People come here.\",
+		\"choices\": [\"Back to main topics\"],
+		\"next\": [\"start\"]
+	},
+	\"looking_for\": {
+		\"text\": \"What are you looking for?\",
+		\"choices\": [\"Nothing specific\", \"Back to main topics\"],
+		\"next\": [\"start\", \"start\"]
+	},
+	\"goodbye\": {
+		\"text\": \"Goodbye! Feel free to talk again if you need anything.\",
+		\"choices\": [],
+		\"next\": []
+	}
+}
+"
 
 [node name="DialogueArea2" parent="." instance=ExtResource("4_uvncx")]
 position = Vector2(296, 224)
