@@ -42,7 +42,6 @@ func _ready() -> void:
 	add_to_group("mobs")
 
 	if not health_component:
-		print("creating default HealthComponent.")
 		health_component = HealthComponent.new()
 		health_component.max_health = 50
 		add_child(health_component)
@@ -68,7 +67,6 @@ func _ready() -> void:
 					for local_point in local_points:
 						var global_point = path.to_global(local_point)
 						path_points.append(global_point)
-					print("Path points loaded: ", path_points.size())
 				else:
 					printerr("Failed to bake points from Path2D curve. Path: ", path_node)
 			else:
@@ -80,10 +78,7 @@ func _ready() -> void:
 	else:
 		printerr("'path_node' export variable not assigned in the inspector.")
 
-	if path_points.size() == 0:
-		printerr("No path points loaded. Enemy will not patrol.")
-		
-	if patrol_loops == 0:
+	if path_points.size() == 0 and mov_state == MOB_BEHAVIOR.CHASING:
 		force_chase_after_loops = true
 	elif patrol_loops < 0:
 		patrol_loops = 0xFFFF_FFFF
@@ -124,8 +119,6 @@ func configure_from_path(blz_path_node: Node) -> void:
 			animated.sprite_frames = blz_path_node.enemy_sprite_frames
 		if blz_path_node.get("enemy_has_projectile") != null:
 			has_projectile = blz_path_node.enemy_has_projectile
-		
-		print("Enemy configured from path: ", blz_path_node.name)
 
 func _physics_process(delta: float) -> void:
 	if not player or (mov_state == MOB_BEHAVIOR.PATROLLING and path_points.size() == 0):
@@ -153,12 +146,10 @@ func _physics_process(delta: float) -> void:
 				current_point_index = (current_point_index + 1) % path_points.size()
 				if current_point_index == 0:
 					loops_completed += 1
-					print("Enemy completed loop: ", loops_completed, " of ", patrol_loops)
 					
 					if loops_completed >= patrol_loops:
 						force_chase_after_loops = true
 						mov_state = MOB_BEHAVIOR.CHASING
-						print("All patrol loops completed, switching to chase mode permanently")
 		else:
 			velocity = Vector2.ZERO
 
@@ -238,7 +229,6 @@ func take_damage(amount: int) -> void:
 		printerr("Cannot take damage, HealthComponent is missing!")
 
 func _on_death() -> void:
-	print("Enemy died!")
 	queue_free()
 
 func _on_shoot_timer_timeout() -> void:

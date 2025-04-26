@@ -7,6 +7,7 @@ var fire_mode_labels = []
 func _ready() -> void:
 	fire_mode_labels = $FireModes.get_children()
 
+	# gambiarra
 	self.position.x -= 9
 	self.position.y -= 12
 	self.scale = Vector2(0.08, 0.08)
