@@ -18,93 +18,86 @@ anchors_preset = 0
 offset_bottom = 150.0
 script = ExtResource("1_nt7q6")
 
-[node name="Points" type="Control" parent="."]
-anchors_preset = 0
-offset_top = -1.0
-offset_right = 40.0
-offset_bottom = 39.0
-
-[node name="Label" type="Label" parent="Points"]
+[node name="Modes" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.003
-anchor_bottom = 0.004
-offset_top = 1.0
-offset_right = 36.544
-offset_bottom = 23.84
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
 
-[node name="FireModes" type="HBoxContainer" parent="."]
+[node name="FireModes" type="HBoxContainer" parent="Modes"]
 layout_mode = 0
-offset_right = 1249.0
-offset_bottom = 205.0
+offset_top = 1.0
+offset_right = 998.0
+offset_bottom = 91.0
 scale = Vector2(0.3, 0.3)
 
-[node name="Label" type="Label" parent="FireModes"]
+[node name="Label" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "1.Single "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D" type="Sprite2D" parent="FireModes/Label"]
+[node name="Sprite2D" type="Sprite2D" parent="Modes/FireModes/Label"]
 position = Vector2(66.6667, -33.6667)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_ktti3")
 
-[node name="Label2" type="Label" parent="FireModes"]
+[node name="Label2" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "2.Double "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="FireModes/Label2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Modes/FireModes/Label2"]
 position = Vector2(94.6669, -23.6667)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_cgfq5")
 
-[node name="Label3" type="Label" parent="FireModes"]
+[node name="Label3" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "3.Triple "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="FireModes/Label3"]
+[node name="Sprite2D3" type="Sprite2D" parent="Modes/FireModes/Label3"]
 position = Vector2(71.6667, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_7dvkv")
 
-[node name="Label4" type="Label" parent="FireModes"]
+[node name="Label4" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "4.Quad "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D4" type="Sprite2D" parent="FireModes/Label4"]
+[node name="Sprite2D4" type="Sprite2D" parent="Modes/FireModes/Label4"]
 position = Vector2(74.6669, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_vdcm2")
 
-[node name="Label5" type="Label" parent="FireModes"]
+[node name="Label5" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "5.Sine "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D5" type="Sprite2D" parent="FireModes/Label5"]
+[node name="Sprite2D5" type="Sprite2D" parent="Modes/FireModes/Label5"]
 position = Vector2(52.6669, -33.6667)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_x4jx1")
 
-[node name="Label6" type="Label" parent="FireModes"]
+[node name="Label6" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "6.Orbit "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D6" type="Sprite2D" parent="FireModes/Label6"]
+[node name="Sprite2D6" type="Sprite2D" parent="Modes/FireModes/Label6"]
 position = Vector2(68.3332, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_6rmj2")
 
-[node name="Label7" type="Label" parent="FireModes"]
+[node name="Label7" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
 text = "7.Octa "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D7" type="Sprite2D" parent="FireModes/Label7"]
+[node name="Sprite2D7" type="Sprite2D" parent="Modes/FireModes/Label7"]
 position = Vector2(53.6665, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_vsj0x")
@@ -112,8 +105,8 @@ texture = ExtResource("8_vsj0x")
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 1.0
-offset_top = 39.0
-offset_right = 329.0
-offset_bottom = 72.0
+offset_right = 207.0
+offset_bottom = 27.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(-8, -12)
 value = 100.0

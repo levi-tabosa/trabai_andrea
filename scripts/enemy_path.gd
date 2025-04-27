@@ -11,7 +11,7 @@ extends Path2D
 @export var enemy_sprite_frames: SpriteFrames
 @export var enemy_scale_factor: float = 3.0
 @export var enemy_has_projectile: bool = false
-@export var enemy_collision_shape: Area2D
+@export var enemy_collision_shape: CollisionObject2D = CollisionObject2D.new.call()
 
 func configure_enemy(enemy: Node) -> void:
 	if enemy.has_method("configure_from_path"):

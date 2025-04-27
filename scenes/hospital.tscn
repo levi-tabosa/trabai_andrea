@@ -12419,67 +12419,54 @@ texture = ExtResource("1_la7h8")
 
 [node name="CollisionShape1" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-422, -319)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ysjay")
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-720, -232.936)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cxbdb")
 
 [node name="CollisionShape3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-401.5, -81.4268)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uvncx")
 
 [node name="CollisionShape4" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-675.5, -65.3659)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ptr5v")
 
 [node name="CollisionShape5" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-665.5, 194.064)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6if2h")
 
 [node name="CollisionShape6" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-426.429, 190.134)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_la7h8")
 
 [node name="CollisionShape7" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-205.299, 173.268)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4ov0p")
 
 [node name="CollisionShape8" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-40.7563, 269.079)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l86x5")
 
 [node name="CollisionShape9" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-555.75, 381.768)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7bm6o")
 
 [node name="CollisionShape19" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-35.6546, 291.902)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7bm6o")
 
 [node name="CollisionShape10" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(321, -77.0244)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8hcg4")
 
 [node name="CollisionShape40" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1091.03, -373.073)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8hcg4")
 
 [node name="CollisionShape11" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-37.5, -107.122)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_obmeq")
 
 [node name="CollisionShape12" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
@@ -12492,12 +12479,10 @@ shape = SubResource("RectangleShape2D_spnv4")
 
 [node name="CollisionShape14" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(649.526, -454.244)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m2csy")
 
 [node name="CollisionShape15" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(671.326, 549.463)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m2csy")
 
 [node name="CollisionShape16" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
@@ -12506,12 +12491,10 @@ shape = SubResource("RectangleShape2D_fdwgw")
 
 [node name="CollisionShape17" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(610.271, 194.317)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h8utp")
 
 [node name="CollisionShape18" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(659.578, -82.3659)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i5ljo")
 
 [node name="CollisionShape20" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
@@ -12520,129 +12503,99 @@ shape = SubResource("RectangleShape2D_uwrmr")
 
 [node name="CollisionShape21" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(50.9402, 64)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8o4f3")
 
 [node name="CollisionShape33" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-126.93, 60.8781)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8o4f3")
 
 [node name="CollisionShape34" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-195.899, 106.146)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8o4f3")
 
 [node name="CollisionShape22" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(118.311, 103.024)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p4evf")
 
 [node name="CollisionShape23" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(133.792, 177.951)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7hfks")
 
 [node name="CollisionShape24" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(356.461, 182.707)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hp2ac")
 
 [node name="CollisionShape31" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-618.964, 251.317)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hp2ac")
 
 [node name="CollisionShape25" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(473.5, -329.86)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p6ike")
 
 [node name="CollisionShape26" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(704.291, -372.39)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yllng")
 
 [node name="CollisionShape27" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(516, 374.835)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qpy05")
 
 [node name="CollisionShape28" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-564.475, 245.494)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape32" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-621.816, 3.12196)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape37" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-360.824, -13.4787)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape35" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-695.978, 10.9268)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape36" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(594.719, -20.2927)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape39" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(717.37, 254.439)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape44" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(640.356, -6.2439)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape41" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1437.59, -349.659)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape42" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1620.14, -355.902)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape43" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1831.22, -357.463)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape38" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(479.198, 252.878)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6hxca")
 
 [node name="CollisionShape29" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(428.75, -293.11)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4vwnh")
 
 [node name="CollisionShape30" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(290, -294.89)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y6j7j")
 
 [node name="CollisionShape45" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1431.18, -408.976)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1i5od")
-
-[node name="CollisionShape46" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-
-[node name="CollisionShape47" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-
-[node name="CollisionShape48" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(718, 1091)
@@ -12653,34 +12606,143 @@ position = Vector2(-195.25, -446)
 shape = SubResource("RectangleShape2D_ogynv")
 
 [node name="DialogueArea" parent="." instance=ExtResource("4_uvncx")]
-position = Vector2(167, 298)
+position = Vector2(256, 383)
 dialogue_data = "
 {
-	\"start\": {
-		\"text\": \"DIFERNETe! What would you like to talk about?\",
-		\"choices\": [\"Tell me about this place\", \"I'm looking for something\", \"Goodbye\"],
-		\"next\": [\"about_place\", \"looking_for\", \"goodbye\"]
-	},
-	\"about_place\": {
-		\"text\": \"This is a place. People come here.\",
-		\"choices\": [\"Back to main topics\"],
-		\"next\": [\"start\"]
-	},
-	\"looking_for\": {
-		\"text\": \"What are you looking for?\",
-		\"choices\": [\"Nothing specific\", \"Back to main topics\"],
-		\"next\": [\"start\", \"start\"]
-	},
-	\"goodbye\": {
-		\"text\": \"Goodbye! Feel free to talk again if you need anything.\",
-		\"choices\": [],
-		\"next\": []
-	}
-}
-"
+ 	\"start\": {
+ 		\"text\": \"Hello! What would you like to talk about?\",
+ 		\"choices\": [\"Tell me about this place\", \"I'm looking for something\", \"Goodbye\"],
+ 		\"next\": [\"about_place\", \"looking_for\", \"goodbye\"]
+ 	},
+ 	\"about_place\": {
+ 		\"text\": \"This is the hospital. We treat patients and conduct research here.\",
+ 		\"choices\": [\"Tell me more about the research\", \"Who's in charge?\", \"Let's talk about something else\"],
+ 		\"next\": [\"research\", \"in_charge\", \"start\"]
+ 	},
+ 	\"research\": {
+ 		\"text\": \"Our research focuses on experimental treatments and new medications.\",
+ 		\"choices\": [\"Is that safe?\", \"Back to main topics\"],
+ 		\"next\": [\"safety\", \"start\"]
+ 	},
+ 	\"safety\": {
+ 		\"text\": \"We follow strict protocols to ensure all our research is ethical and safe.\",
+ 		\"choices\": [\"I understand\", \"Back to main topics\"],
+ 		\"next\": [\"start\", \"start\"]
+ 	},
+ 	\"in_charge\": {
+ 		\"text\": \"Dr. Blackwood is the head of this hospital. She's been here for 20 years.\",
+ 		\"choices\": [\"Can I meet her?\", \"Back to main topics\"],
+ 		\"next\": [\"meet_doctor\", \"start\"]
+ 	},
+ 	\"meet_doctor\": {
+ 		\"text\": \"She's very busy, but sometimes visits this floor. You might catch her if you wait.\",
+ 		\"choices\": [\"I'll wait then\", \"Maybe later\", \"Back to main topics\"],
+ 		\"next\": [\"wait\", \"start\", \"start\"]
+ 	},
+ 	\"wait\": {
+ 		\"text\": \"You wait for a while, but she doesn't appear. Maybe try again later.\",
+ 		\"text\": \"This is a place. People come here.\",
+ 		\"choices\": [\"Back to main topics\"],
+ 		\"next\": [\"start\"]
+ 	},
+ 	\"looking_for\": {
+ 		\"text\": \"What are you looking for? We have medicine, equipment, and information.\",
+ 		\"choices\": [\"Medicine\", \"Equipment\", \"Information\", \"None of these\"],
+ 		\"next\": [\"medicine\", \"equipment\", \"information\", \"start\"]
+ 	},
+ 	\"medicine\": {
+ 		\"text\": \"We have various medications. You should talk to a doctor for prescriptions.\",
+ 		\"choices\": [\"Where are the doctors?\", \"Back to main topics\"],
+ 		\"next\": [\"doctors_location\", \"start\"]
+ 	},
+ 	\"doctors_location\": {
+ 		\"text\": \"Doctors are usually on the second floor. Take the elevator at the end of the hall.\",
+ 		\"choices\": [\"Thanks!\", \"Back to main topics\"],
+ 		\"next\": [\"start\", \"start\"]
+ 	},
+ 	\"equipment\": {
+ 		\"text\": \"Our equipment is for hospital use only, unless you have special authorization.\",
+ 		\"choices\": [\"How do I get authorization?\", \"Back to main topics\"],
+ 		\"next\": [\"authorization\", \"start\"]
+ 	},
+ 	\"authorization\": {
+ 		\"text\": \"You need to speak with administration on the first floor.\",
+ 		\"choices\": [\"I'll do that\", \"Back to main topics\"],
+ 		\"text\": \"What are you looking for?\",
+ 		\"choices\": [\"Nothing specific\", \"Back to main topics\"],
+ 		\"next\": [\"start\", \"start\"]
+ 	},
+ 	\"information\": {
+ 		\"text\": \"What information are you looking for?\",
+ 		\"choices\": [\"Patient records\", \"Hospital history\", \"Staff directory\", \"None of these\"],
+ 		\"next\": [\"records\", \"history\", \"directory\", \"start\"]
+ 	},
+ 	\"records\": {
+ 		\"text\": \"Patient records are confidential. Only authorized personnel can access them.\",
+ 		\"choices\": [\"Back to information\", \"Back to main topics\"],
+ 		\"next\": [\"information\", \"start\"]
+ 	},
+ 	\"history\": {
+ 		\"text\": \"This hospital was founded in 1965 and has been serving the community ever since.\",
+ 		\"choices\": [\"Tell me more\", \"Back to information\", \"Back to main topics\"],
+ 		\"next\": [\"history_more\", \"information\", \"start\"]
+ 	},
+ 	\"history_more\": {
+ 		\"text\": \"The hospital was initially small but expanded in the 80s. It's now one of the largest in the region.\",
+ 		\"choices\": [\"Back to information\", \"Back to main topics\"],
+ 		\"next\": [\"information\", \"start\"]
+ 	},
+ 	\"directory\": {
+ 		\"text\": \"You can find the staff directory at the front desk in the main lobby.\",
+ 		\"choices\": [\"Back to information\", \"Back to main topics\"],
+ 		\"next\": [\"information\", \"start\"]
+ 	},
+ 	\"goodbye\": {
+ 		\"text\": \"Goodbye! Feel free to talk again if you need anything.\",
+ 		\"choices\": [],
+ 		\"next\": []
+ 	}
+ }"
 
 [node name="DialogueArea2" parent="." instance=ExtResource("4_uvncx")]
-position = Vector2(321, 222)
+position = Vector2(1121, 385)
+dialogue_data = "{
+  \"start\": {
+    \"text\": \"Hello, I'm Nurse Johnson. How can I help you today?\",
+    \"choices\": [\"I need medical assistance\", \"Where's the doctor?\", \"Goodbye\"],
+    \"next\": [\"medical\", \"doctor\", \"goodbye\"]
+  },
+  \"medical\": {
+    \"text\": \"What seems to be the problem?\",
+    \"choices\": [\"I'm feeling dizzy\", \"I have a headache\", \"Never mind\"],
+    \"next\": [\"dizzy\", \"headache\", \"start\"]
+  },
+  \"dizzy\": {
+    \"text\": \"You should sit down. I'll get the doctor right away.\",
+    \"choices\": [\"Thank you\", \"Back to main topics\"],
+    \"next\": [\"start\", \"start\"]
+  },
+  \"headache\": {
+    \"text\": \"Let me get you some pain relief medication.\",
+    \"choices\": [\"Thank you\", \"Back to main topics\"],
+    \"next\": [\"start\", \"start\"]
+  },
+  \"doctor\": {
+    \"text\": \"Dr. Smith is in room 302. Would you like me to page him?\",
+    \"choices\": [\"Yes please\", \"No thanks\", \"Back to main topics\"],
+    \"next\": [\"page\", \"start\", \"start\"]
+  },
+  \"page\": {
+    \"text\": \"I've paged Dr. Smith. He'll be with you shortly.\",
+    \"choices\": [\"Thank you\", \"Back to main topics\"],
+    \"next\": [\"start\", \"start\"]
+  },
+  \"goodbye\": {
+    \"text\": \"Have a nice day! Let me know if you need anything else.\",
+    \"choices\": [],
+    \"next\": []
+  }
+}"
 
 [node name="DialogueArea3" parent="." instance=ExtResource("4_uvncx")]
 position = Vector2(108, 145)

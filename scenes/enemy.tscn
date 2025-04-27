@@ -1,10 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://yg7nkj6i3yob"]
 
 [ext_resource type="Script" uid="uid://b031ee2ppnns6" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://dyujr6d18uiv2" path="res://scenes/enemy_collision_shape_2d.tscn" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_md0e3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
-size = Vector2(14, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("2_md0e3")
@@ -118,9 +116,8 @@ animations = [{
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_md0e3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." instance=ExtResource("2_4ra3w")]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_7k104")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7p1mj")
