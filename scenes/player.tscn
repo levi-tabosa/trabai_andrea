@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://irxs732e8uoa" path="res://scenes/ui.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(15.5, 17.3333)
+size = Vector2(10.8, 13.2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("2_onrkg")
@@ -203,11 +203,9 @@ zoom = Vector2(2, 2)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3.25, 5.99999)
-scale = Vector2(1.1, 1.1)
+position = Vector2(3.4, 5.8)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="UI" parent="." instance=ExtResource("3_qhqgy")]
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

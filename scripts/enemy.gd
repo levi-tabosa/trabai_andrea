@@ -2,20 +2,20 @@ extends CharacterBody2D
 
 class_name Enemy
 
-@export var speed := 100.0
-@export var chase_distance := 100.0
+@export var speed: int
+@export var chase_distance: int
 @export var path_node: NodePath
 @export var player_node: NodePath
 @export var health_component: HealthComponent
-@export var score_value := 10
-@export var patrol_loops := 0
-@export var can_shoot := true
-@export var fire_rate := 1.0 
-@export var projectile_speed := 150.0 
-@export var shooting_range := 150.0 
-@export var mov_state := MOB_BEHAVIOR.PATROLLING
-@export var fire_state := FIRE_BEHAVIOR.ON_CHASE
-@export var has_projectile := false
+@export var score_value: int
+@export var patrol_loops: int
+@export var can_shoot: bool
+@export var fire_rate: float 
+@export var projectile_speed: float
+@export var shooting_range: float 
+@export var mov_state: MOB_BEHAVIOR
+@export var fire_state: FIRE_BEHAVIOR
+@export var has_projectile: bool
 @onready var animated = $AnimatedSprite2D
 
 

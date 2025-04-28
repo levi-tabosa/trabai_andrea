@@ -35,5 +35,7 @@ enemy_mov_state = 1
 enemy_sprite_frames = ExtResource("4_tefeu")
 enemy_scale_factor = 2.0
 
+[node name="EnemyPath5" parent="." instance=ExtResource("1_o5qli")]
+
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
