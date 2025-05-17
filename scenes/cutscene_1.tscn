@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://chqemjd03pk7x" path="res://assets/chracther-medic-removebg-preview.png" id="5_5yu3y"]
 
 [sub_resource type="Animation" id="Animation_vqy6s"]
-length = 10.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,11 +76,14 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.366667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.366667, 4.13333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"pause"
+}, {
+"args": [],
+"method": &"change_scene"
 }]
 }
 tracks/6/type = "value"
