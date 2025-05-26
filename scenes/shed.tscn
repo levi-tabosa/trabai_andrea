@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://2bywqnyjbjyk"]
 
-[ext_resource type="Texture2D" uid="uid://4ffxfpkvjyny" path="res://assets/ChatGPT Image 21 de abr. de 2025, 15_30_43.png" id="1_422rr"]
+[ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="1_422rr"]
 
 [node name="shed" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(574, 321.5)
-scale = Vector2(0.75, 0.624023)
+position = Vector2(576, 319.5)
+scale = Vector2(0.735677, 0.625977)
 texture = ExtResource("1_422rr")
