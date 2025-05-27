@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddlfjbrrlwrg6"]
+[gd_scene load_steps=3 format=3 uid="uid://ddlfjbrrlwrg6"]
 
 [ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_d7po0"]
+[ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="2_qtlar"]
 
 [node name="house" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(579.5, 337)
-scale = Vector2(0.742839, 0.636719)
+position = Vector2(235.969, 202.5)
+scale = Vector2(0.238322, 0.209961)
 texture = ExtResource("1_d7po0")
+
+[node name="player" parent="." instance=ExtResource("2_qtlar")]
+position = Vector2(191, 203)
