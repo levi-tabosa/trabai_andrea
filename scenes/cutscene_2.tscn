@@ -38,10 +38,10 @@ tracks/2/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.72, 3.74, 5.63333, 10.0667, 12.6667, 15.607, 20.3375, 24.5356, 27.1333, 31.2, 34.4333, 38.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.72, 3.74, 5.63333, 10.0667, 12.6667, 15.607, 20.3375, 24.5356, 27.1333, 31.2, 34.4333, 38.4, 41.9333, 45.1387, 48.2667, 51.8544, 55.9442, 59.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -50,12 +50,12 @@ tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.72, 3.74, 5.63333, 10.0667, 12.6667, 15.607, 20.3375, 24.5356, 27.1333, 31.2, 34.4333, 38.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.72, 3.74, 5.63333, 10.0667, 12.6667, 15.607, 20.3375, 24.5356, 27.1333, 31.2, 34.4333, 38.4, 41.9333, 45.1387, 48.2667, 51.8544, 55.9442, 59.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["Não, não, não... de novo não. A cabeça... parece que vai explodir.", "Não, não, não... de novo não. A cabeça... parece que vai explodir.
 ", "Não, não, não... de novo não. A cabeça... parece que vai explodir.
-", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro...", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro...", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro..."]
+", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Os pensamentos... rápidos demais. Imagens... fragmentos... não consigo segurar nenhum!", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Aquela entrevista... as luzes, as perguntas... senti como se estivessem me dissecando vivo.", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro...", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro...", "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro...", "Sinto como se minha própria cabeça estivesse se tornando... um labirinto sombrio. Um... um inferno particular se abrindo.", "Sinto como se minha própria cabeça estivesse se tornando... um labirinto sombrio. Um... um inferno particular se abrindo.", "Sinto como se minha própria cabeça estivesse se tornando... um labirinto sombrio. Um... um inferno particular se abrindo.", "Preciso... de ajuda. Profissional. Tenho que ir... ao hospital. Antes que... antes que eu me perca completamente aqui dentro.", "Preciso... de ajuda. Profissional. Tenho que ir... ao hospital. Antes que... antes que eu me perca completamente aqui dentro.", "Preciso... de ajuda. Profissional. Tenho que ir... ao hospital. Antes que... antes que eu me perca completamente aqui dentro."]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -193,7 +193,7 @@ visible_ratio = 0.0
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(390, 100)
 layout_mode = 2
-text = "Não consigo... controlar. Não consigo criar! É demais... tudo... Os monstros que eu desenhava... agora são reais... aqui dentro..."
+text = "Preciso... de ajuda. Profissional. Tenho que ir... ao hospital. Antes que... antes que eu me perca completamente aqui dentro."
 visible_characters = 0
 visible_ratio = 0.0
 
