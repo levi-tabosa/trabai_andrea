@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_pqabt"]
 
 [sub_resource type="Animation" id="Animation_8s6ve"]
-length = 100.0
+length = 70.0
 step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -14,10 +14,10 @@ tracks/0/path = NodePath("UI/Panel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.99),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.99, 59.6227),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,6 +68,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["Ethan Vale"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(60.2575, 62.0175),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.000693898, 0.000693898, 0.000693898, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_pqabt"]
