@@ -192,10 +192,10 @@ visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -131.0
-offset_top = 249.0
-offset_right = 269.0
-offset_bottom = 375.0
+offset_left = 22.0
+offset_top = 289.0
+offset_right = 422.0
+offset_bottom = 415.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
@@ -235,7 +235,7 @@ scale = Vector2(0.742839, 0.630859)
 texture = ExtResource("1_eitc1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(635, 483)
+position = Vector2(797, 511)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_yld1f")
 animation = &"new_animation"
