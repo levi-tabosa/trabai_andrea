@@ -115,19 +115,6 @@ animations = [{
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_md0e3")
 
-[node name="CollisionShape2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(0, 0.5)
-script = null
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7p1mj")
 animation = &"idle-down"
