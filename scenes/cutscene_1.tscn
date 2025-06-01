@@ -7,101 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b80b3051u3g5m" path="res://assets/charcater-2-removebg-preview.png" id="4_yykt6"]
 [ext_resource type="Texture2D" uid="uid://chqemjd03pk7x" path="res://assets/chracther-medic-removebg-preview.png" id="5_5yu3y"]
 
-[sub_resource type="Animation" id="Animation_vqy6s"]
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui/Panel/VBoxContainer/Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.7, 1.16667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:visible_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.14, 0.866667, 1.53333, 2.3, 3.16667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0, 0.0, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui/Panel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.31),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ui/Panel/VBoxContainer/Label:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.266667, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["Zezinho", "Medico"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:text")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.266667, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["lllllllll", "kkkkkkkkjnfdhdfud"]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.366667, 4.13333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"pause"
-}, {
-"args": [],
-"method": &"change_scene"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(3.3, 3.97),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.00566115, 0.00566115, 0.00566115, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_u7sor"]
 resource_name = "chapter_1"
-length = 20.0
+length = 80.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,15 +17,164 @@ tracks/0/path = NodePath("ui/Panel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.32),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.52, 1.09, 55.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui/Panel/VBoxContainer/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.09, 2, 6.6, 8.93333, 10.6667, 20.0667, 21.1, 23.6515, 30.1722, 33.6667, 36.8667, 43.349, 45.5812, 49.0944),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.53, 4.43333, 6.6, 7.76667, 13.0667, 16.7, 20.0667, 21.1, 24.0059, 27.1259, 29.8, 33.6667, 37.4333, 40.0333, 43.0667, 45.4667, 49.7667, 54.0493),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.53, 4.43333, 6.6, 13.0667, 16.7, 20.0667, 21.1, 24.0059, 27.1259, 29.8, 37.4333, 40.0333, 43.0667, 49.7667, 54.0493),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Lá! Doutor, você não o vê? O Ceifador de Sonhos! Ele está esperando!", "Lá! Doutor, você não o vê? O Ceifador de Sonhos! Ele está esperando!", "Lá! Doutor, você não o vê? O Ceifador de Sonhos! Ele está esperando!", "Ethan, estamos sozinhos aqui. Lembre-se do que conversamos. Isso é parte do processo que você está enfrentando.", "Ethan, estamos sozinhos aqui. Lembre-se do que conversamos. Isso é parte do processo que você está enfrentando.", "Ethan, estamos sozinhos aqui. Lembre-se do que conversamos. Isso é parte do processo que você está enfrentando.", "Não, Doutor! Ele é real! Ele está vindo para mim! Eu sinto o frio que ele emana!", "Não, Doutor! Ele é real! Ele está vindo para mim! Eu sinto o frio que ele emana!", "Não, Doutor! Ele é real! Ele está vindo para mim! Eu sinto o frio que ele emana!", "Não, Doutor! Ele é real! Ele está vindo para mim! Eu sinto o frio que ele emana!", "Tente se concentrar na sua respiração, Ethan. Ninguém vai te machucar aqui.", "Tente se concentrar na sua respiração, Ethan. Ninguém vai te machucar aqui.", "Tente se concentrar na sua respiração, Ethan. Ninguém vai te machucar aqui.", "Ele não vai parar! Ele nunca para! EU TENHO QUE FAZER ALGUMA COISA!", "Ele não vai parar! Ele nunca para! EU TENHO QUE FAZER ALGUMA COISA!"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ui/Panel/VBoxContainer/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 6.6, 8.93333, 10.6667, 21.1, 23.6515, 30.1722, 33.6667, 36.8667, 45.5812, 49.0944),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Ethan Vale", "Ethan Vale", "Dr. Aris", "Dr. Aris", "Ethan Vale", "Ethan Vale", "Ethan Vale", "Dr. Aris", "Dr. Aris", "Ethan Vale", "Ethan Vale"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(56.0333, 58.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(57.2667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wname"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui/Panel/VBoxContainer/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ui/Panel/VBoxContainer/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Lá! Doutor, você não o vê? O Ceifador de Sonhos! Ele está esperando!"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ui/Panel/VBoxContainer/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Ethan Vale"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vqy6s"]
 _data = {
-&"RESET": SubResource("Animation_vqy6s"),
+&"RESET": SubResource("Animation_wname"),
 &"chapter_1": SubResource("Animation_u7sor")
 }
 
@@ -150,10 +207,11 @@ animated = NodePath("AnimationPlayer")
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="ui"]
-offset_left = 157.0
-offset_top = 183.0
-offset_right = 367.0
-offset_bottom = 260.0
+visible = false
+offset_left = 80.0
+offset_top = 149.0
+offset_right = 480.0
+offset_bottom = 275.0
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel"]
@@ -161,21 +219,23 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -105.0
-offset_right = 105.0
-offset_bottom = 77.0
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 127.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="ui/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Medico"
+theme_override_font_sizes/font_size = 14
+text = "Ethan Vale"
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(210, 50)
+custom_minimum_size = Vector2(390, 105)
 layout_mode = 2
-text = "kkkkkkkkjnfdhdfud"
+text = "Lá! Doutor, você não o vê? O Ceifador de Sonhos! Ele está esperando!"
+scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -183,7 +243,7 @@ visible_ratio = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_vqy6s")
 }
-autoplay = "RESET"
+autoplay = "chapter_1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(771, 530)

@@ -318,6 +318,7 @@ visible_ratio = 0.0
 custom_minimum_size = Vector2(390, 100)
 layout_mode = 2
 text = "Sinto como se minha própria cabeça estivesse se tornando... um labirinto sombrio. Um... um inferno particular se abrindo."
+scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 
