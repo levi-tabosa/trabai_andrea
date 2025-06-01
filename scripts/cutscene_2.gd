@@ -2,7 +2,7 @@ extends Node2D
 
 @export var animated: AnimationPlayer
 @export var autoplay: bool = false
-@export var next_scene: String = "res://scenes/cutscene1.tscn"  # Caminho da próxima cena, ex: "res://Cena2.tscn"
+@export var next_scene: String = "res://scenes/cutscene_1.tscn"  # Caminho da próxima cena, ex: "res://Cena2.tscn"
 
 func _ready():
 	if animated == null:
