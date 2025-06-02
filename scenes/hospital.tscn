@@ -1,14 +1,14 @@
-[gd_scene load_steps=40 format=4 uid="uid://beprwukcivekm"]
+[gd_scene load_steps=41 format=4 uid="uid://beprwukcivekm"]
 
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="1_la7h8"]
 [ext_resource type="Script" uid="uid://c520iyghaauga" path="res://scripts/transition_area.gd" id="2_ptr5v"]
 [ext_resource type="Texture2D" uid="uid://bwdhp8d6g3xan" path="res://assets/ChatGPT Image 25 de abr. de 2025, 16_29_10.png" id="3_uvncx"]
 [ext_resource type="PackedScene" uid="uid://cciubqifwl1b4" path="res://scenes/dialogue_area.tscn" id="4_uvncx"]
 [ext_resource type="PackedScene" uid="uid://b3aya3t4524xy" path="res://scenes/dialogue_ui.tscn" id="5_ptr5v"]
+[ext_resource type="AudioStream" uid="uid://b0v8v58thmymw" path="res://sfx/music.wav" id="6_6if2h"]
 
 [sub_resource type="GDScript" id="GDScript_6if2h"]
 script/source = "extends Node2D
-
 func _ready() -> void:
 	print(\"Hospital ready\")
 	print_tree_pretty()
@@ -12752,5 +12752,9 @@ offset_left = 164.0
 offset_top = 333.0
 offset_right = 403.0
 offset_bottom = 391.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6if2h")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -24,12 +24,14 @@ enum FireType {
 @export var health_component: HealthComponent
 @export var knockback_force := 350.0
 @export var knockback_duration := 0.2
+#@export var player_audio: AudioStreamPlayer2D
 
 @onready var main = get_tree().get_root().get_node("main")
 @onready var ui = $UI
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shoot_timer = $ShootTimer
 @onready var animated = $AnimatedSprite2D
+@onready var player_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var knockback_timer := 0.0
 var knockback_direction := Vector2.ZERO
@@ -116,20 +118,39 @@ func animate_idle() -> void:
 			animated.play("idle-down")
 
 func animate_movement() -> void:
+	var is_moving := false
+
 	if Input.is_action_pressed("ui_left"):
 		animated.play("walk-left")
 		last_dir = PlayerDir.LEFT
+		is_moving = true
 	elif Input.is_action_pressed("ui_right"):
 		animated.play("walk-right")
 		last_dir = PlayerDir.RIGHT
+		is_moving = true
 	elif Input.is_action_pressed("ui_up"):
 		animated.play("walk-up")
 		last_dir = PlayerDir.UP
+		is_moving = true
 	elif Input.is_action_pressed("ui_down"):
 		animated.play("walk-down")
 		last_dir = PlayerDir.DOWN
+		is_moving = true
 	else:
 		animate_idle()
+
+	if is_moving:
+		var new_pitch = clamp(speed / speed, 0.5, 2.0)
+		player_audio.pitch_scale = new_pitch
+
+		if !player_audio.playing:
+			pass
+			#audio_play("walk")
+	else:
+		if player_audio.playing:
+			player_audio.stop()
+
+
 
 func handle_fire_mode_selection() -> void:
 	if Input.is_action_just_pressed("select-1"):
@@ -200,10 +221,10 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 					 is_sine: bool = false,
 					 is_orbit: bool = false) -> Node2D:
 	var projectile = projectile_scene.instantiate()
+	audio_play("shot")
 	
 	projectile.set_meta("is_enemy_projectile", false)
 	projectile.set_meta("shooter", self)
-
 	var base_offset := Vector2.ZERO
 	match last_dir:
 		PlayerDir.RIGHT:
@@ -243,6 +264,7 @@ func fire_projectile(offset: Vector2 = Vector2.ZERO,
 		projectile.set_meta("timeout", 10)
 
 	main.add_child(projectile)
+	
 	return projectile
 
 func get_shoot_direction_angle() -> float:
@@ -305,3 +327,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		knockback_direction = (global_position - body.global_position).normalized()
 		knockback_timer = knockback_duration
 		take_damage(5)
+
+func audio_play(audio_name: String):
+	if audio_name == "none":
+		player_audio.stop()
+		return
+
+	# Troque este dicionário pelos seus streams reais
+	var audio_library = {
+		"shot": preload("res://sfx/laserShoot.wav"),
+		"walk": preload("res://sfx/walk.wav")
+	}
+
+	if audio_library.has(audio_name):
+		player_audio.stream = audio_library[audio_name]
+		player_audio.play()
