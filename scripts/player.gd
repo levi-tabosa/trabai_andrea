@@ -24,6 +24,7 @@ enum FireType {
 @export var health_component: HealthComponent
 @export var knockback_force := 350.0
 @export var knockback_duration := 0.2
+@export var inventory_data: InventoryData
 #@export var player_audio: AudioStreamPlayer2D
 
 @onready var main = get_tree().get_root().get_node("main")
@@ -39,6 +40,9 @@ enum PlayerDir { RIGHT, UP, LEFT, DOWN }
 var last_dir := PlayerDir.RIGHT
 var orbit_angle := 0 # se for float n funciona
 var orbit_projectiles := []
+var unlocked_fire_types := [
+	FireType.SINGLE,
+]
 var is_shooting := false
 var shooting_timer := 0.0
 const SHOOT_ANIM_DURATION := 0.4
@@ -62,6 +66,8 @@ func _ready() -> void:
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 
 func set_fire_type(type: FireType) -> void:
+	if type not in unlocked_fire_types:
+		return
 	fire_type = type
 	configure_fire_type()
 	ui.update_fire_mode_display(fire_type)

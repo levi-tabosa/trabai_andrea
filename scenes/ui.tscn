@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://irxs732e8uoa"]
+[gd_scene load_steps=9 format=3 uid="uid://irxs732e8uoa"]
 
 [ext_resource type="Script" uid="uid://cnjbckuihrjrq" path="res://scripts/ui.gd" id="1_nt7q6"]
-[ext_resource type="Texture2D" uid="uid://ujjl5lpmb7eq" path="res://assets/icons/single_shot.png" id="2_ktti3"]
 [ext_resource type="Texture2D" uid="uid://cc3vauuyiny0m" path="res://assets/icons/sine_shot.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://0olfkhe7bv30" path="res://assets/icons/double_shot.png" id="3_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://cvs4jcvl12xaj" path="res://assets/icons/triple_shot.png" id="4_7dvkv"]
@@ -32,72 +31,62 @@ offset_right = 998.0
 offset_bottom = 91.0
 scale = Vector2(0.3, 0.3)
 
-[node name="Label" type="Label" parent="Modes/FireModes"]
+[node name="LabelDouble" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "1.Single "
+text = "Double "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Modes/FireModes/Label"]
-position = Vector2(66.6667, -33.6667)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_ktti3")
-
-[node name="Label2" type="Label" parent="Modes/FireModes"]
-layout_mode = 2
-text = "2.Double "
-label_settings = SubResource("LabelSettings_x4jx1")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Modes/FireModes/Label2"]
+[node name="Sprite2DDouble" type="Sprite2D" parent="Modes/FireModes/LabelDouble"]
 position = Vector2(94.6669, -23.6667)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_cgfq5")
 
-[node name="Label3" type="Label" parent="Modes/FireModes"]
+[node name="LabelTriple" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "3.Triple "
+text = "Triple "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Modes/FireModes/Label3"]
+[node name="Sprite2DTriple" type="Sprite2D" parent="Modes/FireModes/LabelTriple"]
 position = Vector2(71.6667, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_7dvkv")
 
-[node name="Label4" type="Label" parent="Modes/FireModes"]
+[node name="LabelQuad" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "4.Quad "
+text = "Quad "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Modes/FireModes/Label4"]
+[node name="Sprite2DQuad" type="Sprite2D" parent="Modes/FireModes/LabelQuad"]
 position = Vector2(74.6669, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_vdcm2")
 
-[node name="Label5" type="Label" parent="Modes/FireModes"]
+[node name="LabelSine" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "5.Sine "
+text = "Sine "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Modes/FireModes/Label5"]
+[node name="Sprite2DSine" type="Sprite2D" parent="Modes/FireModes/LabelSine"]
 position = Vector2(52.6669, -33.6667)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_x4jx1")
 
-[node name="Label6" type="Label" parent="Modes/FireModes"]
+[node name="LabelOrbit" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "6.Orbit "
+text = "Orbit "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Modes/FireModes/Label6"]
+[node name="Sprite2DOrbit" type="Sprite2D" parent="Modes/FireModes/LabelOrbit"]
 position = Vector2(68.3332, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_6rmj2")
 
-[node name="Label7" type="Label" parent="Modes/FireModes"]
+[node name="LabelOcta" type="Label" parent="Modes/FireModes"]
 layout_mode = 2
-text = "7.Octa "
+text = "Octa "
 label_settings = SubResource("LabelSettings_x4jx1")
 
-[node name="Sprite2D7" type="Sprite2D" parent="Modes/FireModes/Label7"]
+[node name="Sprite2DOcta" type="Sprite2D" parent="Modes/FireModes/LabelOcta"]
 position = Vector2(53.6665, -30.3333)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_vsj0x")

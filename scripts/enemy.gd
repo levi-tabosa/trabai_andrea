@@ -52,8 +52,8 @@ func _ready() -> void:
 	else:
 		printerr("Enemy requires a HealthComponent!")
 
-	player = get_tree().get_root().get_node("main").get_node("player")
-	assert(player != null)
+	player = get_tree().get_root().get_node("main").get_node("Player")
+	assert(player != null);;
 
 	if path_node:
 		var path = get_node_or_null(path_node)

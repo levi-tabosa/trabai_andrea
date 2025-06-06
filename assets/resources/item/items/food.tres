@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cukqh07fnawnq"]
+
+[ext_resource type="Texture2D" uid="uid://diqbf3eid8lys" path="res://assets/PixelArt/TileSheet-Trash-Puddles.png" id="1_8sq1c"]
+[ext_resource type="Script" uid="uid://doum4gfotbcwh" path="res://assets/resources/item/item_data.gd" id="1_aywxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq1c"]
+atlas = ExtResource("1_8sq1c")
+region = Rect2(60, 40, 20, 20)
+
+[resource]
+script = ExtResource("1_aywxo")
+item_name = "Food"
+item_description = "Cool	"
+stackable = false
+icon = SubResource("AtlasTexture_8sq1c")
+metadata/_custom_type_script = "uid://doum4gfotbcwh"
