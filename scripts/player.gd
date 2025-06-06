@@ -34,6 +34,8 @@ enum FireType {
 @onready var animated = $AnimatedSprite2D
 @onready var player_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+signal toggle_inventory()
+
 var knockback_timer := 0.0
 var knockback_direction := Vector2.ZERO
 enum PlayerDir { RIGHT, UP, LEFT, DOWN }
@@ -105,6 +107,8 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("ui_accept") and can_shoot:
 		shoot()
+	if Input.is_action_just_pressed("toggle-inventory"):
+		toggle_inventory.emit()
 
 	if fire_type == FireType.ORBIT and !orbit_projectiles.is_empty():
 		update_orbit_projectiles(delta)

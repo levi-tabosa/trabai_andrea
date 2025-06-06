@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_kaxol"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 201, -1, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
