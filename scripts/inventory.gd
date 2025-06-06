@@ -1,21 +1,18 @@
-extends Node
-var inventory = []
+extends PanelContainer
 
-func add_item(item_name, item_icon, item_quantity):
-	for item in inventory:
-		if item["name"] == item_name:
-			item["quantity"] += item_quantity
-			return
-	inventory.append({
-		"name": item_name,
-		"icon": item_icon,
-		"quantity": item_quantity
-	})
+const Slot = preload("res://scenes/inventory_slot.tscn")
 
-func remove_item(item_name, item_quantity):
-	for i in range(inventory.size()):
-		if inventory[i]["name"] == item_name:
-			inventory[i]["quantity"] -= item_quantity
-			if inventory[i]["quantity"] <= 0:
-				inventory.remove_at(i)
-			return
+@onready var item_grid: GridContainer = $MarginContainer/GridContainer
+
+func set_inventory_data(inventory_data: InventoryData) -> void:
+	populate_inventory(inventory_data.slot_datas)
+
+func populate_inventory(slot_datas: Array[SlotData]) -> void:
+	for child in item_grid.get_children():
+		child.queue_free()  # Free the old slots to avoid memory leaks
+	for data in slot_datas:
+		var slot = Slot.instantiate()
+		item_grid.add_child(slot)
+
+		if data:
+			slot.set_slot_data(data)
