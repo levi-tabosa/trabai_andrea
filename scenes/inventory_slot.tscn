@@ -1,30 +1,34 @@
 [gd_scene load_steps=3 format=3 uid="uid://m2vfgepdukft"]
 
 [ext_resource type="Script" uid="uid://cxbn25rm0xoch" path="res://scripts/inventory_slot.gd" id="1_bxqf6"]
-[ext_resource type="Texture2D" uid="uid://bkxhomtvdsjpe" path="res://icon.svg" id="1_dxvxp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxvxp"]
+font_size = 14
+font_color = Color(1, 1, 1, 0.364706)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 28.0
-offset_bottom = 23.0
+offset_bottom = 28.0
 script = ExtResource("1_bxqf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_dxvxp")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 2
-theme_override_constants/outline_size = 3
 text = "x99"
+label_settings = SubResource("LabelSettings_dxvxp")
 horizontal_alignment = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

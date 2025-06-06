@@ -16,3 +16,6 @@ func on_slot_clicked(slot_index: int, button_index: int) -> void:
 		print("Left click on slot", slot_index)
 	elif button_index == MOUSE_BUTTON_RIGHT:
 		print("Right click on slot", slot_index)
+
+func grab_slot_data(slot_index: int) -> SlotData:
+	return slot_datas[slot_index]
