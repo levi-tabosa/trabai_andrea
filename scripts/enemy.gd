@@ -93,32 +93,32 @@ func _ready() -> void:
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
 	add_child(shoot_timer)
 
-func configure_from_path(blz_path_node: Node) -> void:
-	if blz_path_node.has_method("get_script") and blz_path_node.get_script() != null:
-		if blz_path_node.get("enemy_speed") != null:
-			speed = blz_path_node.enemy_speed
-		if blz_path_node.get("enemy_chase_distance") != null:
-			chase_distance = blz_path_node.enemy_chase_distance
-		if blz_path_node.get("enemy_patrol_loops") != null:
-			patrol_loops = blz_path_node.enemy_patrol_loops
-		if blz_path_node.get("enemy_fire_rate") != null:
-			fire_rate = blz_path_node.enemy_fire_rate
+func configure_from_path(_path_node: Node) -> void:
+	if _path_node.has_method("get_script") and _path_node.get_script() != null:
+		if _path_node.get("enemy_speed") != null:
+			speed = _path_node.enemy_speed
+		if _path_node.get("enemy_chase_distance") != null:
+			chase_distance = _path_node.enemy_chase_distance
+		if _path_node.get("enemy_patrol_loops") != null:
+			patrol_loops = _path_node.enemy_patrol_loops
+		if _path_node.get("enemy_fire_rate") != null:
+			fire_rate = _path_node.enemy_fire_rate
 			if shoot_timer:
 				shoot_timer.wait_time = fire_rate
-		if blz_path_node.get("enemy_projectile_speed") != null:
-			projectile_speed = blz_path_node.enemy_projectile_speed
-		if blz_path_node.get("enemy_shooting_range") != null:
-			shooting_range = blz_path_node.enemy_shooting_range
-		if blz_path_node.get("enemy_mov_state") != null:
-			mov_state = blz_path_node.enemy_mov_state
-		if blz_path_node.get("enemy_fire_state") != null:
-			fire_state = blz_path_node.enemy_fire_state
-		if blz_path_node.get("enemy_scale_factor") != null:
-			scale = Vector2(blz_path_node.enemy_scale_factor, blz_path_node.enemy_scale_factor)
-		if blz_path_node.get("enemy_sprite_frames") != null:
-			animated.sprite_frames = blz_path_node.enemy_sprite_frames
-		if blz_path_node.get("enemy_has_projectile") != null:
-			has_projectile = blz_path_node.enemy_has_projectile
+		if _path_node.get("enemy_projectile_speed") != null:
+			projectile_speed = _path_node.enemy_projectile_speed
+		if _path_node.get("enemy_shooting_range") != null:
+			shooting_range = _path_node.enemy_shooting_range
+		if _path_node.get("enemy_mov_state") != null:
+			mov_state = _path_node.enemy_mov_state
+		if _path_node.get("enemy_fire_state") != null:
+			fire_state = _path_node.enemy_fire_state
+		if _path_node.get("enemy_scale_factor") != null:
+			scale = Vector2(_path_node.enemy_scale_factor, _path_node.enemy_scale_factor)
+		if _path_node.get("enemy_sprite_frames") != null:
+			animated.sprite_frames = _path_node.enemy_sprite_frames
+		if _path_node.get("enemy_has_projectile") != null:
+			has_projectile = _path_node.enemy_has_projectile
 
 func _physics_process(delta: float) -> void:
 	if not player or (mov_state == MOB_BEHAVIOR.PATROLLING and path_points.size() == 0):
