@@ -1,41 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4bvi0psj51d7"]
+[gd_scene load_steps=5 format=3 uid="uid://d4bvi0psj51d7"]
 
 [ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="4_jyhfs"]
-[ext_resource type="SpriteFrames" uid="uid://dlagj5u533p8f" path="res://assets/sprite-frames/ghost-frames.tres" id="4_tefeu"]
-[ext_resource type="SpriteFrames" uid="uid://bv0u2t86xnbnw" path="res://assets/sprite-frames/spider-fames.tres" id="5_tefeu"]
+[ext_resource type="SpriteFrames" uid="uid://bv0u2t86xnbnw" path="res://assets/sprite-frames/spider-fames.tres" id="4_tbgi4"]
 
 [node name="main" type="Node"]
 
 [node name="Hospital" parent="." instance=ExtResource("1_sugp2")]
 position = Vector2(-12, -10)
 
-[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(479, 46)
-enemy_speed = 1.0
-
-[node name="EnemyPath2" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(657, 357)
-enemy_speed = 1.0
-enemy_patrol_loops = 0
-enemy_sprite_frames = ExtResource("4_tefeu")
-enemy_scale_factor = 2.0
-
-[node name="EnemyPath3" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(573, 100)
-enemy_speed = 1.0
-enemy_sprite_frames = ExtResource("5_tefeu")
-enemy_scale_factor = 2.0
-
-[node name="EnemyPath4" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(657, 357)
-enemy_patrol_loops = 0
-enemy_mov_state = 1
-enemy_sprite_frames = ExtResource("4_tefeu")
-enemy_scale_factor = 2.0
-
-[node name="EnemyPath5" parent="." instance=ExtResource("1_o5qli")]
-
 [node name="player" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(277, 176)
+
+[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(159, 125)
+enemy_speed = 50.0
+enemy_mov_state = 1
+enemy_sprite_frames = ExtResource("4_tbgi4")
+enemy_scale_factor = 1.0
+enemy_has_projectile = true

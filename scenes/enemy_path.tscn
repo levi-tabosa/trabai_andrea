@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dipi6xsc2hlyt" path="res://assets/ChatGPT Image 25 de abr. de 2025, 13_48_55.png" id="3_uuw2b"]
 [ext_resource type="Texture2D" uid="uid://g3wl6ilsa7j6" path="res://assets/ChatGPT Image 25 de abr. de 2025, 12_09_25.png" id="4_kaxol"]
 
-[sub_resource type="Curve2D" id="Curve2D_cgpjw"]
+[sub_resource type="Curve2D" id="Curve2D_kaxol"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 40, 216, 0, 0, 0, 0, 167, 217, 0, 0, 0, 0, 166, 37, 0, 0, 0, 0, 45, 37, 0, 0, 0, 0, 39, 45, 0, 0, 0, 0, 34, 153, 0, 0, 0, 0, 42, 220, 0, 0, 0, 0, 41, 53, 0, 0, 0, 0, 44, 36)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_725tx"]
 atlas = ExtResource("2_kaxol")
@@ -141,12 +141,11 @@ animations = [{
 }]
 
 [node name="EnemyPath" type="Path2D"]
-curve = SubResource("Curve2D_cgpjw")
+curve = SubResource("Curve2D_kaxol")
 script = ExtResource("1_ov72x")
 enemy_sprite_frames = SubResource("SpriteFrames_cidyv")
 enemy_scale_factor = 0.3
 
 [node name="Enemy" parent="." instance=ExtResource("2_4jm3e")]
-position = Vector2(48, 63)
 rotation = 0.00466919
 path_node = NodePath("..")
