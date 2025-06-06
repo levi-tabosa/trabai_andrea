@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 DialogueManager="*res://scripts/dialogue_manager.gd"
 
+[dotnet]
+
+project/assembly_name="Hell_fantasy"
+
 [input]
 
 select-1={

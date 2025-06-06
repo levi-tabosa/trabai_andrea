@@ -1,9 +1,11 @@
 extends Control
 
-@onready var title_label = $Panel/TitleLabel
-@onready var text_label = $Panel/TextLabel
-@onready var panel = $Panel
-@onready var choices_container = $Panel/ChoicesContainer
+@onready var control = $UIControl
+@onready var title_label = $UIControl/MainLayout/TitleLabel
+@onready var text_label = $UIControl/MainLayout/TextLabel
+@onready var layout = $UIControl/MainLayout
+@onready var panel = $UIControl/Panel
+@onready var choices_container = $UIControl/MainLayout/ChoicesContainer
 
 var current_choices = []
 var choice_buttons = []
@@ -15,25 +17,33 @@ func show_dialogue(title: String, text: String, pos: Vector2, choices: Array = [
 	global_position = pos
 	title_label.text = title
 	text_label.text = text
-	panel.visible = true
-
+	
 	clear_choices()
 
 	current_choices = choices
+	choices_container.visible = choices.size() > 0
 	if choices.size() > 0:
 		create_choice_buttons(choices)
 	
-	panel.modulate = Color(1, 1, 1, 0)
+	control.visible = true
+	control.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
-	tween.tween_property(panel, "modulate", Color(1, 1, 1, 1), 0.3)
+	tween.tween_property(control, "modulate", Color(1, 1, 1, 1), 0.3)
+
+	await  get_tree().create_timer(0).timeout
+	update_panel_size()
 
 func hide_dialogue() -> void:
 	var tween = create_tween()
-	tween.tween_property(panel, "modulate", Color(1, 1, 1, 0), 0.3)
+	tween.tween_property(control, "modulate", Color(1, 1, 1, 0), 0.3)
 	tween.tween_callback(func(): 
-		panel.visible = false
+		control.visible = false
 		clear_choices()
 	)
+
+func update_panel_size() -> void:
+	panel.size = text_label.get_rect().size + Vector2(10, 20)
+	panel.position = text_label.get_rect().position - Vector2(5, 15)
 
 func clear_choices() -> void:
 	for button in choice_buttons:
@@ -54,5 +64,4 @@ func on_choice_button_pressed(index: int) -> void:
 	DialogueManager.make_choice(index)
 
 func on_choice_made(choice_index: int) -> void:
-	# This can be used to handle UI changes after a choice is made
 	pass
