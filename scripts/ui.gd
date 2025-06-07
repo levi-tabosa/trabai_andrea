@@ -5,8 +5,9 @@ extends Control
 var fire_mode_labels = []
 
 func _ready() -> void:
+	#TODO: isso nao deveria ser filho do player, mas ja que a camera segue o player isso funciona
 	$Modes/FireModes.pivot_offset = -get_viewport_rect().size / 2
-	$HealthBar.pivot_offset.y = get_viewport_rect().size.y / 10
+	$HealthBar.pivot_offset.y = get_viewport_rect().size.y / 10 # Ajusta a posicao da barra de vida para o centro da tela
 	fire_mode_labels = $Modes/FireModes.get_children()
 	for label in fire_mode_labels:
 		label.visible = false

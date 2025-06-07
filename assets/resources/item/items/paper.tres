@@ -11,8 +11,8 @@ region = Rect2(0, 0, 20, 20)
 
 [resource]
 script = ExtResource("1_wyf20")
-item_name = "paper"
-item_description = "2"
+name = ""
+description = ""
 stackable = false
 icon = SubResource("AtlasTexture_foemv")
 metadata/_custom_type_script = "uid://doum4gfotbcwh"

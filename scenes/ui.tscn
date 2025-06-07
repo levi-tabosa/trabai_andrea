@@ -25,10 +25,9 @@ offset_bottom = 40.0
 scale = Vector2(0.25, 0.25)
 
 [node name="FireModes" type="HBoxContainer" parent="Modes"]
-layout_mode = 0
-offset_top = 1.0
-offset_right = 998.0
-offset_bottom = 91.0
+layout_mode = 1
+offset_right = 658.0
+offset_bottom = 51.0
 scale = Vector2(0.3, 0.3)
 
 [node name="LabelDouble" type="Label" parent="Modes/FireModes"]

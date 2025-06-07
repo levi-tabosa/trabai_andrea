@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://m2vfgepdukft"]
+[gd_scene load_steps=4 format=3 uid="uid://m2vfgepdukft"]
 
 [ext_resource type="Script" uid="uid://cxbn25rm0xoch" path="res://scripts/inventory_slot.gd" id="1_bxqf6"]
+[ext_resource type="Texture2D" uid="uid://dwkew74p5uwu8" path="res://assets/resources/item/item_atlas_texture.tres" id="2_bxqf6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dxvxp"]
 font_size = 14
@@ -22,12 +23,12 @@ theme_override_constants/margin_bottom = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-expand_mode = 1
+texture = ExtResource("2_bxqf6")
 stretch_mode = 4
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 2
-text = "x99"
+text = "      "
 label_settings = SubResource("LabelSettings_dxvxp")
 horizontal_alignment = 2
 

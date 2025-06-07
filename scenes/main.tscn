@@ -449,6 +449,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 350.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -463,6 +465,9 @@ offset_bottom = 20.0
 layout_mode = 2
 
 [node name="Slot" parent="UI/InventoryInterface/HBoxContainer" instance=ExtResource("4_ya4ey")]
+visible = false
+modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 0
 
