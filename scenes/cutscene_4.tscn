@@ -1,0 +1,237 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgls4kise8d8b"]
+
+[ext_resource type="Script" uid="uid://bmf4kdvt6e5rl" path="res://scripts/cutscene_2.gd" id="1_261bk"]
+[ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/sprites-modificados/image-removebg-preview.png" id="2_l6auv"]
+[ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_cunl6"]
+[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="4_b14at"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="5_kf3uw"]
+
+[sub_resource type="Animation" id="Animation_261bk"]
+resource_name = "chapter_4"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 45.6732),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Panel/VBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.63333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Ethan Vale", "Ethan Vale"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/VBoxContainer/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.63333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.54362, 6.55363, 8.6194, 10.6546, 13.0761, 15.1904, 17.2096, 19.2333, 21.1061, 23.0883, 25.2667, 27.4, 29.0864, 31.2333, 33.1163, 34.8667, 36.9, 38.9249, 40.6102, 42.6, 44.5185),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Silêncio... um silêncio de verdade. Sem sussurros, sem... garras arranhando as paredes da minha mente.", "Silêncio... um silêncio de verdade. Sem sussurros, sem... garras arranhando as paredes da minha mente.", "Silêncio... um silêncio de verdade. Sem sussurros, sem... garras arranhando as paredes da minha mente.", "As cores... desta sala. Minhas cores. Estão aqui. Vibrantes. Não mais distorcidas, não mais sombrias.", "As cores... desta sala. Minhas cores. Estão aqui. Vibrantes. Não mais distorcidas, não mais sombrias.", "As cores... desta sala. Minhas cores. Estão aqui. Vibrantes. Não mais distorcidas, não mais sombrias.", "Aquele lugar... parece um sonho febril agora. Intenso, aterrorizante... mas acabou. Eu... eu voltei.", "Aquele lugar... parece um sonho febril agora. Intenso, aterrorizante... mas acabou. Eu... eu voltei.", "Aquele lugar... parece um sonho febril agora. Intenso, aterrorizante... mas acabou. Eu... eu voltei.", "Um peso... sumiu. Aquela opressão constante, aquela névoa... dissipou-se. Eu consigo... respirar de novo.", "Um peso... sumiu. Aquela opressão constante, aquela névoa... dissipou-se. Eu consigo... respirar de novo.", "Um peso... sumiu. Aquela opressão constante, aquela névoa... dissipou-se. Eu consigo... respirar de novo.", "Os monstros... eles eram partes de mim. Partes que eu precisei enfrentar, entender... e talvez até... perdoar. Para poder deixar este lugar.", "Os monstros... eles eram partes de mim. Partes que eu precisei enfrentar, entender... e talvez até... perdoar. Para poder deixar este lugar.", "Os monstros... eles eram partes de mim. Partes que eu precisei enfrentar, entender... e talvez até... perdoar. Para poder deixar este lugar.", "Acho que... acho que consigo olhar para uma página em branco de novo. E talvez... talvez ver algo além do vazio. Algo... novo.", "Acho que... acho que consigo olhar para uma página em branco de novo. E talvez... talvez ver algo além do vazio. Algo... novo.", "Acho que... acho que consigo olhar para uma página em branco de novo. E talvez... talvez ver algo além do vazio. Algo... novo.", "É bom estar em casa. De verdade.", "É bom estar em casa. De verdade.", "É bom estar em casa. De verdade."]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.54362, 6.55363, 8.6194, 10.6546, 13.0761, 15.1904, 17.2096, 19.2333, 21.1061, 23.0883, 25.2667, 27.4, 29.0864, 31.2333, 33.1163, 34.8667, 36.9, 38.9249, 40.6102, 42.6, 44.5185),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_l6auv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Panel/VBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Ethan Vale"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/VBoxContainer/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Silêncio... um silêncio de verdade. Sem sussurros, sem... garras arranhando as paredes da minha mente."]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cunl6"]
+_data = {
+&"RESET": SubResource("Animation_l6auv"),
+&"chapter_4": SubResource("Animation_261bk")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqabt"]
+atlas = ExtResource("5_kf3uw")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yld1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqabt")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="cutscene_2" type="Node2D"]
+script = ExtResource("1_261bk")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 22.0
+offset_top = 289.0
+offset_right = 422.0
+offset_bottom = 415.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.0
+offset_top = 1.0
+offset_right = 199.0
+offset_bottom = 127.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Ethan Vale"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(390, 100)
+layout_mode = 2
+text = "Silêncio... um silêncio de verdade. Sem sussurros, sem... garras arranhando as paredes da minha mente."
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cunl6")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 330)
+scale = Vector2(0.742839, 0.630859)
+texture = ExtResource("4_b14at")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(580, 325)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_cunl6")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1007, 290)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_cunl6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(773, 307)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l6auv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(580, 481)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l6auv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(797, 511)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_yld1f")
+animation = &"new_animation"
