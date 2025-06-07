@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://deil2ip5kniou"]
 
 [ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="1_hhwls"]
-[ext_resource type="Script" uid="uid://bmf4kdvt6e5rl" path="res://scripts/cutscene_2.gd" id="1_tdf2x"]
+[ext_resource type="Script" uid="uid://bxd563ffs6wjm" path="res://scripts/cutscene_3.gd" id="1_tdf2x"]
 [ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/sprites-modificados/image-removebg-preview.png" id="2_6vurv"]
 [ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_xmkwx"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="5_tykh2"]
@@ -261,7 +261,94 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_tdf2x"]
 resource_name = "chapter_3"
+length = 50.0
 step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 35.3554),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Panel/VBoxContainer/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/VBoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Ethan Vale", "Ethan Vale"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.01968, 5.73333, 7.6, 9.56667, 11.7, 13.6333, 15.8377, 17.9457, 20.5879, 22.9295, 25.1607, 27.396, 29.6274, 31.7, 33.7765),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Justo quando pensei que tinha clareado alguma coisa... o próprio hospital se contorce", "Justo quando pensei que tinha clareado alguma coisa... o próprio hospital se contorce", "Justo quando pensei que tinha clareado alguma coisa... o próprio hospital se contorce", "O mesmo lugar, mas... as sombras parecem mais densas, mais famintas. A cor... quase toda drenada, como a esperança.", "O mesmo lugar, mas... as sombras parecem mais densas, mais famintas. A cor... quase toda drenada, como a esperança.", "O mesmo lugar, mas... as sombras parecem mais densas, mais famintas. A cor... quase toda drenada, como a esperança.", "Eu derrubei um deles... e em troca, o próprio lugar se tornou mais hostil. Como se eu tivesse cutucado a ferida.", "Eu derrubei um deles... e em troca, o próprio lugar se tornou mais hostil. Como se eu tivesse cutucado a ferida.", "Eu derrubei um deles... e em troca, o próprio lugar se tornou mais hostil. Como se eu tivesse cutucado a ferida.", "Se antes eram meus medos tomando forma... o que se esconde nestas novas profundezas? Desespero puro?", "Se antes eram meus medos tomando forma... o que se esconde nestas novas profundezas? Desespero puro?", "Se antes eram meus medos tomando forma... o que se esconde nestas novas profundezas? Desespero puro?", "Este hospital... parece que tem raízes dentro de mim. Não importa. O que quer que venha agora... tem que ser enfrentado.", "Este hospital... parece que tem raízes dentro de mim. Não importa. O que quer que venha agora... tem que ser enfrentado.", "Este hospital... parece que tem raízes dentro de mim. Não importa. O que quer que venha agora... tem que ser enfrentado."]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.02968, 5.73333, 7.6, 9.56667, 11.7, 13.6333, 15.8377, 17.9457, 20.5879, 22.9295, 25.1607, 27.396, 29.6274, 31.7, 33.7765),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(36.1185, 37.5285),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(37.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8s6ve"]
 _data = {
@@ -285,7 +372,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="cutscene_2" type="Node2D"]
+[node name="cutscene_3" type="Node2D"]
 script = ExtResource("1_tdf2x")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -322,6 +409,7 @@ visible_ratio = 0.0
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(390, 100)
 layout_mode = 2
+text = "Este hospital... parece que tem raízes dentro de mim. Não importa. O que quer que venha agora... tem que ser enfrentado."
 scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
@@ -330,7 +418,7 @@ visible_ratio = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_8s6ve")
 }
-autoplay = "RESET"
+autoplay = "chapter_3"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(573, 330)
