@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2dqbt4clvd8d"]
+[gd_scene load_steps=10 format=3 uid="uid://cbu7dp0w44hif"]
 
-[ext_resource type="Script" uid="uid://dw7ax0c7ob0c6" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
+[ext_resource type="Script" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="2_2o6u0"]
+
+[sub_resource type="Theme" id="Theme_xo13d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jke6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -65,7 +67,10 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "NOME DO JOGO"
+theme = SubResource("Theme_xo13d")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "HELL FANTASY"
 
 [node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -80,8 +85,7 @@ text = "CONTROLES"
 [node name="Sair" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_q3c3x")
-text = "Sair
-"
+text = "SAIR"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
