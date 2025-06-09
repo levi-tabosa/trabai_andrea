@@ -1,42 +1,79 @@
-[gd_scene load_steps=11 format=3 uid="uid://3htqlf5u7uwh"]
+[gd_scene load_steps=22 format=3 uid="uid://3htqlf5u7uwh"]
 
-[ext_resource type="Texture2D" uid="uid://cd4gsslelv5sm" path="res://assets/boss_ansiedade/boss_ansiedade_semfundo.png" id="1_551dh"]
+[ext_resource type="Script" uid="uid://byx55cmy7w4rj" path="res://scenes/boss_ansiedade.gd" id="1_147a5"]
+[ext_resource type="Texture2D" uid="uid://dv00ud7sh4r5t" path="res://assets/boss_ansiedade/Zombie.png" id="1_551dh"]
+[ext_resource type="Script" uid="uid://dvucysineykvd" path="res://scenes/hp_boss.gd" id="3_t04mo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_551dh"]
+atlas = ExtResource("1_551dh")
+region = Rect2(1, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_147a5"]
 atlas = ExtResource("1_551dh")
-region = Rect2(27, 0, 132, 204)
+region = Rect2(33, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t04mo"]
 atlas = ExtResource("1_551dh")
-region = Rect2(159, 0, 132, 204)
+region = Rect2(65, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4ggj"]
 atlas = ExtResource("1_551dh")
-region = Rect2(291, 0, 132, 204)
+region = Rect2(97, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k51y3"]
 atlas = ExtResource("1_551dh")
-region = Rect2(423, 0, 132, 204)
+region = Rect2(129, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8exd1"]
 atlas = ExtResource("1_551dh")
-region = Rect2(27, 204, 132, 204)
+region = Rect2(161, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oeyyn"]
 atlas = ExtResource("1_551dh")
-region = Rect2(159, 204, 132, 204)
+region = Rect2(193, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5y6eb"]
 atlas = ExtResource("1_551dh")
-region = Rect2(291, 204, 132, 204)
+region = Rect2(225, 2, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nfxi"]
 atlas = ExtResource("1_551dh")
-region = Rect2(423, 204, 132, 204)
+region = Rect2(1, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48st5"]
+atlas = ExtResource("1_551dh")
+region = Rect2(33, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jejrb"]
+atlas = ExtResource("1_551dh")
+region = Rect2(65, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kqft"]
+atlas = ExtResource("1_551dh")
+region = Rect2(97, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2q7y"]
+atlas = ExtResource("1_551dh")
+region = Rect2(129, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a02gw"]
+atlas = ExtResource("1_551dh")
+region = Rect2(161, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8723"]
+atlas = ExtResource("1_551dh")
+region = Rect2(193, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi0pc"]
+atlas = ExtResource("1_551dh")
+region = Rect2(225, 66, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnrpu"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_551dh")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_147a5")
 }, {
@@ -57,19 +94,56 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5y6eb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3nfxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48st5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jejrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kqft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2q7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a02gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi0pc")
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
-[node name="Boss_ansiedade" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_551dh"]
+size = Vector2(20, 28)
+
+[node name="Boss_ansiedade" type="CharacterBody2D"]
+scale = Vector2(6.5, 6.5)
+script = ExtResource("1_147a5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tnrpu")
-animation = &"run"
+animation = &"idle"
+frame_progress = 0.959443
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_551dh")
+
+[node name="HP_boss" type="CanvasLayer" parent="."]
+script = ExtResource("3_t04mo")

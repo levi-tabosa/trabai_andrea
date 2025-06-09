@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4bvi0psj51d7"]
+[gd_scene load_steps=9 format=3 uid="uid://d4bvi0psj51d7"]
 
 [ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bv0u2t86xnbnw" path="res://assets/resources/sprite-frames/spider-fames.tres" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cryp6fjuxdj3w" path="res://scenes/inventory.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://dm2lekus82qmg" path="res://scripts/inventory_interface.gd" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://3htqlf5u7uwh" path="res://scenes/boss_ansiedade.tscn" id="8_tipki"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_tefeu")
@@ -39,3 +40,7 @@ script = ExtResource("6_o6xl0")
 
 [node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_tbgi4")]
 layout_mode = 0
+
+[node name="Boss_ansiedade" parent="." instance=ExtResource("8_tipki")]
+position = Vector2(1708, 336)
+scale = Vector2(5, 5)
