@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cbu7dp0w44hif"]
 
-[ext_resource type="Script" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
+[ext_resource type="Script" uid="uid://dw7ax0c7ob0c6" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
 [ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="2_2o6u0"]
 
 [sub_resource type="Theme" id="Theme_xo13d"]
