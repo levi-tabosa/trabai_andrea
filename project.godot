@@ -20,8 +20,8 @@ DialogueManager="*res://scripts/dialogue_manager.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/initial_position_type=0
 
 [dotnet]

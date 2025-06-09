@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://3htqlf5u7uwh"]
+
+[ext_resource type="Texture2D" uid="uid://cd4gsslelv5sm" path="res://assets/boss_ansiedade/boss_ansiedade_semfundo.png" id="1_551dh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_147a5"]
+atlas = ExtResource("1_551dh")
+region = Rect2(27, 0, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t04mo"]
+atlas = ExtResource("1_551dh")
+region = Rect2(159, 0, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ggj"]
+atlas = ExtResource("1_551dh")
+region = Rect2(291, 0, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k51y3"]
+atlas = ExtResource("1_551dh")
+region = Rect2(423, 0, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8exd1"]
+atlas = ExtResource("1_551dh")
+region = Rect2(27, 204, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeyyn"]
+atlas = ExtResource("1_551dh")
+region = Rect2(159, 204, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y6eb"]
+atlas = ExtResource("1_551dh")
+region = Rect2(291, 204, 132, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nfxi"]
+atlas = ExtResource("1_551dh")
+region = Rect2(423, 204, 132, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnrpu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_147a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t04mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ggj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k51y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8exd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeyyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y6eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nfxi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Boss_ansiedade" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tnrpu")
+animation = &"run"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
