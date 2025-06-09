@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="1_hhwls"]
 [ext_resource type="Script" uid="uid://bxd563ffs6wjm" path="res://scripts/cutscene_3.gd" id="1_tdf2x"]
-[ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/sprites-modificados/image-removebg-preview.png" id="2_6vurv"]
-[ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_xmkwx"]
+[ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/resources/sprites-modificados/image-removebg-preview.png" id="2_6vurv"]
+[ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/resources/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_xmkwx"]
 [ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="5_tykh2"]
 
 [sub_resource type="Animation" id="Animation_8s6ve"]
