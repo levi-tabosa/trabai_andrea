@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chqemjd03pk7x"
-path="res://.godot/imported/chracther-medic-removebg-preview.png-910e8ff5fb81e8a3815ab5bf2b9a79ab.ctex"
+uid="uid://b80b3051u3g5m"
+path="res://.godot/imported/charcater-2-removebg-preview.png-7267f8e4f3203a8d8a6cd3741cdf58d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chracther-medic-removebg-preview.png"
-dest_files=["res://.godot/imported/chracther-medic-removebg-preview.png-910e8ff5fb81e8a3815ab5bf2b9a79ab.ctex"]
+source_file="res://assets/imgs/charcater-2-removebg-preview.png"
+dest_files=["res://.godot/imported/charcater-2-removebg-preview.png-7267f8e4f3203a8d8a6cd3741cdf58d5.ctex"]
 
 [params]
 

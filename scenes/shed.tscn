@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://2bywqnyjbjyk"]
 
-[ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="1_422rr"]
+[ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/imgs/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="1_422rr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_422rr"]
 size = Vector2(94.3495, 186.908)

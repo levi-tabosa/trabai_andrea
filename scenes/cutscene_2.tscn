@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://xeyonygm1qun"]
 
-[ext_resource type="Script" uid="uid://bmf4kdvt6e5rl" path="res://scripts/cutscene_2.gd" id="1_8s6ve"]
-[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_eitc1"]
-[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_pqabt"]
-[ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_5k51e"]
-[ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/sprites-modificados/image-removebg-preview.png" id="4_ho5ud"]
+[ext_resource type="Script" path="res://scripts/cutscene_2.gd" id="1_8s6ve"]
+[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/imgs/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_eitc1"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/imgs/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_pqabt"]
+[ext_resource type="Texture2D" uid="uid://v3nk08uae8gn" path="res://assets/resources/sprites-modificados/Captura_de_tela_2025-05-31_183812-removebg-preview.png" id="3_5k51e"]
+[ext_resource type="Texture2D" uid="uid://dllqkxvesj5wk" path="res://assets/resources/sprites-modificados/image-removebg-preview.png" id="4_ho5ud"]
 
 [sub_resource type="Animation" id="Animation_8s6ve"]
 length = 70.0

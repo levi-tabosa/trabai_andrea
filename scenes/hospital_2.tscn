@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://fcknpl6ns1bt"]
 
-[ext_resource type="Texture2D" uid="uid://bwdhp8d6g3xan" path="res://assets/ChatGPT Image 25 de abr. de 2025, 16_29_10.png" id="1_g5yjp"]
-[ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="2_ds6on"]
+[ext_resource type="Texture2D" uid="uid://bwdhp8d6g3xan" path="res://assets/imgs/ChatGPT Image 25 de abr. de 2025, 16_29_10.png" id="1_g5yjp"]
+[ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/imgs/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="2_ds6on"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8e8fg"]
 texture = ExtResource("1_g5yjp")

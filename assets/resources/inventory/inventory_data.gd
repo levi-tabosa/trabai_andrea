@@ -22,9 +22,10 @@ func drop_slot_data(grabbed_slot_data: SlotData, slot_index: int) -> SlotData:
 
 	var returned_slot_data: SlotData = null
 	if slot_data and slot_data.can_fully_merge_with(grabbed_slot_data):
-		slot_data.merge_with(grabbed_slot_data)
+		slot_data.fully_merge_with(grabbed_slot_data)
 	else:
 		slot_datas[slot_index] = grabbed_slot_data
-	inventory_update.emit(self)
+		returned_slot_data = slot_data
 	
+	inventory_update.emit(self)
 	return returned_slot_data

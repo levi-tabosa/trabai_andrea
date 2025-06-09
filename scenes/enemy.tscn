@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://yg7nkj6i3yob"]
 
 [ext_resource type="Script" uid="uid://b031ee2ppnns6" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/imgs/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("2_md0e3")

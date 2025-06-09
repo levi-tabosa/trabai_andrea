@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cksgwy53nsbmr"
-path="res://.godot/imported/PC Computer - Ao Oni - Ao Oni.png-7a1474963b08a9f22fff617b86378caa.ctex"
+path="res://.godot/imported/PC Computer - Ao Oni - Ao Oni.png-38744d785442ec73898264a6fca0571a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PC Computer - Ao Oni - Ao Oni.png"
-dest_files=["res://.godot/imported/PC Computer - Ao Oni - Ao Oni.png-7a1474963b08a9f22fff617b86378caa.ctex"]
+source_file="res://assets/imgs/PC Computer - Ao Oni - Ao Oni.png"
+dest_files=["res://.godot/imported/PC Computer - Ao Oni - Ao Oni.png-38744d785442ec73898264a6fca0571a.ctex"]
 
 [params]
 

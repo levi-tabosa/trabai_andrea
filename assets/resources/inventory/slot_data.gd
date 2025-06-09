@@ -7,11 +7,13 @@ const MAX_STACK_SIZE := 99
 @export_range(1, MAX_STACK_SIZE) var quantity: int = 1 : set = set_quantity
 
 func can_fully_merge_with(other_slot_data: SlotData) -> bool:
+	print("can_fully_merge_with called")
 	return item_data == other_slot_data.item_data \
 			and item_data.stackable \
 			and quantity + other_slot_data.quantity <= MAX_STACK_SIZE
 
-func merge_with(other_slot_data: SlotData) -> void:
+func fully_merge_with(other_slot_data: SlotData) -> void:
+	print("fully_merge_with called")
 	quantity += other_slot_data.quantity
 	
 func set_quantity(value: int) -> void:

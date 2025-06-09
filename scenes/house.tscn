@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddlfjbrrlwrg6"]
 
-[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_d7po0"]
-[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_qtlar"]
+[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/imgs/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_d7po0"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/imgs/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_qtlar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk7hg"]
 atlas = ExtResource("2_qtlar")
