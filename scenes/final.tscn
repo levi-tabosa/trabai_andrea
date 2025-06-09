@@ -1,6 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dh556yfewirrs"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://cffobr4j6qhok" path="res://scripts/final.gd" id="1_qkvop"]
+=======
+[ext_resource type="Script" uid="uid://devegxn04l0at" path="res://scripts/game_over.gd" id="1_qkvop"]
+>>>>>>> 5e17631abf93336eaff25f71a82153d06e54c839
 [ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="2_qkvop"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jke6"]

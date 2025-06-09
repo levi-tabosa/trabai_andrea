@@ -26,6 +26,7 @@ enemy_scale_factor = 1.0
 enemy_has_projectile = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InventoryInterface" type="Control" parent="UI"]
 layout_mode = 3
