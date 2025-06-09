@@ -1,42 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbu7dp0w44hif"]
+[gd_scene load_steps=7 format=3 uid="uid://dh556yfewirrs"]
 
-[ext_resource type="Script" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
-[ext_resource type="Texture2D" uid="uid://crb7m1pfm1msy" path="res://assets/3bf0bec8-557d-4cfd-b69c-54b1897172b4.png" id="2_2o6u0"]
-
-[sub_resource type="Theme" id="Theme_xo13d"]
+[ext_resource type="Script" uid="uid://devegxn04l0at" path="res://scripts/game_over.gd" id="1_qkvop"]
+[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="2_qkvop"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jke6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_5ebov"]
-Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0.762465, 0.85178, 0.976237, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_1jke6")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ebov"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_j5s48"]
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0.760784, 0.85098, 0.976471, 1)
-Button/styles/normal = SubResource("StyleBoxFlat_5ebov")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66251"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_q3c3x"]
-Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0.760784, 0.85098, 0.976471, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_66251")
 
-[node name="Home" type="Control"]
+[node name="FINAL" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xo13d")
+script = ExtResource("1_qkvop")
 metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -52,7 +42,7 @@ metadata/_edit_lock_ = true
 
 [node name="bg" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_2o6u0")
+texture = ExtResource("2_qkvop")
 expand_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -67,7 +57,6 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = SubResource("Theme_xo13d")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 text = "HELL FANTASY"
@@ -75,18 +64,15 @@ text = "HELL FANTASY"
 [node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_5ebov")
-text = "INICIAR"
-
-[node name="Controls" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_j5s48")
-text = "CONTROLES"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COMEÇAR NOVAMENTE"
 
 [node name="Sair" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_q3c3x")
-text = "SAIR"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SAIR
+"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

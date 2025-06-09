@@ -10,4 +10,4 @@ func _on_controls_pressed() -> void:
 
 
 func _on_sair_pressed() -> void:
-	get_tree().quit()
+	pass # Replace with function body.
