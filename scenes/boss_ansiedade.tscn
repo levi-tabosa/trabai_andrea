@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://3htqlf5u7uwh"]
 
-[ext_resource type="Script" uid="uid://byx55cmy7w4rj" path="res://scenes/boss_ansiedade.gd" id="1_147a5"]
+[ext_resource type="Script" path="res://scenes/boss_ansiedade.gd" id="1_147a5"]
 [ext_resource type="Texture2D" uid="uid://dv00ud7sh4r5t" path="res://assets/boss_ansiedade/Zombie.png" id="1_551dh"]
-[ext_resource type="Script" uid="uid://dvucysineykvd" path="res://scenes/hp_boss.gd" id="3_t04mo"]
+[ext_resource type="Script" path="res://scenes/hp_boss.gd" id="3_t04mo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_551dh"]
 atlas = ExtResource("1_551dh")
