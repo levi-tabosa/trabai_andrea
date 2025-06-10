@@ -9,8 +9,8 @@ region = Rect2(60, 40, 20, 20)
 
 [resource]
 script = ExtResource("1_aywxo")
-item_name = "Food"
-item_description = "Cool	"
+name = ""
+description = ""
 stackable = false
 icon = SubResource("AtlasTexture_8sq1c")
 metadata/_custom_type_script = "uid://doum4gfotbcwh"

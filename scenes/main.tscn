@@ -443,6 +443,7 @@ script = ExtResource("1_tefeu")
 [node name="InventoryUI" parent="." instance=ExtResource("2_85g3d")]
 
 [node name="Hospital" parent="." instance=ExtResource("1_sugp2")]
+visible = false
 position = Vector2(-12, -10)
 
 [node name="Player" parent="." instance=ExtResource("4_jyhfs")]

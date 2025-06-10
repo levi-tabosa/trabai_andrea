@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://m2vfgepdukft"]
 
 [ext_resource type="Script" uid="uid://cxbn25rm0xoch" path="res://scripts/inventory_slot.gd" id="1_bxqf6"]
-[ext_resource type="Texture2D" uid="uid://bkxhomtvdsjpe" path="res://icon.svg" id="1_dxvxp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxqf6"]
+font_size = 8
 
 [node name="Slot" type="PanelContainer"]
-offset_right = 28.0
-offset_bottom = 23.0
+offset_right = 32.0
+offset_bottom = 32.0
 script = ExtResource("1_bxqf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -17,14 +19,14 @@ theme_override_constants/margin_bottom = 4
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_dxvxp")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 2
 theme_override_constants/outline_size = 3
-text = "x99"
+text = "aa"
+label_settings = SubResource("LabelSettings_bxqf6")
 horizontal_alignment = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
