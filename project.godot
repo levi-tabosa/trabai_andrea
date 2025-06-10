@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Hell_fantasy"
-run/main_scene="uid://d4bvi0psj51d7"
+config/name="Heath Fantasy"
+run/main_scene="uid://d2dqbt4clvd8d"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
