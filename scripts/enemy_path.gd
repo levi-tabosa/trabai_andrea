@@ -1,5 +1,6 @@
 extends Path2D
 
+@export var enemy_health := 100.0
 @export var enemy_speed := 100.0
 @export var enemy_chase_distance := 100.0
 @export var enemy_fire_rate := 1.0

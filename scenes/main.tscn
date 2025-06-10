@@ -474,27 +474,3 @@ enemy_mov_state = 1
 enemy_sprite_frames = ExtResource("10_choun")
 enemy_scale_factor = 2.0
 enemy_has_projectile = true
-
-[node name="EnemyPath3" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(159, 300)
-enemy_speed = 50.0
-enemy_mov_state = 1
-enemy_sprite_frames = SubResource("SpriteFrames_trceg")
-enemy_scale_factor = 2.0
-enemy_has_projectile = true
-
-[node name="EnemyPath4" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(159, 600)
-enemy_speed = 50.0
-enemy_mov_state = 1
-enemy_sprite_frames = SubResource("SpriteFrames_trceg")
-enemy_scale_factor = 2.0
-enemy_has_projectile = true
-
-[node name="EnemyPath5" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(159, 125)
-enemy_speed = 50.0
-enemy_mov_state = 1
-enemy_sprite_frames = SubResource("SpriteFrames_trceg")
-enemy_scale_factor = 2.0
-enemy_has_projectile = true

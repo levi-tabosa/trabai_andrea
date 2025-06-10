@@ -1,15 +1,15 @@
 extends Node
 class_name HealthComponent
 
-signal health_changed(old_value: int, new_value: int)
+signal health_changed(old_value: float, new_value: float)
 signal health_depleted()
 
-@export var max_health := 100
+@export var max_health := 100.0
 @export var invincible := false
 @export var invincibility_duration := 0.5 # em segundos
 
 var is_invincible := false
-var current_health: int:
+var current_health: float:
 	set(value):
 		var old_health = current_health
 		current_health = clamp(value, 0, max_health)
@@ -23,7 +23,7 @@ var current_health: int:
 func _ready() -> void:
 	current_health = max_health
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: float) -> void:
 	if invincible || is_invincible:
 		return
 	
@@ -35,10 +35,10 @@ func take_damage(amount: int) -> void:
 		if(t):
 			await t.create_timer(invincibility_duration).timeout
 		else:
-			print(null)
+			print("[health_component.gd] inv timeout > 0. DEU RUIM KK")
 		is_invincible = false
 
-func heal(amount: int) -> void:
+func heal(amount: float) -> void:
 	current_health += amount
 
 func reset_health() -> void:

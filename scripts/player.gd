@@ -22,8 +22,8 @@ enum FireType {
 @export var orbit_radius := 30.0
 @export var orbit_speed := 3.0
 @export var health_component: HealthComponent
-@export var knockback_force := 350.0
-@export var knockback_duration := 0.2
+@export var knockback_force := 150.0
+@export var knockback_duration := 2.0
 @export var inventory_data: InventoryData
 #@export var player_audio: AudioStreamPlayer2D
 

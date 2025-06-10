@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 class_name Enemy
 
-@export var speed: int
-@export var chase_distance: int
+@export var health: float
+@export var speed: float
+@export var chase_distance: float
 @export var path_node: NodePath
 @export var player_node: NodePath
 @export var health_component: HealthComponent
@@ -95,6 +96,8 @@ func _ready() -> void:
 
 func configure_from_path(_path_node: Node) -> void:
 	if _path_node.has_method("get_script") and _path_node.get_script() != null:
+		if _path_node.get("enemy_health") != null:
+			health_component.max_health = _path_node.enemy_health
 		if _path_node.get("enemy_speed") != null:
 			speed = _path_node.enemy_speed
 		if _path_node.get("enemy_chase_distance") != null:
