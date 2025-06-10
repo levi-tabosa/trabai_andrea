@@ -8,9 +8,8 @@ func _ready() -> void:
 	$Modes/FireModes.pivot_offset = -get_viewport_rect().size / 2
 	$HealthBar.pivot_offset.y = get_viewport_rect().size.y / 10
 	fire_mode_labels = $Modes/FireModes.get_children()
-	for label in fire_mode_labels:
-		label.visible = false
-	fire_mode_labels[0].visible = true
+
+	# fire_mode_labels[0].visible = true
 		
 	var player = get_tree().get_root().get_node("main/Player")
 	assert(player != null)

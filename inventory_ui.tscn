@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://uvyyec0khpsa"]
+
+[ext_resource type="Script" uid="uid://dm2lekus82qmg" path="res://scripts/inventory_interface.gd" id="1_34y5v"]
+[ext_resource type="PackedScene" uid="uid://cryp6fjuxdj3w" path="res://scenes/inventory.tscn" id="2_r57pj"]
+[ext_resource type="PackedScene" uid="uid://m2vfgepdukft" path="res://scenes/inventory_slot.tscn" id="3_jn3b8"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="InventoryInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34y5v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryInterface"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerInventory" parent="InventoryInterface/HBoxContainer" instance=ExtResource("2_r57pj")]
+layout_mode = 2
+
+[node name="Slot" parent="InventoryInterface/HBoxContainer" instance=ExtResource("3_jn3b8")]
+layout_mode = 2

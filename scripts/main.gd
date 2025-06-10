@@ -1,7 +1,7 @@
 extends Node
 
 @onready var player: CharacterBody2D = $Player
-@onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var inventory_interface: Control = $InventoryUI/InventoryInterface
 
 func _ready() -> void:
 	player.toggle_inventory.connect(toggle_inventory_interface)
