@@ -43,9 +43,7 @@ func _ready() -> void:
 		dialogue_tree = {}
 
 func show_current_dialogue() -> void:
-	if not is_player_in_area:
-		return
-		
+	print(9)
 	if dialogue_tree.has(dialogue_state):
 		var current_dialogue = dialogue_tree[dialogue_state]
 		DialogueManager.show_dialogue(npc_name, current_dialogue["text"], global_position, current_dialogue["choices"], self)
@@ -54,13 +52,13 @@ func show_current_dialogue() -> void:
 		DialogueManager.hide_dialogue()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "Player":
 		is_player_in_area = true
 		dialogue_state = "start"
 		show_current_dialogue()
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "Player":
 		is_player_in_area = false
 		DialogueManager.hide_dialogue()
 

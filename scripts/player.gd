@@ -44,6 +44,12 @@ var orbit_angle := 0 # se for float n funciona
 var orbit_projectiles := []
 var unlocked_fire_types := [
 	FireType.SINGLE,
+	FireType.DOUBLE,
+	FireType.TRIPLE,
+	FireType.QUAD,
+	FireType.SINE,
+	FireType.ORBIT,
+	FireType.OCTAL
 ]
 var is_shooting := false
 var shooting_timer := 0.0
