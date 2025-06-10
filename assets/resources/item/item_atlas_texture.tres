@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dwkew74p5uwu8"]
+
+[ext_resource type="Texture2D" uid="uid://diqbf3eid8lys" path="res://assets/PixelArt/TileSheet-Trash-Puddles.png" id="1_viphy"]
+
+[resource]
+atlas = ExtResource("1_viphy")
+region = Rect2(60, 40, 20, 20)

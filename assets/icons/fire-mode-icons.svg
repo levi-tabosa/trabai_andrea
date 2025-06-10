@@ -1,0 +1,63 @@
+<svg viewBox="0 0 900 150">
+  <!-- Background -->
+  <rect x="0" y="0" width="900" height="150" fill="#2d2d2d" rx="10" />
+  
+  <!-- Fire Mode Labels -->
+  <text x="75" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">SINGLE</text>
+  <text x="225" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">DOUBLE</text>
+  <text x="375" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">TRIPLE</text>
+  <text x="525" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">QUAD</text>
+  <text x="675" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">SINE</text>
+  <text x="825" y="25" font-family="Arial" font-size="16" fill="white" text-anchor="middle">ORBIT</text>
+  
+  <!-- SINGLE shot icon -->
+  <g transform="translate(75, 80)">
+    <circle cx="0" cy="0" r="10" fill="#ff5555" />
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#ff5555" stroke-width="5" stroke-linecap="round" />
+  </g>
+  
+  <!-- DOUBLE shot icon -->
+  <g transform="translate(225, 80)">
+    <circle cx="-10" cy="-10" r="8" fill="#55aaff" />
+    <circle cx="-10" cy="10" r="8" fill="#55aaff" />
+    <line x1="-10" y1="-10" x2="20" y2="-10" stroke="#55aaff" stroke-width="4" stroke-linecap="round" />
+    <line x1="-10" y1="10" x2="20" y2="10" stroke="#55aaff" stroke-width="4" stroke-linecap="round" />
+  </g>
+  
+  <!-- TRIPLE shot icon -->
+  <g transform="translate(375, 80)">
+    <circle cx="-15" cy="0" r="8" fill="#55ff55" />
+    <circle cx="0" cy="-15" r="8" fill="#55ff55" />
+    <circle cx="0" cy="15" r="8" fill="#55ff55" />
+    <line x1="-15" y1="0" x2="15" y2="0" stroke="#55ff55" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="-15" x2="20" y2="-5" stroke="#55ff55" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="15" x2="20" y2="5" stroke="#55ff55" stroke-width="4" stroke-linecap="round" />
+  </g>
+  
+  <!-- QUAD shot icon -->
+  <g transform="translate(525, 80)">
+    <circle cx="0" cy="-15" r="6" fill="#ffaa55" />
+    <circle cx="15" cy="0" r="6" fill="#ffaa55" />
+    <circle cx="0" cy="15" r="6" fill="#ffaa55" />
+    <circle cx="-15" cy="0" r="6" fill="#ffaa55" />
+    <line x1="0" y1="-15" x2="0" y2="-30" stroke="#ffaa55" stroke-width="3" stroke-linecap="round" />
+    <line x1="15" y1="0" x2="30" y2="0" stroke="#ffaa55" stroke-width="3" stroke-linecap="round" />
+    <line x1="0" y1="15" x2="0" y2="30" stroke="#ffaa55" stroke-width="3" stroke-linecap="round" />
+    <line x1="-15" y1="0" x2="-30" y2="0" stroke="#ffaa55" stroke-width="3" stroke-linecap="round" />
+  </g>
+  
+  <!-- SINE shot icon -->
+  <g transform="translate(675, 80)">
+    <circle cx="-25" cy="0" r="8" fill="#aa55ff" />
+    <path d="M -25 0 Q -12.5 -20 0 0 T 25 0" stroke="#aa55ff" stroke-width="4" fill="none" />
+  </g>
+  
+  <!-- ORBIT shot icon -->
+  <g transform="translate(825, 80)">
+    <circle cx="0" cy="0" r="10" fill="#55ffff" />
+    <circle cx="0" cy="-20" r="6" fill="#55ffff" />
+    <circle cx="17.32" cy="10" r="6" fill="#55ffff" />
+    <circle cx="-17.32" cy="10" r="6" fill="#55ffff" />
+    <circle cx="0" cy="0" r="20" stroke="#55ffff" stroke-width="2" fill="none" />
+  </g>
+</svg>

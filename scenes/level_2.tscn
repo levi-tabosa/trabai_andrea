@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcyncyonr3v1i"]
+
+[ext_resource type="PackedScene" uid="uid://2bywqnyjbjyk" path="res://scenes/shed.tscn" id="1_3bmlt"]
+
+[node name="level_2" type="Node"]
+
+[node name="shed" parent="." instance=ExtResource("1_3bmlt")]
+position = Vector2(-28, -2)

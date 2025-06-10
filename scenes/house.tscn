@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddlfjbrrlwrg6"]
+
+[ext_resource type="Texture2D" uid="uid://22j2lerionoc" path="res://assets/ChatGPT Image 21 de abr. de 2025, 17_16_57.png" id="1_d7po0"]
+[ext_resource type="Texture2D" uid="uid://bwy5jy1axmfmr" path="res://assets/PC Computer - The Escapists - The Walking Dead - Glenn.png" id="2_qtlar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk7hg"]
+atlas = ExtResource("2_qtlar")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_se78b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk7hg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="house" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 327.25)
+scale = Vector2(0.750651, 0.628418)
+texture = ExtResource("1_d7po0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(510, 390)
+scale = Vector2(7.5, 7.5)
+sprite_frames = SubResource("SpriteFrames_se78b")

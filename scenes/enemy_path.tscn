@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://baynvyo0fscvw"]
+
+[ext_resource type="Script" uid="uid://bdo4soctm5xno" path="res://scripts/enemy_path.gd" id="1_ov72x"]
+[ext_resource type="PackedScene" uid="uid://yg7nkj6i3yob" path="res://scenes/enemy.tscn" id="2_4jm3e"]
+[ext_resource type="Texture2D" uid="uid://damv7213yhplh" path="res://assets/ChatGPT Image 25 de abr. de 2025, 13_48_50.png" id="2_kaxol"]
+[ext_resource type="Texture2D" uid="uid://bf0iqfgiuk3v1" path="res://assets/ChatGPT Image 25 de abr. de 2025, 11_49_35.png" id="3_4tch4"]
+[ext_resource type="Texture2D" uid="uid://dipi6xsc2hlyt" path="res://assets/ChatGPT Image 25 de abr. de 2025, 13_48_55.png" id="3_uuw2b"]
+[ext_resource type="Texture2D" uid="uid://g3wl6ilsa7j6" path="res://assets/ChatGPT Image 25 de abr. de 2025, 12_09_25.png" id="4_kaxol"]
+
+[sub_resource type="Curve2D" id="Curve2D_kaxol"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 150, 0, 0, 0, 0, -4.56592, 4.08682, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_725tx"]
+atlas = ExtResource("2_kaxol")
+region = Rect2(9, 0, 491, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_534fw"]
+atlas = ExtResource("2_kaxol")
+region = Rect2(9, 0, 491, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfk2r"]
+atlas = ExtResource("3_uuw2b")
+region = Rect2(9, 0, 491, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j82ee"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(250, 0, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jox4e"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(136, 332, 121, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cidyv"]
+atlas = ExtResource("4_kaxol")
+region = Rect2(15, 0, 241, 442)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onom2"]
+atlas = ExtResource("2_kaxol")
+region = Rect2(9, 0, 491, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc73i"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(253, 332, 122, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaxol"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(256, 166, 121, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6qq3"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(378, 166, 121, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56cfu"]
+atlas = ExtResource("3_4tch4")
+region = Rect2(256, 0, 121, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltotv"]
+atlas = ExtResource("4_kaxol")
+region = Rect2(252, 0, 243, 494)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cidyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_725tx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_534fw")
+}],
+"loop": true,
+"name": &"idle-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfk2r")
+}],
+"loop": true,
+"name": &"idle-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j82ee")
+}],
+"loop": true,
+"name": &"idle-up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jox4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cidyv")
+}],
+"loop": true,
+"name": &"walk-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onom2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc73i")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaxol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6qq3")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56cfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltotv")
+}],
+"loop": true,
+"name": &"walk-up",
+"speed": 5.0
+}]
+
+[node name="EnemyPath" type="Path2D"]
+curve = SubResource("Curve2D_kaxol")
+script = ExtResource("1_ov72x")
+enemy_sprite_frames = SubResource("SpriteFrames_cidyv")
+enemy_scale_factor = 0.3
+
+[node name="Enemy" parent="." instance=ExtResource("2_4jm3e")]
+rotation = 0.00466919
+path_node = NodePath("..")

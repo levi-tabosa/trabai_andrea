@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://drfjicyqu7aji"]
+
+[ext_resource type="Script" uid="uid://doum4gfotbcwh" path="res://assets/resources/item/item_data.gd" id="1_wyf20"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wyf20"]
+load_path = "res://.godot/imported/TileSheet-Trash-Puddles.png-71464533e3849da1e7a847a0233d1fcb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foemv"]
+atlas = SubResource("CompressedTexture2D_wyf20")
+region = Rect2(0, 0, 20, 20)
+
+[resource]
+script = ExtResource("1_wyf20")
+item_name = "paper"
+item_description = "2"
+stackable = false
+icon = SubResource("AtlasTexture_foemv")
+metadata/_custom_type_script = "uid://doum4gfotbcwh"

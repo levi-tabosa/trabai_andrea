@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://irxs732e8uoa"]
+
+[ext_resource type="Script" uid="uid://cnjbckuihrjrq" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="Texture2D" uid="uid://cc3vauuyiny0m" path="res://assets/icons/sine_shot.png" id="2_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://0olfkhe7bv30" path="res://assets/icons/double_shot.png" id="3_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://cvs4jcvl12xaj" path="res://assets/icons/triple_shot.png" id="4_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://1flojsk6fbod" path="res://assets/icons/quad_shot.png" id="5_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://dj2d30y0kfmwv" path="res://assets/icons/orbit_shot.png" id="7_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://djqjfkvijptn7" path="res://assets/icons/octal_shot.png" id="8_vsj0x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4jx1"]
+font_size = 37
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 150.0
+script = ExtResource("1_nt7q6")
+
+[node name="Modes" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
+
+[node name="FireModes" type="HBoxContainer" parent="Modes"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 998.0
+offset_bottom = 91.0
+scale = Vector2(0.3, 0.3)
+
+[node name="LabelDouble" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Double "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DDouble" type="Sprite2D" parent="Modes/FireModes/LabelDouble"]
+position = Vector2(94.6669, -23.6667)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_cgfq5")
+
+[node name="LabelTriple" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Triple "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DTriple" type="Sprite2D" parent="Modes/FireModes/LabelTriple"]
+position = Vector2(71.6667, -30.3333)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_7dvkv")
+
+[node name="LabelQuad" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Quad "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DQuad" type="Sprite2D" parent="Modes/FireModes/LabelQuad"]
+position = Vector2(74.6669, -30.3333)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_vdcm2")
+
+[node name="LabelSine" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Sine "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DSine" type="Sprite2D" parent="Modes/FireModes/LabelSine"]
+position = Vector2(52.6669, -33.6667)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_x4jx1")
+
+[node name="LabelOrbit" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Orbit "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DOrbit" type="Sprite2D" parent="Modes/FireModes/LabelOrbit"]
+position = Vector2(68.3332, -30.3333)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_6rmj2")
+
+[node name="LabelOcta" type="Label" parent="Modes/FireModes"]
+layout_mode = 2
+text = "Octa "
+label_settings = SubResource("LabelSettings_x4jx1")
+
+[node name="Sprite2DOcta" type="Sprite2D" parent="Modes/FireModes/LabelOcta"]
+position = Vector2(53.6665, -30.3333)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_vsj0x")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 27.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(-8, -12)
+value = 100.0

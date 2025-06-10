@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2dqbt4clvd8d"]
+
+[ext_resource type="Script" uid="uid://dw7ax0c7ob0c6" path="res://scripts/tela_inicial.gd" id="1_xo13d"]
+[ext_resource type="Texture2D" uid="uid://b31n7us6bqur" path="res://assets/ChatGPT Image 25 de abr. de 2025, 15_20_17.png" id="2_xo13d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo13d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_5ebov"]
+Button/colors/font_color = Color(0.760784, 0.85098, 0.976471, 1)
+Button/colors/font_hover_color = Color(0.762465, 0.85178, 0.976237, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_xo13d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o6u0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_j5s48"]
+Button/colors/font_color = Color(0.760784, 0.85098, 0.976471, 1)
+Button/colors/font_hover_color = Color(0.760784, 0.85098, 0.976471, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_2o6u0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvj2l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_q3c3x"]
+Button/colors/font_color = Color(0.760784, 0.85098, 0.976471, 1)
+Button/colors/font_hover_color = Color(0.760784, 0.85098, 0.976471, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_hvj2l")
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xo13d")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_lock_ = true
+
+[node name="bg" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_xo13d")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Health Fantasy"
+
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_5ebov")
+text = "INICIAR"
+
+[node name="Controls" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_j5s48")
+text = "CONTROLES"
+
+[node name="Sair" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_q3c3x")
+text = "Sair
+"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

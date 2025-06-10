@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddeiyv36psyk6"]
+
+[ext_resource type="Texture2D" uid="uid://6c3yf6rcmeuf" path="res://assets/ChatGPT Image 4 de abr. de 2025, 16_49_19.png" id="1_c8fcr"]
+
+[sub_resource type="GDScript" id="GDScript_6aapk"]
+script/source = "extends Area2D
+
+@export var speed := 750.0
+@export var damage := 10
+
+var direction := Vector2.RIGHT  # Default
+var is_sine := false
+var is_orbit := false
+var sine_amplitude := 50.0
+var sine_frequency := 2.0
+var initial_angle := 0.0
+var orbit_angle := 0.0
+var orbit_radius := 0.0
+var time_alive := 0.0
+@onready var animated := $AnimatedSprite2D
+
+func _ready() -> void:
+	add_to_group(\"projectiles\")
+	var timer = Timer.new()
+	timer.wait_time = get_meta(\"timeout\", 4.0)
+	timer.one_shot = true
+	timer.connect(\"timeout\", _on_timeout)
+	add_child(timer)
+	timer.start()
+	
+	# Check for special behaviors
+	if has_meta(\"is_sine\"):
+		is_sine = get_meta(\"is_sine\")
+		sine_amplitude = get_meta(\"sine_amplitude\")
+		sine_frequency = get_meta(\"sine_frequency\")
+		initial_angle = get_meta(\"initial_angle\")
+	
+	if has_meta(\"is_orbit\"):
+		is_orbit = get_meta(\"is_orbit\")
+		orbit_angle = get_meta(\"orbit_angle\", 0.0)
+		orbit_radius = get_meta(\"orbit_radius\", 30.0)
+		speed = 0  # Orbit projectiles don't move forward
+
+func _physics_process(delta: float) -> void:
+	time_alive += delta
+	
+	if is_orbit:
+		# Comportamento em modo orbita gerenciado pelo Player
+		return
+	elif is_sine:
+		var forward_movement = direction * speed * delta
+		var perpendicular = direction.rotated(PI/2)
+		var sine_offset = perpendicular * sin(time_alive * sine_frequency) * sine_amplitude * delta
+		position += forward_movement + sine_offset
+	else:
+		position += direction * speed * delta
+
+func _on_body_entered(body):
+	# Skip processing if this is a null collision
+	if not body:
+		return
+		
+	# Check if we're hitting our own shooter
+	var shooter = get_meta(\"shooter\", null)
+	
+	if shooter and shooter == body or shooter.is_in_group(\"mobs\") and body.is_in_group(\"mobs\"):
+		return
+	
+	# Handle player hit by enemy projectile
+	if get_meta(\"is_enemy_projectile\", false) and body.has_method(\"take_damage\"): #and not body.is_in_group(\"mobs\"):
+		body.take_damage(damage)
+		queue_free()
+		
+	# Handle enemy hit by player projectile
+	elif not get_meta(\"is_enemy_projectile\", false) and body.has_method(\"take_damage\") and body.is_in_group(\"mobs\"):
+		body.take_damage(damage)
+		queue_free()
+		
+	# Handle wall collisions or other obstacles
+	else:
+		queue_free()
+
+func _on_timeout() -> void:
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
+size = Vector2(14, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8fcr"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(103, 476, 102, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6q2a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8fcr")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}]
+
+[node name="projectile" type="Area2D"]
+script = SubResource("GDScript_6aapk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3m7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_6q2a6")
+animation = &"bullet"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

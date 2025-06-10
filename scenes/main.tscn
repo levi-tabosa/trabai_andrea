@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4bvi0psj51d7"]
+
+[ext_resource type="PackedScene" uid="uid://baynvyo0fscvw" path="res://scenes/enemy_path.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://beprwukcivekm" path="res://scenes/hospital.tscn" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://8y2yau4nfrbm" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://isvtb1om0gsd" path="res://scenes/player.tscn" id="4_jyhfs"]
+[ext_resource type="SpriteFrames" uid="uid://bv0u2t86xnbnw" path="res://assets/resources/sprite-frames/spider-fames.tres" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cryp6fjuxdj3w" path="res://scenes/inventory.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dm2lekus82qmg" path="res://scripts/inventory_interface.gd" id="6_o6xl0"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_tefeu")
+
+[node name="Hospital" parent="." instance=ExtResource("1_sugp2")]
+position = Vector2(-12, -10)
+
+[node name="Player" parent="." instance=ExtResource("4_jyhfs")]
+position = Vector2(277, 176)
+knockback_force = 150.0
+knockback_duration = 0.3
+
+[node name="EnemyPath" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(159, 125)
+enemy_speed = 50.0
+enemy_mov_state = 1
+enemy_sprite_frames = ExtResource("4_tbgi4")
+enemy_scale_factor = 1.0
+enemy_has_projectile = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_o6xl0")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_tbgi4")]
+layout_mode = 0
+
+[node name="EnemyPath2" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(402, 318)
+enemy_speed = 50.0
+enemy_mov_state = 1
+enemy_sprite_frames = ExtResource("4_tbgi4")
+enemy_scale_factor = 1.0
+enemy_has_projectile = true
+
+[node name="EnemyPath3" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(256, 567)
+scale = Vector2(1, 1.32667)
+enemy_speed = 50.0
+enemy_mov_state = 1
+enemy_sprite_frames = ExtResource("4_tbgi4")
+enemy_scale_factor = 1.0
+enemy_has_projectile = true
+
+[node name="EnemyPath4" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(709, 600)
+scale = Vector2(1, 1.32667)
+enemy_speed = 50.0
+enemy_mov_state = 1
+enemy_sprite_frames = ExtResource("4_tbgi4")
+enemy_scale_factor = 1.0
+enemy_has_projectile = true

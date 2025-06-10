@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=7 format=3 uid="uid://b0kd8onggf4mo"]
+
+[ext_resource type="Script" uid="uid://51nri0y5d3oo" path="res://assets/resources/inventory/inventory_data.gd" id="1_507c7"]
+[ext_resource type="Script" uid="uid://b6hgw5ghk4kdg" path="res://assets/resources/inventory/slot_data.gd" id="2_rcl3i"]
+[ext_resource type="Resource" uid="uid://cukqh07fnawnq" path="res://assets/resources/item/items/food.tres" id="3_yw2bw"]
+[ext_resource type="Resource" uid="uid://drfjicyqu7aji" path="res://assets/resources/item/items/paper.tres" id="4_t3ipi"]
+
+[sub_resource type="Resource" id="Resource_kvoni"]
+script = ExtResource("2_rcl3i")
+item_data = ExtResource("3_yw2bw")
+quantity = 1
+metadata/_custom_type_script = "uid://b6hgw5ghk4kdg"
+
+[sub_resource type="Resource" id="Resource_sbbmv"]
+script = ExtResource("2_rcl3i")
+item_data = ExtResource("4_t3ipi")
+quantity = 3
+metadata/_custom_type_script = "uid://b6hgw5ghk4kdg"
+
+[resource]
+script = ExtResource("1_507c7")
+slot_datas = Array[ExtResource("2_rcl3i")]([SubResource("Resource_kvoni"), SubResource("Resource_sbbmv"), null, null])
+metadata/_custom_type_script = "uid://51nri0y5d3oo"
